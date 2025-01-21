@@ -1,0 +1,19 @@
+# Webhooks
+
+Webhooks are a simple way that an app can send an automatic message or payload of information to another app. It's the method that [Stripe](https://stripe.com/) might use to notify you when a payment has come in, or how a support bot like [Intercom](https://www.intercom.com/) notifies you about new requests in your Slack.
+
+Simply put, **Webhooks are ways for your online accounts to "speak" to one another and get notified automatically when something new happens**. You'll need to know how to use webhooks if you want to automatically push data from one app to another.
+
+### How to set up an API endpoint to be a Webhook
+
+Webhooks always use the [POST](broken-reference) API Verb since the other services are "Sending/Posting Data" to your Webhook endpoint. In order to receive the response from a webhook,  the very first function in your Function stack should be [Get All Raw Input](broken-reference), as shown below.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### How do I preview the response from a Webhook?
+
+You can use the [Request History](broken-reference) to see the response of a Webhook. This is important to do because it will help you create the logic in your function stack based on the data being sent. You can see how to access the Request History to view the response of a Webhook in the tutorial below.
+
+### A practical example of how to use a Webhook with Typeform
+
+{% embed url="https://youtu.be/D4ZDHId2CnE" %}
