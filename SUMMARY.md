@@ -49,6 +49,7 @@
   * [Background Tasks](the-function-stack/building-with-visual-development/background-tasks.md)
   * [Triggers](the-function-stack/building-with-visual-development/triggers.md)
   * [Middleware](the-function-stack/building-with-visual-development/middleware.md)
+  * [Configuring Expressions](the-function-stack/building-with-visual-development/configuring-expressions.md)
 * [Functions](the-function-stack/functions/README.md)
   * [Database Requests](the-function-stack/functions/database-requests/README.md)
     * [Query All Records](the-function-stack/functions/database-requests/query-all-records.md)
