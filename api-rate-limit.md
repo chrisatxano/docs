@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # API Rate Limit
 
 {% hint style="warning" %}
