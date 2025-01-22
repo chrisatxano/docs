@@ -63,7 +63,7 @@ Proceed with caution when using While loops, as they can not be easily stopped o
 
 To ensure that your loop works as intended, make sure to **stop the loop with a Break statement** while testing and debugging.
 
-If you are concerned that you have entered an infinite loop and want to break it, learn how to restart your instance [here](../../../your-xano-account/instance-settings.md#maintenance).
+If you are concerned that you have entered an infinite loop and want to break it, learn how to restart your instance [here](../../../your-xano-account/instance-settings/#maintenance).
 {% endhint %}
 
 You'll use the expression builder to define the conditions that tell the loop whether or not it should continue.
