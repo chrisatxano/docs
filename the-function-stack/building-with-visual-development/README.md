@@ -56,9 +56,52 @@ You can use both mouse and keyboard navigation when working in the builder.&#x20
 
 {% @arcade/embed flowId="yy5VBgVG8IqIev0Bsf34" url="https://app.arcade.software/share/yy5VBgVG8IqIev0Bsf34" %}
 
-#### Publishing
+### Creating a Draft
 
-When you click Publish, any pending changes will be pushed 'live'.
+Once you start editing your API, a draft will automatically be created. Drafts keep track of each micro-change you (or your [team members](broken-reference)) make to a Function Stack called Revertible Changes, which you can easily roll back.
+
+### Revertible Changes
+
+Revertible changes show each micro-change, when they were made, what the change was, and who made it.&#x20;
+
+<figure><img src="../../.gitbook/assets/CleanShot 2023-01-05 at 11.13.40.png" alt=""><figcaption></figcaption></figure>
+
+To revert a change, select the change you wish to revert back to. You can also revert all changes to revert all changes in the draft and return to the original version of the Function Stack.&#x20;
+
+<figure><img src="../../.gitbook/assets/CleanShot 2023-01-03 at 10.49.59.gif" alt=""><figcaption></figcaption></figure>
+
+### Compare Differences
+
+Before reverting a change, you are able to see a difference comparison snapshot of the previous draft version. This provides context in the differences of the previous version compared to the current draft you are on.
+
+<figure><img src="../../.gitbook/assets/CleanShot 2024-01-16 at 15.43.31.png" alt=""><figcaption><p>Comparing differences of a previous version to the current draft.</p></figcaption></figure>
+
+Once you're ready to revert, select **Restore this version**.
+
+### Testing a Draft
+
+Testing the API with Run & Debug will use the draft you are editing while calling the API from the front-end will use the live (published version) of the API.
+
+If you have other drafts across your workspace that may interact with the current API or Function Stack you are editing, you can include the relevant drafts while testing in Run & Debug.
+
+<figure><img src="../../.gitbook/assets/CleanShot 2023-01-03 at 13.21.46@2x.png" alt="" width="375"><figcaption><p>Optionally include relevant drafts during Run &#x26; Debug.</p></figcaption></figure>
+
+## Publishing
+
+Once you're ready to publish the changes, you can simply select publish.\
+
+
+<figure><img src="../../.gitbook/assets/CleanShot 2023-01-05 at 11.15.33.png" alt="" width="375"><figcaption></figcaption></figure>
+
+You can include a description of the changes you are publishing. Additionally, you have the option to publish other active drafts in your workspace. This might be useful if you are working with multiple workspace objects that interact or depend on one another and need to be certain everything works harmoniously before publishing.&#x20;
+
+<figure><img src="../../.gitbook/assets/CleanShot 2023-01-03 at 13.06.38@2x.png" alt="" width="375"><figcaption><p>Optionally include a description of the published changes. Also, you may publish other drafts in the workspace at the same time. </p></figcaption></figure>
+
+Once a draft is published, the changes will become live. Meaning if the API endpoint is called from a front-end, the changes will be reflected. Publishing a draft will create a [Schema Version](broken-reference) of the API Endpoint, which allows you to roll back to previously published versions.&#x20;
+
+**How do I know if I have drafts to publish?**
+
+You can see drafts available for testing and publish via the Publish dialog on any of your function stacks, or in a notification on the dashboard. If you find that you have made changes but are not seeing the expected results via your front-end, ensure that you have published these changes.
 
 ***
 
