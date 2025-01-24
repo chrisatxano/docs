@@ -10,13 +10,9 @@ In this example, the timezone UTC is important because 'last Monday' means diffe
 
 t's important to specify a timezone for 'last Monday' because it could 'last Monday' at 00:00:00 PST is different than 'last Monday at 00:00:00 UTC (or any other timezone). Xano stores it in Unix timestamps which is a specific number in milliseconds.
 
-![](../../.gitbook/assets/totimestampex1.png)
-
 However, if the timezone was present like in this example, then the timezone would not have any effect.&#x20;
 
 In this example 'now' would be the same Unix timestamp, regardless of timezone. Therefore, a specified timezone like UTC, is not necessary.
-
-![](<../../.gitbook/assets/Screen Shot 2020-11-09 at 5.04.47 PM.png>)
 
 ***
 
@@ -24,15 +20,11 @@ In this example 'now' would be the same Unix timestamp, regardless of timezone. 
 
 Add milliseconds to a timestamp, (negative values are ok).
 
-![This filter will change the timestamp from 1593046644 to 1593546644. ](../../.gitbook/assets/Screenshot_2020-06-25_00-58-31.png)
-
 ***
 
 ### **add\_secs\_to\_timestamp**
 
 Add seconds to a timestamp, (negative values are ok).
-
-![This filter will change the timestamp from 1593046644 to 1593546644. ](../../.gitbook/assets/addsecs.png)
 
 ***
 
@@ -41,7 +33,7 @@ Add seconds to a timestamp, (negative values are ok).
 Converts a timestamp into a human-readable formatted date based on the supplied format.&#x20;
 
 {% hint style="info" %}
-**This format follows the** [**PHP DateTime format**](https://www.php.net/manual/en/datetime.format.php)**: see the** [**full list of formatting options**](broken-reference)**.**
+**This format follows the** [**PHP DateTime format**](https://www.php.net/manual/en/datetime.format.php)**: see the** [**full list of formatting options**](https://www.php.net/manual/en/datetime.formats.php#datetime.formats.relative)**.**
 
 [Timezone regions are listed here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 {% endhint %}
@@ -52,13 +44,10 @@ Converts a timestamp into a human-readable formatted date based on the supplied 
 * `Y` is the 4 digit representation like **2023**, etc. while `y` is the 2 digit version **23**
 * To achieve something like **May 4th, 2023,** you would use: `F jS, Y`
 * Other tools might use something like `YYYY-MM-DD`, but in Xano, you would use `Y-m-d`
-* [See all formatting options here](broken-reference)
-
-![The “r” format displays the entire date including timezone offset. America/Los\_Angeles timezone will have an offset for that timezone. The result would look like: Mon, 09 Nov 2020 17:28:05 -0800](<../../.gitbook/assets/Screen Shot 2020-11-09 at 5.24.54 PM.png>)
 
 
 
-![This filter will convert the Unix timestamp to 2020-07-02 16:14:25 using the Y-m-d H:i:s format.](../../.gitbook/assets/converttimestamp.png)
+
 
 ***
 
@@ -98,9 +87,7 @@ n/j/y h:i:s a
 
 ### **transform\_timestamp**
 
-This allows you to use [relative time formats](broken-reference) that are anchored around a previous time. Use the link to see various relative time formats that Xano accepts.&#x20;
-
-![This example is saying last Monday of PST, at the start of the day (00:00:00)](<../../.gitbook/assets/Screen Shot 2020-11-09 at 5.19.04 PM.png>)
+This allows you to use [relative time formats](https://www.php.net/manual/en/datetime.formats.php#datetime.formats.relative) that are anchored around a previous time. Use the link to see various relative time formats that Xano accepts.&#x20;
 
 ***
 

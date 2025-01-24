@@ -57,5 +57,5 @@ Here are a just few examples: &#x20;
 
 
 
-See the [Timestamp Filters](broken-reference) page to see how to use timestamp filters in Xano.
+See the [Timestamp Filters](../filters/timestamp.md) page to see how to use timestamp filters in Xano.
 
