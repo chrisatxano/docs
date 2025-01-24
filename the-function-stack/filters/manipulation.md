@@ -62,15 +62,53 @@ Use set\_conditional to set a new value in an object based on whether a conditio
 
 ## set\_ifnotempty
 
-
+Sets a new value in an object if the value provided is not empty. An empty value can be 0, `null`, or an empty string.
 
 ## set\_ifnotnull
 
+Sets a new value in an object if the value provided is not `null`
+
 ## transform
+
+{% hint style="info" %}
+This filter is similar to the [map filter](../functions/apis-and-lambdas/lambda-functions/#what-are-lambda-functions), except it can bind to all data - not just an array.
+{% endhint %}
+
+The `transform` filter is universal way to transform data. It works with arrays, objects, and scalar values.
+
+Arguments
+
+* expression - the expression being used to transform `$$`.&#x20;
+
+Context  Variables
+
+* **\$$** - the context variable that represents the element of the array being processed.
+
+Read more about expressions and Xano Transform below.
+
+{% content-ref url="../data-types/expression.md" %}
+[expression.md](../data-types/expression.md)
+{% endcontent-ref %}
+
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}
+
+
+
+#### Examples
+
+```json
+[1,2,3]|transform:($$|count)          // 3
+[1,2,3]|transform:($$|count)+($$|sum) // 9
+
+{first:Alpha,last:Beta}|transform:$$.first~" "~$$.last
+// Alpha Beta
+```
 
 ## unset
 
-
+Removes a key from an object.
 
 
 
