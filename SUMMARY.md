@@ -232,7 +232,6 @@
 
 * [Account Page](your-xano-account/account-page.md)
 * [Billing](your-xano-account/billing.md)
-* [Non-Profit & Education](your-xano-account/non-profit-and-education.md)
 * [Instance Settings](your-xano-account/instance-settings/README.md)
   * [Release Track Preferences](your-xano-account/instance-settings/release-track-preferences.md)
 * [Referrals & Commissions](your-xano-account/referrals-and-commissions.md)
