@@ -1,32 +1,63 @@
 # Airtable to Xano
 
-### Why migrate from Airtable to Xano?
+## Why migrate from Airtable to Xano?
 
-#### Performance and Scalability
+### Scalability & Limits
 
-Many of our users have migrated from Airtable to Xano because of their need for higher scalability and performance requirements. Scaling in Airtable can be difficult with record limits, and performance issues within large bases.
+At the time this document was last updated, Airtable's published pricing models offer a maximum of 500,000 records per base, and 1,000 GB of file storage.
 
-Xano is designed to handle high traffic and scale as your application grows. Our tiered plans offer features like automatic scaling, caching, dedicated server locations, and load balancing, ensuring optimal performance even under heavy usage. If you anticipate your application to have significant traffic or require high scalability, Xano can provide a more robust infrastructure.
+Xano's database does not have a record limit, or a limit on file storage. We can scale infinitely to meet your data needs.
 
-Xano’s easy-to-use functions enable performative business logic by relying on concepts used in software engineering. Unlike Airtable and other spreadsheet-based backends, you do not need to create new columns each time you want to change data (eg: to apply a formula).
+### Performance & Capability
 
-In Xano you can instead use [variables](https://docs.xano.com/working-with-data/variables) to create an update container of information rather than affecting or writing to tables. This is great for complex business logic that won’t increase database storage and size.
+Airtable themselves say that it is not intended to use their platform for an application backend.
 
-#### Security and Compliance
+> For this reason, it is important to note that Airtable is not intended to be a backend hosting service/real-time database like Heroku, Parse, Firebase, or MongoDB. Instead, Airtable is primarily designed for use cases where all users will be directly interacting within the Airtable UI. \
+> \
+> &#xNAN;_&#x46;rom_ [_**Troubleshooting Airtable base performance**_](https://support.airtable.com/docs/troubleshooting-airtable-performance)
 
-In some cases, you may need to store your data in a specific server region, such as to comply with specific data privacy laws. On any of our paid plans, Xano allows you to choose from several regions to deploy your back-end from.&#x20;
+Airtable says this is because as the volume of requests to your Airtable base increases, it may not be able to perform as expected under such load.
 
-Xano offers both a DPA for GDPR requirements, and a BAA for HIPAA compliance.
+Xano is built from the ground up to be a capable, scalable, and secure backend solution.
 
-Read more about our security and compliance certifications [here](airtable-to-xano.md#security-and-compliance).&#x20;
+***
 
-#### What does migrating to Xano look like?
+## Migrating Airtable data to Xano
 
-Xano includes a [native Airtable importer](broken-reference) that will move your data to Xano, including support for specific views. We also offer the option to [import via CSV](broken-reference).
+{% @arcade/embed flowId="lHChGvdpBrYMZldVzAGA" url="https://app.arcade.software/share/lHChGvdpBrYMZldVzAGA" %}
 
-### Rebuilding Automations
+{% stepper %}
+{% step %}
+### Head to the database and click ![](<../../.gitbook/assets/CleanShot 2025-01-25 at 16.07.45.png>)
+{% endstep %}
 
-While there is no direct migration of your automations from Airtable to Xano, we want to make it as easy as possible to rebuild. Please see the table and linked resources below for common Airtable -> Xano functionality translations. Click on the Xano Function name to be taken to Xano's documentation, or review the video examples provided.
+{% step %}
+### In the new table menu, choose Import Data > Import From Airtable
+{% endstep %}
+
+{% step %}
+### Provide your Airtable personal access token
+
+You can generate a personal access token in Airtable by heading to your account settings, and from there visiting the **Developer Hub**.
+
+Choose **Personal Access Tokens** from the left-side navigation, and create a token with the following scopes:
+
+```
+data:base.read
+schema:base.read
+```
+{% endstep %}
+
+{% step %}
+### Select the tables and/or views you want to import into Xano, and confirm your selection
+{% endstep %}
+{% endstepper %}
+
+***
+
+## Rebuilding Automations
+
+While there is no direct migration of your Airtable automations to Xano, we want to make it as easy as possible to rebuild. Please see the table and linked resources below for common Airtable -> Xano functionality translations. Click on the Xano Function name to be taken to Xano's documentation, or review the video examples provided.
 
 | Airtable Function      | Xano Function                                                                                    | Video Example                                 |
 | ---------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------- |
