@@ -261,3 +261,7 @@
 
 * [Increasing Plan Limits](increasing-plan-limits.md)
 * [API Rate Limit](api-rate-limit.md)
+
+## Security
+
+* [Best Practices](security/best-practices.md)
