@@ -16,11 +16,11 @@ The Filter tab is used to determine what records will be returned from the datab
 
 This is the section you'll use to determine what records to return. If you leave it blank, all records will be returned.
 
-Click the ![](<../../../.gitbook/assets/CleanShot 2025-01-06 at 12.19.42.png>) icon to edit the custom query, and choose **Add A Conditional** from the panel that opens.
+Click the ![](<../../../../.gitbook/assets/CleanShot 2025-01-06 at 12.19.42.png>) icon to edit the custom query, and choose **Add A Conditional** from the panel that opens.
 
 {% @arcade/embed flowId="nOHbeTAkqES5hLELWelD" url="https://app.arcade.software/share/nOHbeTAkqES5hLELWelD" %}
 
-{% include "../../../.gitbook/includes/expression-builder.md" %}
+{% include "../../../../.gitbook/includes/expression-builder.md" %}
 
 ### By Joins
 
@@ -47,23 +47,23 @@ Joins are useful because they allow you to consolidate all of this into a single
 {% tab title="Output" %}
 The output tab contains all options related to the return, once the records have been queried. You can change options like determining what fields to show, the sort order, and more.
 
-{% include "../../../.gitbook/includes/response-customization.md" %}
+{% include "../../../../.gitbook/includes/response-customization.md" %}
 
 ### Return Settings
 
 Under Return Settings, you can adjust sorting and pagination settings.
 
-{% include "../../../.gitbook/includes/query-return-types.md" %}
+{% include "../../../../.gitbook/includes/query-return-types.md" %}
 
 #### Sorting
 
-Click ![](<../../../.gitbook/assets/CleanShot 2025-01-06 at 14.55.36.png>)to apply a sort to the returned records. You can apply multiple sorts for further customization.
+Click ![](<../../../../.gitbook/assets/CleanShot 2025-01-06 at 14.55.36.png>)to apply a sort to the returned records. You can apply multiple sorts for further customization.
 
 #### Paging
 
-Check ![](<../../../.gitbook/assets/CleanShot 2025-01-06 at 14.54.31.png>) to enable pagination for this query. You can specify which page to return, and how many records should be returned for each page.
+Check ![](<../../../../.gitbook/assets/CleanShot 2025-01-06 at 14.54.31.png>) to enable pagination for this query. You can specify which page to return, and how many records should be returned for each page.
 
-Check ![](<../../../.gitbook/assets/CleanShot 2025-01-06 at 14.54.49.png>) if you want to include paging metadata, as shown below, in your return. You can also opt to include the total item count, which is the total number of records in the table.
+Check ![](<../../../../.gitbook/assets/CleanShot 2025-01-06 at 14.54.49.png>) if you want to include paging metadata, as shown below, in your return. You can also opt to include the total item count, which is the total number of records in the table.
 
 ```json
 {
@@ -85,7 +85,7 @@ When used with a database transaction
 {% endtab %}
 
 {% tab title="External" %}
-The external tab in a [Query all Records](broken-reference) Function enables external manipulation of your filtering, sorting, and paging. Once you link up the variable, you can pick and choose which options can be configured externally.
+The external tab in a Query all Records Function enables external manipulation of your filtering, sorting, and paging. Once you link up the variable, you can pick and choose which options can be configured externally.
 
 The features present in the External tab are essential for any of the following scenarios:
 
@@ -93,17 +93,17 @@ The features present in the External tab are essential for any of the following 
 * You want your users to have more control over search parameters
 * You want to otherwise define how the Query All Records function behaves with parameters coming in from your front-end.
 
-<div align="left"><figure><img src="../../../.gitbook/assets/CleanShot 2025-01-07 at 08.46.03.png" alt="" width="298"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.46.03.png" alt="" width="298"><figcaption></figcaption></figure></div>
 
 ### External Query Options
 
 You will notice that as you explore the various options for externally manipulating your query, there are two different modes, **simple** and **classic**.
 
-You should be using **simple** mode especially if you are constructing a brand new query. Simple mode offers an ease of use advantage when compared to classic mode. We continue to make classic mode available to ensure that queries that were constructed prior to simple mode existing still continue to function.
+You should be using **simple** mode for new queries, but we will continue to make classic mode available to ensure that existing queries still continue to function.
 
 #### External Sorting
 
-External sorting allows you to define sorting parameters outside of the Query All Records function. For example, maybe your users can switch between ascending and descending sort, or they can sort by different or multiple fields.
+External sorting allows you to dynamically provide sorting options, such as if you want to allow your users to choose between ascending or descending order.
 
 To use external sorting, you need a JSON array that defines the sort in the following format. The object can either be constructed by your front-end and provided to Xano via a JSON input, or your front-end can just send the sort parameters and you can construct the array in the function stack with a Create Variable function.
 
@@ -125,8 +125,6 @@ You can define multiple sorts by adding additional objects to the array.
 **sortBy** will contain the table name and the column name to sort by. As an example, if you have a table called "transactions" and you want to sort by the column "amount", your **sortBy** would be "_transactions.amount_"
 
 #### External Filtering
-
-External filtering enables you to define specific query conditions outside of what you have built into your function. For example, maybe you want to enable your users to filter by 'amount' or 'user' and want to ensure that you are prepared for any combination of search.
 
 External filtering allows you to define specific query conditions via an input. To use external filtering, you need to construct a JSON array defining the conditions of the search in the following format. This format is the same as if you were to read a condition you built in Query All Records, from left to right.
 
@@ -152,9 +150,36 @@ External filtering allows you to define specific query conditions via an input. 
 
 In this example, we are doing a simple search to check if a field contains a specific value. The left, op, and right values match exactly what we would see in the Query All Records expression builder.&#x20;
 
-<figure><img src="../../../.gitbook/assets/CleanShot 2023-06-12 at 09.53.52.png" alt=""><figcaption></figcaption></figure>
+```json
+{
+  "expression": [
+    {
+      "statement": {
+        "left": {
+          "tag": "col",
+          "operand": "transactions.users_id"
+        },
+        "op": "==",
+        "right": {
+          "operand": "1"
+        }
+      }
+    }
+  ]
+}
+```
+
+<figure><img src="../../../../.gitbook/assets/CleanShot 2023-06-12 at 09.53.52.png" alt=""><figcaption></figcaption></figure>
 
 If you want to define multiple search conditions, you can add additional objects to the "expression" array.
+
+<table><thead><tr><th width="229">Operator</th><th>Purpose</th></tr></thead><tbody><tr><td>between</td><td>Checks if a value is between one value and another</td></tr><tr><td>contains</td><td>Checks if a string contains another string</td></tr><tr><td>=</td><td>Checks if a value equals another value</td></tr><tr><td>==</td><td>Checks if a value equals another value and has the same type</td></tr><tr><td>>=</td><td>Checks if a value is greater than or equal to another value</td></tr><tr><td>&#x3C;=</td><td>Checks if a value is less than or equal to another value</td></tr><tr><td>></td><td>Checks if a value is greater than another value</td></tr><tr><td>&#x3C;</td><td>Checks if a value is less than another value</td></tr><tr><td>ilike / includes</td><td>Checks if a string matches a certain pattern or similarity to another, such as searching for all names that start with a K. Ignores case sensitivity.</td></tr><tr><td>like</td><td>Same as ilike, but uses case sensitivity.</td></tr><tr><td>not between</td><td>Checks if a value is not between two others</td></tr><tr><td>not contains</td><td>The opposite of contains — checks if a string does not contain another string</td></tr><tr><td>in</td><td>Checks to see if a value is inside of an array of values</td></tr><tr><td>not in</td><td>Checks to see if a value is not inside of an array of values</td></tr><tr><td>overlaps</td><td>Checks to see if one array has the some of the same values of another array</td></tr><tr><td>not overlaps</td><td>Checks to see if one array does not have any of the same values of another array</td></tr><tr><td>regex</td><td>Uses <a href="https://regex101.com/">regular expressions</a> to check for matching values</td></tr><tr><td>not regex</td><td>Uses <a href="https://regex101.com/">regular expressions</a> to check for non-matching values</td></tr></tbody></table>
+
+View additional external filtering examples at the link below.
+
+{% content-ref url="external-filtering-examples.md" %}
+[external-filtering-examples.md](external-filtering-examples.md)
+{% endcontent-ref %}
 
 #### External Paging
 
@@ -188,7 +213,7 @@ Video Example of Using External Paging (Simple mode)
 
 To define your external parameters using simple mode, just specify your desired values or variables in the External tab:
 
-<div align="left"><figure><img src="../../../.gitbook/assets/CleanShot 2023-01-17 at 16.46.54@2x.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/CleanShot 2023-01-17 at 16.46.54@2x.png" alt="" width="375"><figcaption></figcaption></figure></div>
 {% endtab %}
 {% endtabs %}
 
@@ -196,23 +221,23 @@ To define your external parameters using simple mode, just specify your desired 
 
 ## Using Addons
 
-Addons are a way for you to enrich a query's result with related data from other tables, such as getting product information and orders together. This is usually facilitated by using [table reference fields](../../../the-database/database-basics/field-types.md#table-reference).
+Addons are a way for you to enrich a query's result with related data from other tables, such as getting product information and orders together. This is usually facilitated by using [table reference fields](../../../../the-database/database-basics/field-types.md#table-reference).
 
 {% @arcade/embed flowId="nfASxadnsB4PjVoo4L2s" url="https://app.arcade.software/share/nfASxadnsB4PjVoo4L2s" %}
 
 {% stepper %}
 {% step %}
-### Click the ![](<../../../.gitbook/assets/CleanShot 2025-01-07 at 08.25.57.png>) button in the Output tab of your Query All Records function.
+### Click the ![](<../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.25.57.png>) button in the Output tab of your Query All Records function.
 
 You'll see this attached to the base level of the response, table reference fields, and list fields. It's important to choose the correct Addon button based on the data you're trying to enhance.
 
 In this example, we have an Order table that just contains product IDs, and we want to see actual product information instead.
 
-<div align="left"><figure><img src="../../../.gitbook/assets/CleanShot 2025-01-07 at 08.26.38.png" alt="" width="440"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.26.38.png" alt="" width="440"><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
-### Click ![](<../../../.gitbook/assets/CleanShot 2025-01-07 at 08.28.28.png>) to create a new addon.
+### Click ![](<../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.28.28.png>) to create a new addon.
 
 You can also select from already created addons from here.
 {% endstep %}
@@ -222,7 +247,7 @@ You can also select from already created addons from here.
 
 For this example, we're adding product data to our orders, so we'll choose product.
 
-<div align="left"><figure><img src="../../../.gitbook/assets/CleanShot 2025-01-07 at 08.34.23.png" alt="" width="335"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.34.23.png" alt="" width="335"><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
@@ -230,7 +255,7 @@ For this example, we're adding product data to our orders, so we'll choose produ
 
 Similar to return types on a Query All Records step, you can adjust how the data is returned here.
 
-{% include "../../../.gitbook/includes/query-return-types.md" %}
+{% include "../../../../.gitbook/includes/query-return-types.md" %}
 
 For this example, because we are only returning one product per product ID, we'll choose **single**.
 {% endstep %}
@@ -240,11 +265,11 @@ For this example, because we are only returning one product per product ID, we'l
 
 Our orders table contains product IDs in a field called `product_id`, so we'll choose that field. Xano will try and make the right choice for you automatically, so you may not have to make any changes here.
 
-<div align="left"><figure><img src="../../../.gitbook/assets/CleanShot 2025-01-07 at 08.38.40.png" alt="" width="335"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.38.40.png" alt="" width="335"><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
-### Give your addon a name, and click ![](<../../../.gitbook/assets/CleanShot 2025-01-07 at 08.39.17.png>)
+### Give your addon a name, and click ![](<../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.39.17.png>)
 
 This name is just for you, so you can find the addon you're creating later.
 {% endstep %}
@@ -256,9 +281,9 @@ Our parent object in this case is each product ID. The parent object is just wha
 
 We want each product to be nested under a key called product\_info, so that's what we'll put here.
 
-<div align="left"><figure><img src="../../../.gitbook/assets/CleanShot 2025-01-07 at 08.40.34.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.40.34.png" alt=""><figcaption></figcaption></figure></div>
 
-You can also click ![](<../../../.gitbook/assets/CleanShot 2025-01-07 at 08.42.21.png>) to change the response if you only want certain fields returned.
+You can also click ![](<../../../../.gitbook/assets/CleanShot 2025-01-07 at 08.42.21.png>) to change the response if you only want certain fields returned.
 {% endstep %}
 {% endstepper %}
 

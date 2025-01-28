@@ -63,9 +63,9 @@ While there is no direct migration of your Airtable automations to Xano, we want
 | ---------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------- |
 | Create Record          | [Add Record](../../the-function-stack/functions/database-requests/add-record.md)                 | [Video Example](https://youtu.be/k0GpUdsRkL0) |
 | Update record          | [Edit record](../../the-function-stack/functions/database-requests/edit-record.md)               | [Video Example](https://youtu.be/rTeJamc_MYE) |
-| Find records           | [Query all records](../../the-function-stack/functions/database-requests/query-all-records.md)   | [Video Example](https://youtu.be/-XjcXEtPNmk) |
+| Find records           | [Query all records](../../the-function-stack/functions/database-requests/query-all-records/)     | [Video Example](https://youtu.be/-XjcXEtPNmk) |
 | Conditional logic      | [Conditional statement](../../the-function-stack/functions/data-manipulation/conditional.md)     | [Video Example](https://youtu.be/QR4UJ2GpYDo) |
 | Repeating group        | [For each loop](../../the-function-stack/functions/data-manipulation/loops.md)                   | [Video Example](https://youtu.be/AGe5JN0rZ2M) |
 | At scheduled time      | [Background task](../../the-function-stack/building-with-visual-development/background-tasks.md) | [Video Example](https://youtu.be/SDXWVhBGKmQ) |
 | Link to another record | [Table reference](../database-basics/field-types.md#table-reference)                             | [Video Example](https://youtu.be/z-TwxiQOIBs) |
-| Lookup                 | [Addons](../../the-function-stack/functions/database-requests/query-all-records.md#using-addons) | [Video Example](https://youtu.be/z-TwxiQOIBs) |
+| Lookup                 | [Addons](../../the-function-stack/functions/database-requests/query-all-records/#using-addons)   | [Video Example](https://youtu.be/z-TwxiQOIBs) |

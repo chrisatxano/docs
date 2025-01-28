@@ -1,7 +1,7 @@
 # Database Requests
 
-{% content-ref url="query-all-records.md" %}
-[query-all-records.md](query-all-records.md)
+{% content-ref url="query-all-records/" %}
+[query-all-records](query-all-records/)
 {% endcontent-ref %}
 
 {% content-ref url="get-record.md" %}

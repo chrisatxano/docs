@@ -15,7 +15,7 @@ In Get Record, you'll provide the name of the field to search inside of, and the
 **field\_value** is the value to search for in the provided field. Assuming we are searching in the `id` field, we would put the ID to search for here.
 
 {% hint style="info" %}
-If you need to find a record based on multiple fields, use [Query All Records](query-all-records.md) instead.
+If you need to find a record based on multiple fields, use [Query All Records](query-all-records/) instead.
 {% endhint %}
 
 {% include "../../../.gitbook/includes/lock-record-s.md" %}
