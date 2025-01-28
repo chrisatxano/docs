@@ -39,6 +39,7 @@
   * [Storage](the-database/database-performance-and-maintenance/storage.md)
   * [Indexing](the-database/database-performance-and-maintenance/indexing.md)
   * [Maintenance](the-database/database-performance-and-maintenance/maintenance.md)
+  * [Schema Versioning](the-database/database-performance-and-maintenance/schema-versioning.md)
 
 ## 🛠️ The Function Stack
 
