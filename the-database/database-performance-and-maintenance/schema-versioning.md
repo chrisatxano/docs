@@ -10,11 +10,11 @@ The Launch and Scales plans have schema versioning enabled. The Launch plan trac
 
 ## **How to open schema version history**
 
-![Open Version History by selecting Versions from the menu icon.](<../../.gitbook/assets/versioning (1).png>)
+<figure><img src="../../.gitbook/assets/image (78).png" alt=""><figcaption><p>Open Version History by selecting Versions from the menu icon.</p></figcaption></figure>
 
 View your active (current) version, select from a previous one to roll-back, and see who made a change and when.&#x20;
 
-![Version History captures which is your active version, a history of previous versions with data on when the change was made and by who, and the ability to select a previous one.](<../../.gitbook/assets/versioning (3).png>)
+<figure><img src="../../.gitbook/assets/image (79).png" alt=""><figcaption><p>Version History captures which is your active version, a history of previous versions with data on when the change was made and by who, and the ability to select a previous one.</p></figcaption></figure>
 
 Version history will keep track of changes you make anywhere on a query, whether you make a change to a function or a filter. For API endpoints and functions, version history keeps a count of how many inputs, functions, and results were included in each version.
 
@@ -22,11 +22,11 @@ Version history will keep track of changes you make anywhere on a query, whether
 
 Tasks will show how many functions and schedules there were for each version.
 
-![Version history of a background task.](<../../.gitbook/assets/versioning (3) (1).png>)
+<figure><img src="../../.gitbook/assets/image (80).png" alt=""><figcaption><p>Version history of a background task.</p></figcaption></figure>
 
 Addons will show a count of how many inputs each version had.&#x20;
 
-![Version history of an Addon.](<../../.gitbook/assets/versioning (4).png>)
+<figure><img src="../../.gitbook/assets/image (81).png" alt=""><figcaption><p>Version history of an Addon.</p></figcaption></figure>
 
 ## Compare Differences
 
