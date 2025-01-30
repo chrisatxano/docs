@@ -2,6 +2,15 @@
 
 Xano is the premier [visual development](#user-content-fn-1)[^1] backend to power and scale any application. We provide a fast, scalable server powered by a PostgreSQL database and our own fully-featured No-Code API builder, enabling anyone from product owners to traditional developers to build and scale their back-end. Xano manages the complicated parts for you, so you can just log in and build.
 
+## Why use a separate backend?
+
+* **Interoperability**: Facilitates connection with multiple types of frontends like web apps, mobile apps, and IoT devices.
+* **Flexibility**: Allows you to easily swap or upgrade frontend components without affecting backend operations.
+* **Scalability**: Offers better scalability by enabling independent development and scaling of front-end and back-end services.
+* **Security**: Provides an additional layer of security by separating the frontend and backend.
+* **Optimized Performance**: Encourages performance optimization since resources can be allocated to meet the demands of frontend and backend separately.
+* **Focus**: Xano is entirely focused on providing the best backend solution possible using visual development and no code. All of our resources are spent on building and iterating on the platform and user experience, and we are not split between backend and frontend requirements.
+
 ## Getting Started with Xano
 
 If you're new to backend development, or want to start from step 1, begin here.
