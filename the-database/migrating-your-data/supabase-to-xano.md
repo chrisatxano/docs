@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Supabase to Xano
 
 ## Why migrate from Supabase to Xano?
