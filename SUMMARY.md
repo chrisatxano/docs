@@ -139,6 +139,7 @@
 * [User Authentication & User Data](building-backend-features/user-authentication-and-user-data/README.md)
   * [Separating User Data](building-backend-features/user-authentication-and-user-data/separating-user-data.md)
   * [Restricting Access (RBAC)](building-backend-features/user-authentication-and-user-data/restricting-access-rbac.md)
+  * [OAuth (SSO)](building-backend-features/user-authentication-and-user-data/oauth-sso.md)
 * [Payments](building-backend-features/payments.md)
 * [Webhooks](building-backend-features/webhooks.md)
 * [Notifications](building-backend-features/notifications.md)
