@@ -237,6 +237,7 @@
 * [Billing](your-xano-account/billing.md)
 * [Instance Settings](your-xano-account/instance-settings/README.md)
   * [Release Track Preferences](your-xano-account/instance-settings/release-track-preferences.md)
+  * [Static IP (Outgoing)](your-xano-account/instance-settings/static-ip-outgoing.md)
 * [Referrals & Commissions](your-xano-account/referrals-and-commissions.md)
 
 ## Troubleshooting & Support
