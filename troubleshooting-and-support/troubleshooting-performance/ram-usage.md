@@ -27,7 +27,7 @@ Spikes in Database RAM can be caused by one or more of the following:
   * Depending on how often the data needs to be accessed, you can also store the large data in text files and store the file path in the table instead.
 *   Table references to other tables with a high number of fields
 
-    * Use the Auto Complete setting on the referenced table to reduce the amount of data loaded when viewing the table
+    * Use the [Auto Complete](../../the-database/database-basics/relationships.md#auto-complete) setting on the referenced table to reduce the amount of data loaded when viewing the table
 
 
 * Running queries with joins on large tables
@@ -52,7 +52,7 @@ Spikes in Lambda RAM can be caused by one or more of the following:Comment
 * Contents of other variables are too large for the Lambda to handle during processing
 * Using file resources in conjunction with Lambdas
 
-To mitigate issues with Lambda RAM, try using [expressions](https://app.gitbook.com/o/0ymx4h8tRV4biizkJcHo/s/-M8Si5XvG2QHSLi9JcVY/working-with-data/data-types/expressions) instead.
+To mitigate issues with Lambda RAM, try using [expressions](../../the-function-stack/data-types/expression.md) instead.
 
 **Redis RAM**
 

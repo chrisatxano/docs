@@ -175,7 +175,6 @@
 * [Advanced Back-end Features](xano-features/advanced-back-end-features/README.md)
   * [Static IP](xano-features/advanced-back-end-features/static-ip.md)
   * [Xano Link](xano-features/advanced-back-end-features/xano-link.md)
-  * [Metadata API](xano-features/advanced-back-end-features/metadata-api.md)
   * [Developer API (Deprecated)](xano-features/advanced-back-end-features/developer-api-deprecated.md)
 * [Metadata API](xano-features/metadata-api/README.md)
   * [Master Metadata API](xano-features/metadata-api/master-metadata-api.md)

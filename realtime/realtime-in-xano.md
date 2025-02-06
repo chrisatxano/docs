@@ -8,7 +8,7 @@ Realtime can be defined as anything that enables your application to provide liv
 
 Behind the scenes, Realtime connections are powered by a Websocket server to maintain connections. It can enable you to build dynamic and responsive functions for your website or application, such as a real-time chat, collaboration, or instant in-app notifications.
 
-Realtime can also refer to database triggers, which is logic that can run immediately when something changes in a database table. For more information on triggers, see [this section](broken-reference) of our documentation.
+Realtime can also refer to database triggers, which is logic that can run immediately when something changes in a database table. For more information on triggers, see [this section](../the-function-stack/building-with-visual-development/triggers.md) of our documentation.
 
 ## How does Realtime work in Xano?
 
@@ -38,7 +38,7 @@ If you haven't done so already, you'll need to enable Realtime at the workspace 
 If this is the first workspace to have Realtime enabled in your instance (even if you've had it enabled and then disabled it previously), Xano will need to provision the additional resources required for Realtime to function. This should only take a few minutes to complete, and you can check progress from the Realtime Settings panel.
 {% endhint %}
 
-After Realtime is enabled, you'll need to define some channel permissions. For a deep dive into how channel permissions work, see [this section](broken-reference) of our documentation.
+After Realtime is enabled, you'll need to define some channel permissions. For a deep dive into how channel permissions work, see [this section](channel-permissions.md) of our documentation.
 
 ### Implementation using the Xano SDK
 
@@ -269,7 +269,7 @@ Check your browser's Javascript console for the following output:\
 
 <summary>When my users refresh their app or page, previous messages have disappeared</summary>
 
-Realtime does not keep message history, and would require a custom implementation such as one that utilizes our [Realtime Event function](broken-reference) or [Realtime Triggers](broken-reference).
+Realtime does not keep message history, and would require a custom implementation such as one that utilizes our [Realtime Event function](../the-function-stack/functions/apis-and-lambdas/realtime-functions.md#using-the-realtime-event-function) or [Realtime Triggers](../the-function-stack/building-with-visual-development/triggers.md).
 
 </details>
 

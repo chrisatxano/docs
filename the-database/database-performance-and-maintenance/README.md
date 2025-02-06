@@ -24,7 +24,7 @@ We can combat this by using indexing. Like the index in the back of a book, this
 
 Addons are an easy way to get related data from multiple tables, such as users and orders. Using addons enables more efficient querying of both tables instead of using two separate queries.
 
-:book: [**Learn more about addons**](broken-reference)
+:book: [**Learn more about addons**](../../the-function-stack/functions/database-requests/query-all-records/#using-addons)
 
 #### Pagination
 

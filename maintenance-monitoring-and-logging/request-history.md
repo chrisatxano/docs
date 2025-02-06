@@ -8,7 +8,7 @@ You can expand each individual call to review detailed information including inp
 
 ![](https://s3.amazonaws.com/olvy-production/media/organisation_a63a9786-9404-4582-9fdd-1f8e7b2cb6ca/images/0f9571bc-99ac-416c-bb9a-4e4ccf3edc66.gif)
 
-You can also choose whether to see the request history for the specific branch you have active, or all branches, and download your request history as a CSV. If you would like to access your request history via API, you can do so using our [Metadata API](../xano-features/advanced-back-end-features/metadata-api.md).
+You can also choose whether to see the request history for the specific branch you have active, or all branches, and download your request history as a CSV. If you would like to access your request history via API, you can do so using our [Metadata API](../xano-features/metadata-api/).
 
 The Request History panel allows you to filter by the following metrics:
 
