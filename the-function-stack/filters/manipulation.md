@@ -71,7 +71,7 @@ Sets a new value in an object if the value provided is not `null`
 ## transform
 
 {% hint style="info" %}
-This filter is similar to the [map filter](../functions/apis-and-lambdas/lambda-functions/#what-are-lambda-functions), except it can bind to all data - not just an array.
+This filter is similar to the [map filter](transform.md#map), except it can bind to all data - not just an array.
 {% endhint %}
 
 The `transform` filter is universal way to transform data. It works with arrays, objects, and scalar values.

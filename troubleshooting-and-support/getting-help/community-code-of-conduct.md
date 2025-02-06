@@ -108,6 +108,6 @@ This Code of Conduct is adapted from:
 
 * [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct), version 2.0, available at [https://www.contributor-covenant.org/version/2/0/code\_of\_conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct)
 * WeAllJS Code of Conduct, available at[ https://wealljs.org/code-of-conduct](https://wealljs.org/code-of-conduct)
-* [Reactadelphia](https://www.meetup.com/Reactadelphia) Code of Conduct, which itself was copied from the [Open Source Bridge](http://opensourcebridge.org/about/code-of-conduct).
+* Reactadelphia Code of Conduct, which itself was copied from the Open Source Bridge.
 
 Community Impact Guidelines were inspired by[ Mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity).

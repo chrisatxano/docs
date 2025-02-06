@@ -16,7 +16,7 @@ Text filters enable you to transform and manipulate text.
 * [**istarts\_with**](text.md#istarts_with) **-** Returns whether or not the case-insensitive expression is present at the beginning.
 * [**list\_encodings**](text.md#list_encodings) - Returns available encoding formats for [**convert\_encoding**](text.md#convert_encoding) and [**detect\_encoding**](text.md#detect_encoding)
 * [**ltrim**](text.md#ltrim) **-** Trim whitespace or other characters from the left side and return the result.
-* [**querystring\_parse**](text.md#undefined) **-** Parses a query string from a URL into its individual key-value pairs.
+* [**querystring\_parse**](text.md#querystring_parse) **-** Parses a query string from a URL into its individual key-value pairs.
 * [**regex\_get\_all\_matches**](text.md#regex_get_all_matches) **-** Return all matches performed by a regular expression on the supplied subject text.
 * [**regex\_get\_first\_match**](text.md#regex_get_first_match) **-** Return the first set of matches performed by a regular expression on the supplied subject text.
 * [**regex\_matches**](text.md#regex_matches) **-** Tests if a regular expression matches the supplied subject text.
@@ -319,21 +319,21 @@ Converts all characters to upper case and returns the result.
 
 Trim whitespace or other characters from both sides and return the result. The mask text can be any string of text.
 
-![Example: we have a text value of ?!hello world?! and apply the trim filter this returns a value of "hello world".](https://mrkr.io/s/6005eadd54855c3154d3f172/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.34.17.png" alt=""><figcaption></figcaption></figure>
 
 #### url\_addarg:
 
 Parses a URL and returns an updated version with an encoded version of the supplied parameter.\
 This filter is used to add a key(blog\_id, authorname) and a value (123 , john). Those parameters would be added as ?blog\_id=123 and ?authorname=john.
 
-![This URL becomes https://www.xano.com/?user\_id=1 after the filter is applied](https://mrkr.io/s/60060858a1c52c30fd9e7cc9/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.35.22.png" alt=""><figcaption></figcaption></figure>
 
 #### url\_delarg:
 
 Parses a URL and returns an updated version with the supplied parameter removed.\
 This filter is used to delete a key(blog\_id, authorname). Those parameters would be deleted at the end of a url  as ?blog\_id or ?authorname.
 
-![This URL becomes https://www.xano.com/ after the filter is applied](https://mrkr.io/s/6008c1f9aebc423a8e4024a4/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.36.01.png" alt=""><figcaption></figcaption></figure>
 
 #### **url\_getarg:**
 
@@ -356,4 +356,10 @@ Parses raw HTML and removes HTML tags, returning the remaining text.
 For example, if you input HTML that contains a collection of \<p> tags and want to remove these and only return the text. Good to use in succession with the split filter to parse several elements and separate them into an array.
 
 ![In this example, we are stripping the tags from an HTML paragraph and returning the result.](<../../.gitbook/assets/CleanShot 2022-08-02 at 09.13.48@2x.png>)
+
+#### url\_parse
+
+Breaks down a URL into individual components.
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.37.34.png" alt=""><figcaption></figcaption></figure>
 

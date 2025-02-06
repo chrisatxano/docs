@@ -510,7 +510,7 @@ Once the resource is deployed, navigate to containers and create a new container
 
 After creating a container, you need to retrieve your account access key to use the Azure functions in Xano.&#x20;
 
-Find **Access keys** under **Security + Networking** on the left navigation bar. Select **Show** next to **Key** under **key1**. Copy the key and store it as an [Environment Variable](broken-reference) in Xano.
+Find **Access keys** under **Security + Networking** on the left navigation bar. Select **Show** next to **Key** under **key1**. Copy the key and store it as an [Environment Variable](../environment-variables.md) in Xano.
 
 <figure><img src="../../.gitbook/assets/CleanShot 2024-05-14 at 10.57.53.png" alt=""><figcaption><p>Locate your Azure Access Key.</p></figcaption></figure>
 

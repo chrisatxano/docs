@@ -3,23 +3,23 @@
 ​Comparison filters are useful for comparisons and checking data types, especially for conditional logic. They will result in a true or false boolean value.
 
 * [**bitwise\_not**](comparison.md#bitwise_not) **-** Returns the existing value with its bits flipped.
-* [**equals**](comparison.md#undefined) **-** Returns a boolean if both values are equal.
+* [**equals**](comparison.md#equals) **-** Returns a boolean if both values are equal.
 * [**even**](comparison.md#even) **-** Returns whether or not the value is even.
 * [**greater\_than**](comparison.md#greater_than) **-** Returns a boolean if the left value is greater than the right value.
-* [**greater\_than\_or\_equal**](comparison.md#undefined) **-** Returns a boolean if the left value is greater than or equal to the right value.
+* [**greater\_than\_or\_equal**](comparison.md#greater_than_or_equal) **-** Returns a boolean if the left value is greater than or equal to the right value.
 * [**in**](comparison.md#in) **-** Returns whether or not the value is in the array.
 * [**is\_array**](comparison.md#is_array) **-** Returns whether or not the value is a numerical indexed array.
 * [**is\_bool**](comparison.md#is_bool) **-** Returns whether or not the value is a boolean.
-* [**is\_decimal**](comparison.md#undefined) **-** Returns whether or not the value is a decimal value.
+* [**is\_decimal**](comparison.md#is_decimal) **-** Returns whether or not the value is a decimal value.
 * [**is\_empty**](comparison.md#is_empty) **-** Returns whether or not the value is empty ("", null, 0, \[], {}).
 * [**is\_int**](comparison.md#is_int) **-** Returns whether or not the value is an integer.
 * [**is\_null**](comparison.md#is_null) **-** Returns whether or not the value is null
-* [**is\_object**](comparison.md#undefined) **-** Returns whether or not the value is an object.
+* [**is\_object**](comparison.md#is_object) **-** Returns whether or not the value is an object.
 * [**is\_text**](comparison.md#is_text) **-** Returns whether or not the value is text.
 * [**less\_than**](comparison.md#less_than) **-** Returns a boolean if the left value is less than the right value
 * [**less\_than\_or\_equal**](comparison.md#less_than_or_equal) **-** Returns a boolean if the left value is less than or equal to the right value
 * [**not**](comparison.md#not) **-** Returns the opposite of the existing value evaluated as a boolean
-* [**not\_equals**](comparison.md#undefined) **-** Returns a boolean if both values are not equal
+* [**not\_equals**](comparison.md#not_equals) **-** Returns a boolean if both values are not equal
 * [**odd**](comparison.md#odd) **-** Returns whether or not the value is odd
 
 #### **bitwise\_not**

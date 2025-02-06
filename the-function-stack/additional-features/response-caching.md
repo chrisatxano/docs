@@ -4,7 +4,7 @@
 
 [**Watch a practical example**](https://youtu.be/TTQky7FqRQE) of Response Caching using the [Star Wars API](https://swapi.dev/)
 
-From the settings of an [API Endpoint](https://docs.xano.com/what-xano-includes/workspace/api) or [Custom Function](https://docs.xano.com/working-with-data/functions/custom-functions) response caching can be accessed. Response caching is an abstracted caching method to cache the response of an endpoint or function.
+From the settings of an [API Endpoint](../building-with-visual-development/apis/) or [Custom Function](../functions/custom-functions.md) response caching can be accessed. Response caching is an abstracted caching method to cache the response of an endpoint or function.
 
 ![](https://docs.xano.com/~gitbook/image?url=https%3A%2F%2F3176331816-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fassets%252F-M8Si5XvG2QHSLi9JcVY%252F-MfjDlawtMnevbHx45uw%252F-MfjK_cyiFbXxTGORZLt%252Fcaching.png%3Falt%3Dmedia%26token%3D91dea8b1-08ec-4c0e-b820-843a5f31a09d\&width=768\&dpr=4\&quality=100\&sign=2f79e768\&sv=2)
 
