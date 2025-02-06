@@ -515,7 +515,7 @@ Find **Access keys** under **Security + Networking** on the left navigation bar.
 <figure><img src="../../.gitbook/assets/CleanShot 2024-05-14 at 10.57.53.png" alt=""><figcaption><p>Locate your Azure Access Key.</p></figcaption></figure>
 
 {% hint style="info" %}
-Do not share your access key. It is recommended to store your access key as an [Environment Variable](broken-reference) in Xano for safe keeping.
+Do not share your access key. It is recommended to store your access key as an [Environment Variable](../environment-variables.md) in Xano for safe keeping.
 {% endhint %}
 
 ### List Directory
@@ -551,7 +551,7 @@ Upload a file to an Azure blob container.
 * account\_key - Azure [Access Key](cloud-services.md#access-key).
 * conatiner\_name - Container name within Azure storage account.
 * filePath - The path name for the file being uploaded.
-* file - The file being uploaded. This must come from a [file resource](broken-reference).
+* file - The file being uploaded. This must come from a file resource.
 * metadata - (Optional). Optionally include additional metadata with the file stored in object format.&#x20;
 
 ### Delete a File

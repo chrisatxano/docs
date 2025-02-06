@@ -38,7 +38,7 @@ _\*Settings registry is available for actions for API keys and other sensitive t
 
 Click <mark style="color:blue;">**+ Create Action**</mark> to begin building a new Action.
 
-Building a new Action is very similar to building in a regular Xano function stack. You can add [inputs](broken-reference), [functions](broken-reference), and define a [response](broken-reference).
+Building a new Action is very similar to building in a[ regular Xano function stack.](../the-function-stack/building-with-visual-development/#the-anatomy-of-the-visual-builder)
 
 {% hint style="info" %}
 Please note that because Actions are designed to not have dependencies outside of the Action itself, certain functions such as database operations are not available.

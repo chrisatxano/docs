@@ -4,7 +4,7 @@
 
 ## What is Xano Transform?
 
-The Xano Transform Engine is a new technology built by Xano that takes the traditional dot notation syntax and upgrades it to support data manipulation. This syntax is friendly to objects and arrays and supports conditional filtering using the new [Expression data type](broken-reference).
+The Xano Transform Engine is a new technology built by Xano that takes the traditional dot notation syntax and upgrades it to support data manipulation. This syntax is friendly to objects and arrays and supports conditional filtering using the new [Expression data type](../the-function-stack/data-types/expression.md).
 
 Xano Transform encompasses some updates to our GET and SET filters, allowing you to use a powerful and expansive new type of filtering syntax to parse, return, and transform your data in exactly the way you need. Consider it an alternative to chaining several filters and functions together to accomplish a specific result.
 
@@ -20,7 +20,7 @@ Xano Transform also offers you an easy way to share solutions with other Xano us
 
 ## How do I use Xano Transform?
 
-Xano Transform has two different operating 'modes', as an extension of our GET filter, and a separate [_expression_ data type](broken-reference), which all work from utilizing a standardized syntax, outlined in this documentation.
+Xano Transform has two different operating 'modes', as an extension of our GET filter, and a separate [_expression_ data type](../the-function-stack/data-types/expression.md), which all work from utilizing a standardized syntax, outlined in this documentation.
 
 Please note that you can use standard mathematical operators to compare values in areas where they would normally be accepted, such as >, <, ==, !=, etc...
 
@@ -28,7 +28,7 @@ Please note that you can use standard mathematical operators to compare values i
 
 ## The \$$ special variable <a href="#double-dollar-sign" id="double-dollar-sign"></a>
 
-Throughout this documentation, there will be repeated mentions of the `$$` special variable. This is our version of the standard `this` variable, which is commonly used in various programming languages and [higher order filters](using-xano-transform.md#higher-order-filters).  This concept is used to represent the context that is being referenced within a function/filter.
+Throughout this documentation, there will be repeated mentions of the `$$` special variable. This is our version of the standard `this` variable, which is commonly used in various programming languages and Lambda filters.  This concept is used to represent the context that is being referenced within a function/filter.
 
 {% hint style="info" %}
 In this example, \$$ represents the expression`1+2+3`
