@@ -1,3 +1,7 @@
+---
+icon: filter-circle-dollar
+---
+
 # Filters
 
 {% content-ref url="manipulation.md" %}

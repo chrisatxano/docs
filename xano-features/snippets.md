@@ -1,3 +1,7 @@
+---
+icon: scissors
+---
+
 # Snippets
 
 Snippets are an easy way to share API endpoints with the Xano community. When you share a Snippet it will be available for anyone to add to their own workspace.&#x20;

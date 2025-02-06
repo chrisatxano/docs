@@ -1,3 +1,7 @@
+---
+icon: lock-keyhole-open
+---
+
 # Channel Permissions
 
 Channels are opened with your front-end's implementation of Realtime.

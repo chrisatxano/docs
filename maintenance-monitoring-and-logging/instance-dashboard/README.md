@@ -1,5 +1,6 @@
 ---
 description: The instance dashboard is only available to users on a paid plan.
+icon: sliders-up
 ---
 
 # Instance Dashboard

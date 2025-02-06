@@ -1,3 +1,7 @@
+---
+icon: magnifying-glass
+---
+
 # Fuzzy Search
 
 Xano offers robust search capabilities, commonly referred to as _fuzzy search_, that you can utilize while querying records in a function stack. This includes normalization of words (ie. party vs parties), case-insensitive support, flexible expressions (words, phrases, and negations), and weighted priorities (ie. title vs description) for relevance.

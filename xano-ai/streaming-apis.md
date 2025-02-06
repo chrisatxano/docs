@@ -1,3 +1,7 @@
+---
+icon: signal-stream
+---
+
 # Streaming APIs
 
 ### Streaming API Request

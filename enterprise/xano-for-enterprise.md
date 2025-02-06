@@ -1,3 +1,7 @@
+---
+icon: starship
+---
+
 # Xano for Enterprise
 
 ## About Xano for Enterprise

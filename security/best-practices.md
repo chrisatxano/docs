@@ -1,3 +1,7 @@
+---
+icon: lock-hashtag
+---
+
 # Best Practices
 
 Authentication is handled by **JWE** tokens, which is an industry standard.&#x20;

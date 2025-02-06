@@ -83,42 +83,42 @@ Detects the encoding of a text element. Use the Encodings parameter to specify t
 Returns whether or not the expression is present at the end. The search term can be any string of text.\
 This returns a "true" or "false" response.&#x20;
 
-![Example: we have a text value of hello world and apply the ends\_with filter this returns a value of "false".](https://mrkr.io/s/6005de4599b45131a560f581/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.06.49.png" alt=""><figcaption></figcaption></figure>
 
 #### icontains:
 
 Returns whether or not the case-insensitive expression is found. The search term can be any string of text.\
 This returns a "true" or "false" response.&#x20;
 
-![Example: we have a text value of hello world and apply the icontains filter this returns a value of "false".](https://mrkr.io/s/6005dfe899b45131a560f584/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.07.30.png" alt=""><figcaption></figcaption></figure>
 
 #### iends\_with:
 
 Returns whether or not the case-insensitive expression is present at the end. The search term can be any string of text.\
 This returns a "true" or "false" response.&#x20;
 
-![Example: we have a text value of hello world and apply the iends\_with filter this returns a value of "true".](https://mrkr.io/s/6005e07454855c3154d3f150/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.08.41.png" alt=""><figcaption></figcaption></figure>
 
 #### iindex:
 
 Returns the index of the case-insensitive expression or false if it can't be found. The search term can be any string of text.\
 This returns an integer value of where the character(s) exist in the string. The first character in a text string has an index of 0.
 
-![Example: we have a text value of hello world and apply the iindex filter this returns a value of "6".](https://mrkr.io/s/6005e369791a703a93f4d96e/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.09.11.png" alt=""><figcaption></figcaption></figure>
 
 #### index:
 
 Returns the index of the case-sensitive expression or false if it can't be found.  The search term can be any string of text.\
 This returns an integer value of where the character(s) exist in the string. The first character in a text string has an index of 0.
 
-![Example: we have a text value of hello world and apply the index filter this returns a value of "1".](https://mrkr.io/s/6005e215529b90314d839d3f/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.09.41.png" alt=""><figcaption></figcaption></figure>
 
 #### istarts\_with:
 
 Returns whether or not the case-insensitive expression is present at the beginning. The search term can be any string of text.\
 This returns a "true" or "false" response.&#x20;
 
-![Example: we have a text value of hello world and apply the istarts\_with filter this returns a value of "true".](https://mrkr.io/s/6005e3d5363b2f3acf5e6720/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.10.14.png" alt=""><figcaption></figcaption></figure>
 
 #### list\_encodings
 
@@ -128,13 +128,13 @@ Lists the available encodings for [detect\_encoding](text.md#detect_encoding) an
 
 Trim whitespace or other characters from the left side and return the result. The mask text can be any string of text.
 
-![Example: we have a text value of hello world and apply the ltrim filter this returns a value of "llo world".](https://mrkr.io/s/6005e47b99b45131a560f58d/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.10.49.png" alt=""><figcaption></figcaption></figure>
 
 #### rtrim:
 
 Trim whitespace or other characters from the right return the result. The mask text can be any string of text.
 
-![Example: we have a text value of hello world and apply the ltrim filter this returns a value of "hello wo".](https://mrkr.io/s/6005e51eaff989319ee215d8/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.10.49 (1).png" alt=""><figcaption></figcaption></figure>
 
 #### querystring\_parse:
 
@@ -151,9 +151,9 @@ The example below separates a URL using the **url\_parse** filter, and then uses
 
 Joins an array of text into text via the separator and returns the result. Theseperator text can be any string of text.\
 The array in this example is:\
-\[ hello, world, how, are, you]&#x20;
+\[hello, how, are, you]&#x20;
 
-![Example: we have an array of text and we apply the join filter with the seperator "?" this returns: hello?world?how?are?you ](https://mrkr.io/s/6005e8a5b195ef3b0f138c47/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.12.23.png" alt=""><figcaption></figcaption></figure>
 
 ### Regex (Regular Expression)
 
@@ -262,19 +262,15 @@ Formats text with variable substitution. This is helpful when wanting to substit
 
 The first example shows how to use variable substitution with a number using %d.
 
-![Example: we have a text value of hello world %d and apply the sprintf filter, it becomes hello world 54321.](https://mrkr.io/s/60060334a1c52c30fd9e7cb9/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.14.58.png" alt=""><figcaption></figcaption></figure>
 
 The second example will replace %s with text:
 
-![Example: we have a text value of hello world %s and apply the sprintf filter, it becomes hello world anything.](https://mrkr.io/s/600603fff8c65f3ad5a40c9b/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.15.58.png" alt=""><figcaption></figcaption></figure>
 
-We can use multiple arguments on the sprintf filter to replace any number of values. In the example below we have 2 %d and 2 %s.\
-The first %d is equivalent to the first argument of 123.\
-The second %d is equivalent to the second argument of 789.\
-The first %s is equivalent to the first argument of hi.\
-The first %s is equivalent to the second argument of end.
+We can use multiple arguments on the sprintf filter to replace any number of values.&#x20;
 
-![This example becomes: 123 hello 789 world hi this is the end ](https://mrkr.io/s/60060633f8c65f3ad5a40ca4/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.16.56 (1).png" alt=""><figcaption></figcaption></figure>
 
 If you have a % character in your text that you would **NOT** like to replace with the `sprintf` filter you are able to escape the filter by adding an additional % character next to the existing % character. "Example:  "%%"
 
@@ -283,7 +279,7 @@ If you have a % character in your text that you would **NOT** like to replace wi
 Returns whether or not the expression is present at the beginning.  The search term can be any string of text and is case-sensitive.\
 This returns a "true" or "false" response.&#x20;
 
-![Example: we have a text value of hello world and apply the starts\_with filter this returns a value of "false".](https://mrkr.io/s/6005e6da54855c3154d3f167/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.17.41.png" alt=""><figcaption></figcaption></figure>
 
 #### strlen:
 
@@ -347,7 +343,7 @@ Returns the value of a query parameter in a URL.
 
 Returns the existence of an arguments in the URL.
 
-![The result of this filter will be true because the argument test](<../../.gitbook/assets/url args.png>)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.18.30.png" alt=""><figcaption></figcaption></figure>
 
 #### strip\_html:
 

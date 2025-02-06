@@ -32,11 +32,7 @@
 
 Push an element on to the end of an Array within an object and return the updated object.
 
-![In this example, we have an Array of \[ 1,2,2,1 \] by using the append filter the variable becomes \[ 1,2,2,1,100\]. ](../../.gitbook/assets/arrayappend.png)
-
-
-
-
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.19.19.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -44,7 +40,7 @@ Push an element on to the end of an Array within an object and return the update
 
 Return the number of items of an Array.
 
-![In this example, we have an Array of \[ 1,2,2,1 \] by using the count filter the variable becomes 4.](../../.gitbook/assets/count.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.19.47.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -62,9 +58,9 @@ These filters will return values in the first array that are not present in the 
 
 ### filter\_empty
 
-Returns a new Array with only entries that are not empty ("", null, 0, \[]).
+Returns a new Array with only entries that are not empty ("", null, 0, \[]). Use the **path** option if you want to search inside of objects.
 
-![In this example, we have an Array of \[ 1,2,,2,1 \] by using the filter\_empty the variable becomes \[ 1,2,2,1 \].](../../.gitbook/assets/Screenshot_2020-06-25_21-23-33.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.20.28.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -72,9 +68,7 @@ Returns a new Array with only entries that are not empty ("", null, 0, \[]).
 
 Get the first entry of an Array.
 
-![In this example, we have an Array of \[ 1,2,0,2,1 \] by using the first filter the variable becomes 1.](../../.gitbook/assets/first.png)
-
-
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.21.09.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -99,13 +93,9 @@ Returns the entries from the first array that are present in the second array.
 
 ### join
 
-Joins an array into a text string via the separator and returns the result\
-In the below example, we have an array of \[ 1,2,3,4 ] and we use the join filter with the text **:hello:**\
-\
-The variable becomes 1:hello:2:hello:3:hello:4\
+Joins an array into a text string via the separator and returns the result
 
-
-![](https://mrkr.io/s/5ff7666a5ec74561da3de2ce/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.24.28 (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -113,7 +103,7 @@ The variable becomes 1:hello:2:hello:3:hello:4\
 
 Get the last entry of an Array.
 
-![In this example, we have an Array of \[ 1,2,0,2 \] by using the last filter the variable becomes 2.](../../.gitbook/assets/last.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.25.08.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -121,7 +111,7 @@ Get the last entry of an Array.
 
 Merge the first level of elements of both Arrays together and return the new array.
 
-![Example: we have an Array of \[ 1,2,0,2,1 \] by using the merge filter the variable becomes \[1, 2, 0, 2, 1, "123"\].](../../.gitbook/assets/merge.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.26.58.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -129,7 +119,7 @@ Merge the first level of elements of both Arrays together and return the new arr
 
 Merge the elements from all levels of both Arrays together and return the new Array.
 
-We will set up our first array as var\_1 using this JSON:
+First array:
 
 ```
 {
@@ -138,7 +128,7 @@ We will set up our first array as var\_1 using this JSON:
 }
 ```
 
-We will set up our second array as var\_2 using this JSON:
+Second array:
 
 ```
 {
@@ -149,18 +139,7 @@ We will set up our second array as var\_2 using this JSON:
 
 We will then set up our filter as follows:
 
-![](https://mrkr.io/s/6008c491aebc423a8e4024aa/0)
-
-var\_3 would then become:
-
-```
-{
-"a": "test",
-"b": ["a",b","c","d"]
-}{
-"c": "hi",
-}
-```
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.31.18.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -168,48 +147,43 @@ var\_3 would then become:
 
 Pops the last element of the Array off and returns it.
 
-![In this example, we have an Array of \[ 1,2,0,2,1 \] by using the pop filter the variable becomes 1.](../../.gitbook/assets/pop.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.34.27.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ### prepend
 
-Push an element on to the beginning of an Array within an object and return the updated object.
+Push an element on to the beginning of an array
 
-![In this example, we have an Array of \[ 1,2,0,2,1 \] using the prepend filter the variable becomes \[ 23,1,2,0,2,1\].](../../.gitbook/assets/prepend.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.34.58.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ### push
 
-Push an element on to the end of an Array within an object and return the updated object.
+Push an element on to the end of an array
 
-![In this example, we are using the push filter to create the Array \[1, 2, 0, 2, 1\].](../../.gitbook/assets/push.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.35.42.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ### range
 
-Returns array of values between the specified start/stop.\
-In this example we have an array \[1,2,3,4,5 ] and we are using the filter range with the values of start: 2 and stop 4, this returns the array of \[2,3,4]
+Returns array of values between the specified start/stop.
 
-![](https://mrkr.io/s/5ff77cf3f55053619ac564d8/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.37.57.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ### remove
 
-Remove any elements from the array that match the supplied value and return the new array\
-In this example we have an array \[1,2,3,4,5,6]
+Remove any elements from the array that match the supplied value and return the new array
 
-![After we apply the remove filter with the value of 3 the array becomes: \[1,2,4,5,6\] ](https://mrkr.io/s/603d3cb9040e8a61796d7df7/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.39.05.png" alt=""><figcaption></figcaption></figure>
 
-Let's change the array to a more complex one:\
-`[ { "name":"Ford"}, { "name":"GM" }, { "name":"Chevrolet"  } ]`
+Use the **path** option to search inside of objects.
 
-In this example we will need to specify the path.
-
-![After we apply the remove filter the array becomes: \[ { "name":"GM" }, { "name":"Chevrolet"  } \]](https://mrkr.io/s/603d3ef6d956b957b3009294/0)
+Use the **strict** option to determine how precise the filter is (for example, treating 100 and "100" the same)
 
 ***
 
@@ -225,7 +199,7 @@ Always returns an array. Uses the existing value if it is an array or creates an
 
 Shifts the first element off the Array and returns it.
 
-![In this example, we have an Array of \[ 1,2,0,2,1 \] by using the shift filter the variable becomes 1.](../../.gitbook/assets/shift.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.40.17.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -263,30 +237,18 @@ Ascending order is performed with a true boolean. Descending order uses a false 
 
 The example below shows the difference between case-sensitivity sort with text and itext:
 
-![In this example, the Array is being sorted by text type in ascending order. ](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.15.49 AM.png>)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.44.15.png" alt=""><figcaption></figcaption></figure>
 
-![The result is the Array sorted by text alphabetically and case-sensitive. ](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.16.05 AM.png>)
-
-![In this example, the sort type is now itext, which is case-insensitive. ](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.33.12 AM.png>)
-
-![Here is the result of the Array sorted with itext. Notice the difference case-sensitivity makes. ](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.34.08 AM.png>)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.44.39.png" alt=""><figcaption></figcaption></figure>
 
 The example below shows how to use the number sort type:
 
-![In this example, we are sorting numerically in ascending order (or lowest to highest).](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.36.04 AM.png>)
-
-![Here we can see the result of the Array when sorted using the number type. ](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.36.15 AM.png>)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.45.37.png" alt=""><figcaption></figcaption></figure>
 
 \
-The example below shows the difference in sorting between natural and number when dealing with alphanumeric values:
+The example below shows using the natural sorting option
 
-![In this example, the sort type is natural in ascending order. ](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.06.22 AM.png>)
-
-![The response is the Array sorted in a order that is natural to humans. ](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.07.30 AM.png>)
-
-![In this example, the Array is sorted numerically in ascending order.](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.08.46 AM.png>)
-
-![Here the Array is sorted numerically. Notice the difference between natural and numeric sort with alphanumeric values. ](<../../.gitbook/assets/Screen Shot 2020-12-03 at 11.10.43 AM.png>)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.46.22.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -294,7 +256,7 @@ The example below shows the difference in sorting between natural and number whe
 
 Returns unique values of an Array. You can also use this filter with an array of objects by specifying a path to the key you would like to use to judge uniqueness.
 
-![In this example, we have an Array of \[ 1,2,0,2,1 \] using the unique filter the variable becomes \[ 1,2,0\].](../../.gitbook/assets/unique.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.47.11.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -302,7 +264,7 @@ Returns unique values of an Array. You can also use this filter with an array of
 
 Push an element to the beginning of an Array and return the new Array.
 
-![In this example, we have an Array of \[ 1,2,0,2,1 \] using the unshift filter the variable becomes \[ 58,1,2,0,2,1\].](../../.gitbook/assets/unshift.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 16.47.40.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

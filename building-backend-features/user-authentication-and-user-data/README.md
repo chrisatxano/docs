@@ -1,3 +1,7 @@
+---
+icon: key
+---
+
 # User Authentication & User Data
 
 ## **Enable Authentication for a Table**

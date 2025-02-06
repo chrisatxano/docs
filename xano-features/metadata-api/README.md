@@ -1,3 +1,7 @@
+---
+icon: x
+---
+
 # Metadata API
 
 {% hint style="info" %}

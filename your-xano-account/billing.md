@@ -1,3 +1,7 @@
+---
+icon: sack-dollar
+---
+
 # Billing
 
 ## How does billing work in Xano?

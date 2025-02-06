@@ -1,3 +1,7 @@
+---
+icon: graduation-cap
+---
+
 # Students & Education
 
 ![](../.gitbook/assets/student1.jpg)

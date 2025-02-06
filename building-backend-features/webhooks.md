@@ -1,3 +1,7 @@
+---
+icon: fishing-rod
+---
+
 # Webhooks
 
 Webhooks are a simple way that an app can send an automatic message or payload of information to another app. It's the method that [Stripe](https://stripe.com/) might use to notify you when a payment has come in, or how a support bot like [Intercom](https://www.intercom.com/) notifies you about new requests in your Slack.

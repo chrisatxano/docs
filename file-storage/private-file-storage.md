@@ -1,3 +1,7 @@
+---
+icon: store-lock
+---
+
 # Private File Storage
 
 Private file storage is available as a premium add-on for our Launch plans, or included with **Scale** or HIPAA compliance.

@@ -1,3 +1,7 @@
+---
+icon: bug
+---
+
 # Testing and Debugging Function Stacks
 
 ## Testing a Function Stack

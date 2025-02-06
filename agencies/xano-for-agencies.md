@@ -1,3 +1,7 @@
+---
+icon: screen-users
+---
+
 # Xano for Agencies
 
 {% embed url="https://www.youtube.com/watch?v=pcrvEjDv_t0" %}

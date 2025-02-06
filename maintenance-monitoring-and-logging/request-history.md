@@ -1,3 +1,7 @@
+---
+icon: comment-question
+---
+
 # Request History
 
 ## API Request History

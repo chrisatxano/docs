@@ -1,3 +1,7 @@
+---
+icon: memory
+---
+
 # Memory Usage
 
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M8Si5XvG2QHSLi9JcVY%2Fuploads%2FJpxfXYc4Mk4iqiGa7wFc%2Fimage.png?alt=media\&token=66363a03-34a6-4b6f-9c4a-ca441a0993cf)

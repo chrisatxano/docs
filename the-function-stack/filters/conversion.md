@@ -64,27 +64,19 @@ Converts a value between two base&#x73;_._
 
 In this example we are converting a hexadecimal number to an octal number:
 
-![In this example, the variable var\_1 becomes: 160626.](https://mrkr.io/s/60baa71aa2ed3060bd19734b/0)
-
 #### bin2hex:
 
 Converts a binary value into its hex equivalent.
 
-![In this example, the variable var\_1 becomes: 31303130.](https://mrkr.io/s/60b97473cc70f86090d952bc/0)
-
 #### decbin:&#x20;
 
 Converts a decimal value into its binary string (i.e. 01010) equivalent.
-
-![In this example, the variable var\_1 becomes: 111110100.](https://mrkr.io/s/60ba9f0328027f6edc14c3ae/0)
 
 
 
 #### bindec:&#x20;
 
 Converts a binary string (i.e. 01010) into its decimal equivalent.
-
-![In this example, the variable var\_1 becomes: 10.](https://mrkr.io/s/60baa06ed8741d60c4dfa2a7/0)
 
 #### create\_object:
 
@@ -120,43 +112,29 @@ Encodes the value and returns the result in CSV format
 
 Converts a decimal value into its hex equivalent.
 
-![In this example, the variable var\_1 becomes: 31303130.](https://mrkr.io/s/60baa54fbd8e5f6f0c267cb2/0)
-
 #### decoct:&#x20;
 
 Converts a decimal value into its octal equivalent.
-
-![In this example, the variable var\_1 becomes: 12.](https://mrkr.io/s/60baa144a2ed3060bd19730f/0)
 
 #### hex2bin:
 
 Converts a hex value into its binary equivalent.
 
-![In this example, the variable var\_1 becomes: 1010.](https://mrkr.io/s/60ba943250c84d6f3da2cd38/0)
-
 #### hexdec:
 
 Converts a hex value into its decimal equivalent.
-
-![In this example, the variable var\_1 becomes: 825241904.](https://mrkr.io/s/60ba99647a44fe6f36313877/0)
 
 #### json\_decode:
 
 Decodes the value represented as json and returns the result. We will decode the json from the json\_encode filter example.
 
-![In this example, the variable json2 becomes: { "a":"3", "b":"2", "c":"1" }.](../../.gitbook/assets/jsondecode.png)
-
 #### json\_encode:
 
 Encodes the value and returns the result as json text. The variable object is: { "a":"3", "b":"2", "c":"1" }.
 
-![In this example, the variable json becomes: {\\"a\\":\\"3\\",\\"b\\":\\"2\\",\\"c\\":\\"1\\"}.](../../.gitbook/assets/jsonencode.png)
-
 #### octdec:&#x20;
 
 Converts an octal value into its decimal equivalent.
-
-![In this example, the variable var\_1 becomes: 33498.](https://mrkr.io/s/60baa27dd8741d60c4dfa2b8/0)
 
 #### to\_bool:
 
@@ -167,37 +145,25 @@ Converting a text/integer/decimal value of 1 to true.\
 Converting a text value of "true" to true.\
 Converting a text value of "false" to false.
 
-![Example: we have a text value of 0 by using the to\_bool filter the variable becomes false. ](https://mrkr.io/s/600f1128312619013759ef39/0)
-
 #### to\_decimal:
 
 Converts text, integer, or bool types to a decimal and returns the result.
-
-![Example: we have a text value of 5.76 by using the to\_decimal filter the variable becomes a dec= 5.76. ](../../.gitbook/assets/todec.png)
 
 #### to\_int:
 
 Converts text, decimal, or bool types to an integer and returns the result.
 
-![Example: we have a text value of 5.76 by using the to\_int filter the variable becomes an int= 5](../../.gitbook/assets/toint1.png)
-
 #### to\_text:
 
 Converts text, decimal, or bool types to text and returns the result.
-
-![Example: we have a decimal value of 5.76 by using the to\_text filter the variable becomes a text= 5.76 ](../../.gitbook/assets/totext.png)
 
 #### to\_timestamp:
 
 Converts a text expression (now, next Friday) to timestamp comparable format.
 
-![Example: we have a text value of now by using the to\_timestamp filter the variable becomes 1593204483394.](../../.gitbook/assets/timestmp.png)
-
 #### url\_decode:
 
 Decodes the value represented as a URL encoded value.
-
-![Example: we have a text value then use the url\_decode filter to change it to Hello World & Xano. ](../../.gitbook/assets/urldecode.png)
 
 #### url\_decode\_rfc3986
 
@@ -236,8 +202,6 @@ The variable gets changed into:
 #### yaml\_encode:
 
 Encodes the value and returns the result as yaml text.
-
-![This returns the variable as name: John age: 30 car: ford](https://mrkr.io/s/600f220de5cf7c0184627935/0)
 
 #### xml\_decode:
 

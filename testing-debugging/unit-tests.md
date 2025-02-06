@@ -1,3 +1,7 @@
+---
+icon: vial
+---
+
 # Unit Tests
 
 ## Building a Unit Test <a href="#building-a-unit-test" id="building-a-unit-test"></a>

@@ -1,3 +1,7 @@
+---
+icon: recycle
+---
+
 # Building with Visual Development
 
 The Function Stack is what you'll use to visually develop in Xano. It allows you to construct any and all of the business logic necessary for whatever you are trying to build.

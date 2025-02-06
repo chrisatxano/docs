@@ -1,3 +1,7 @@
+---
+icon: user-plus
+---
+
 # Managing Team Members
 
 Xano allows you to collaborate on projects by adding a team member to your instance. Be sure to check your plan to see if additional team members are included.

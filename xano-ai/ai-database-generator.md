@@ -1,3 +1,7 @@
+---
+icon: sparkles
+---
+
 # AI Database Generator
 
 ## Build a Workspace with AI

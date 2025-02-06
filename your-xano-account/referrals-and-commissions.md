@@ -1,3 +1,7 @@
+---
+icon: bullhorn
+---
+
 # Referrals & Commissions
 
 **Referral FAQs**\

@@ -1,3 +1,7 @@
+---
+icon: file
+---
+
 # Custom Report Generation
 
 ## Report Generation using Database Views

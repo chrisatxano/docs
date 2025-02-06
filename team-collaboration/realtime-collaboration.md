@@ -1,3 +1,7 @@
+---
+icon: users-medical
+---
+
 # Realtime Collaboration
 
 Every Xano workspace includes Real-Time Collaboration which enables you to edit your API simultaneously with your team, just like a Google Doc!&#x20;

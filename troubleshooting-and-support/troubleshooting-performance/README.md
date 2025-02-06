@@ -1,3 +1,7 @@
+---
+icon: turtle
+---
+
 # Troubleshooting Performance
 
 ### Debugging Performance Issues

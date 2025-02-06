@@ -1,3 +1,7 @@
+---
+icon: gears
+---
+
 # Instance Settings
 
 ## Custom Domain

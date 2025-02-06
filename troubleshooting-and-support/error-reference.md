@@ -1,3 +1,7 @@
+---
+icon: circle-exclamation
+---
+
 # Error Reference
 
 You can use this page to quickly search for and discover solutions to some common Xano errors.

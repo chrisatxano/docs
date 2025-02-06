@@ -1,3 +1,7 @@
+---
+icon: vials
+---
+
 # Test Suites
 
 Workflow Testing allows you to create sets of different tests to validate user flows are working as expected.

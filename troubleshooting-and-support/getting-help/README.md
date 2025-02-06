@@ -1,3 +1,7 @@
+---
+icon: message-question
+---
+
 # Getting Help
 
 Apart from the documentation we provide, we strive to provide comprehensive education and support through multiple channels for all our customers.  For those that need more specialized attention, we also offer several levels of support defined below:

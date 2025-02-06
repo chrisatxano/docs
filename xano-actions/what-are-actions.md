@@ -1,3 +1,7 @@
+---
+icon: location-check
+---
+
 # What are Actions?
 
 {% embed url="https://www.youtube.com/watch?v=Ixhk4Sv4mfM" %}

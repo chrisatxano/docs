@@ -1,3 +1,7 @@
+---
+icon: building-lock
+---
+
 # Role-based Access Control (RBAC)
 
 {% hint style="success" %}

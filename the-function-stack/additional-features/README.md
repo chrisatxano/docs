@@ -1,3 +1,7 @@
+---
+icon: joystick
+---
+
 # Additional Features
 
 {% content-ref url="response-caching.md" %}

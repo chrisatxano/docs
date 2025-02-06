@@ -1,3 +1,7 @@
+---
+icon: code-branch
+---
+
 # Branching & Merging
 
 A Branch is a copy of a workspace's business logic (APIs, Functions, Addons, and Tasks). They are most useful for testing and developing new versions of your app without affecting your customers' primary experience.

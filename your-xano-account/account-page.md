@@ -1,3 +1,7 @@
+---
+icon: receipt
+---
+
 # Account Page
 
 The Account page allows you to manage various aspects of your Xano account.

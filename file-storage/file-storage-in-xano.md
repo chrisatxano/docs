@@ -1,3 +1,7 @@
+---
+icon: download
+---
+
 # File Storage in Xano
 
 ## How does file storage work?

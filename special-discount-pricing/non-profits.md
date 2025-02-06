@@ -1,3 +1,7 @@
+---
+icon: head-side-brain
+---
+
 # Non-Profits
 
 ![](<../.gitbook/assets/non profit1.jpg>)

@@ -1,3 +1,7 @@
+---
+icon: messages
+---
+
 # Realtime in Xano
 
 ## What is Realtime?

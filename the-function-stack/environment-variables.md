@@ -1,3 +1,7 @@
+---
+icon: nfc-lock
+---
+
 # Environment Variables
 
 Environment Variables are persistent variables that are available across your entire workspace. Typically, these are used to store things like external API keys or other sensitive information that you need to use across multiple function stacks, without storing it in a database table.
