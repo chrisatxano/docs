@@ -238,6 +238,7 @@
 * [Instance Settings](your-xano-account/instance-settings/README.md)
   * [Release Track Preferences](your-xano-account/instance-settings/release-track-preferences.md)
   * [Static IP (Outgoing)](your-xano-account/instance-settings/static-ip-outgoing.md)
+  * [Change Server Region](your-xano-account/instance-settings/change-server-region.md)
 * [Referrals & Commissions](your-xano-account/referrals-and-commissions.md)
 
 ## Troubleshooting & Support
