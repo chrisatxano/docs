@@ -8,7 +8,7 @@ To create a Private Snippet, navigate to the "Private" tab on the left menu and 
 
 ![Navigate to the Private Marketplace to create a Private Snippet](<../../.gitbook/assets/CleanShot 2022-03-22 at 16.04.18.png>)
 
-Creating a Private Snippet has the same UI and experience as creating a regular, shareable [Snippet](broken-reference).
+Creating a Private Snippet has the same UI and experience as creating a regular, shareable [Snippet](../../xano-features/snippets.md).
 
 ![Creating a Snippet](<../../.gitbook/assets/CleanShot 2022-03-22 at 16.31.00.png>)
 
@@ -96,4 +96,4 @@ Once generated, a one-time use link will be generated with a unique security tok
 
 ![A one-time use link will be generated to share.](<../../.gitbook/assets/CleanShot 2022-03-22 at 17.26.41.png>)
 
-The landing page for a Secure Share and installation will be the same as a regular [Snippet](broken-reference).
+The landing page for a Secure Share and installation will be the same as a regular [Snippet](../../xano-features/snippets.md).

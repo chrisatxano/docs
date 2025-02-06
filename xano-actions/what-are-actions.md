@@ -110,11 +110,11 @@ Click the button in the top-right section of the page when building an Action to
 
 <figure><img src="../.gitbook/assets/CleanShot 2024-10-15 at 21.29.14@2x.png" alt=""><figcaption></figcaption></figure>
 
-You can now build, run, and debug your scoped function just like any other function stack, and use it inside of your Action. The experience is almost identical to our [Custom Functions](broken-reference) feature.
+You can now build, run, and debug your scoped function just like any other function stack, and use it inside of your Action. The experience is almost identical to our [Custom Functions](../the-function-stack/functions/custom-functions.md) feature.
 
 ### Settings Registry
 
-Because Actions have no dependencies, each Action contains a Settings Registry, which is used in a similar manner to [environment variables](broken-reference). You will use the Settings Registry for situations where an Action requires an API key or other sensitive data that you need to ensure users of the Action supply without supplying it yourself.
+Because Actions have no dependencies, each Action contains a Settings Registry, which is used in a similar manner to [environment variables](../the-function-stack/environment-variables.md). You will use the Settings Registry for situations where an Action requires an API key or other sensitive data that you need to ensure users of the Action supply without supplying it yourself.
 
 To add a new value to the Settings Registry, just add a new input to your Action. In the settings for that input, you'll see a new option in the **Configuration** section called Settings Registry.
 

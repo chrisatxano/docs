@@ -18,7 +18,7 @@ _Participation requires adhering to the_ [_Community Code of Conduct_](broken-re
 
 ### **Email & Chat Support**
 
-* Make sure you have read and followed our guide on [troubleshooting inside Xano](broken-reference), as well as [what to provide](broken-reference) when requesting support.
+* Make sure you have read and followed our guide on [troubleshooting inside Xano](../troubleshooting-performance/), as well as [what to provide](../troubleshooting-performance/when-a-single-workflow-feels-slow.md#contacting-support) when requesting support.
 * Ask questions using the chat inside the Xano app, or by emailing support\[at]xano.com.&#x20;
 * We do not offer support over the phone at this time.
 * Response Time: **Up to 72 hours** during business days from initial contact.
@@ -27,7 +27,7 @@ _Participation requires adhering to the_ [_Community Code of Conduct_](broken-re
 - We often respond faster, however, due to ticket volume a response might not be feasible for up to 72 hours during business days.&#x20;
 - Resolution time cannot be guaranteed due to the varying levels of complexity and involvement of a ticket.&#x20;
 - Certain requests can take 2 or more weeks to resolve, depending on their nature.
-- Providing as much information as possible will help expedite the process. Here's an example of the [baseline information](broken-reference) that should be provided.
+- Providing as much information as possible will help expedite the process. Here's an example of the [baseline information](../troubleshooting-performance/when-a-single-workflow-feels-slow.md#contacting-support) that should be provided.
 {% endhint %}
 
 ### Live Hands-on Support
@@ -43,7 +43,7 @@ _Participation requires adhering to the_ [_Community Code of Conduct_](broken-re
 
 Xano offers improved response times that can be added to any existing paid account. Learn more about them below, and upgrade to any one of them in the [Billing](https://app.xano.com/admin/billing) section of your Xano account.
 
-Additionally, a [White House Escalation](broken-reference) service is available typically for Enterprise Plans.&#x20;
+Additionally, a [White House Escalation](./#white-house-emergency-escalation) service is available typically for Enterprise Plans.&#x20;
 
 ### Support Package Enhancements
 
@@ -116,16 +116,13 @@ Xano has a partner program that vets the best Xano builders to help others succe
 * **Migrating from other data sources** - Coming from another database or no-code tool and want to bring in your data? Partners can help you do this easily.
 * **Building Integrations** - Some 3rd party services can be complex to integrate with. Our partners can help build the integrations for you so you can focus on other parts of the business.
 
-Interested in getting help from a Certified Developer?\
-[**Fill out this Developer Build Request form**](https://forms.clickup.com/9010156981/f/8cgr5dn-30537/JSCKAPRZD428MD9G3F)
+Interested in getting help from a Certified Developer? Head to the [Marketplace](https://xano.com/marketplace).\
+
 
 ## Agency Build Partners
 
 Xano has a network of agencies and freelancers that can help build a part or your entire backend at a fraction of what it would cost to hire a development team.  Furthermore, this network of partners also specializes in no-code front-end tools so if you'd like to build both your front-end and backend through an Agency partner, it's completely possible.
 
-Interested in getting help from an Agency Build Partner?\
-[**Fill out an Agency Build Request form**](https://forms.clickup.com/9010156981/f/8cgr5dn-30537/JSCKAPRZD428MD9G3F)
-
-
+Interested in getting help from an Agency Build Partner? Head to the [Marketplace](https://xano.com/marketplace).
 
 Are you an Agency? Check out the [Xano Agency Plan](https://www.xano.com/agency/) to see the benefits

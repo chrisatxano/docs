@@ -138,7 +138,7 @@ Once deployed, you can interact with the microservice in the Xano Function Stack
 
 <figure><img src="../../.gitbook/assets/CleanShot 2022-12-28 at 15.58.50.png" alt=""><figcaption></figcaption></figure>
 
-The Microservice function will be similar to an [external API request](broken-reference) function. Although the settings of the function are similar, it's important to call out that the **microservice is all internal traffic, making the interaction secure**.
+The Microservice function will be similar to an [external API request](../../the-function-stack/functions/apis-and-lambdas/external-api-request.md) function. Although the settings of the function are similar, it's important to call out that the **microservice is all internal traffic, making the interaction secure**.
 
 <figure><img src="../../.gitbook/assets/CleanShot 2022-12-28 at 16.00.37.png" alt=""><figcaption></figcaption></figure>
 
@@ -151,5 +151,5 @@ The Microservice function will be similar to an [external API request](broken-re
 * **Timeout** - Defines how long the Function Stack will wait in seconds before it considers the Function to be timed out.
 * **Follow\_location -** determines if you wish to automatically follow the redirects (if there are any) in the microservice.
 
-For more on Import Curl, Method, Params, Headers, Timeout, and Follow\_location check out the [External API Request](broken-reference) page.
+For more on Import Curl, Method, Params, Headers, Timeout, and Follow\_location check out the [External API Request](../../the-function-stack/functions/apis-and-lambdas/external-api-request.md) page.
 

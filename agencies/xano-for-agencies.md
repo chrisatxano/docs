@@ -16,9 +16,9 @@ The [Agency plan](https://www.xano.com/agency/) is a unique offering specificall
 
 #### Read about the Agency plan:
 
-* [Client Invite](broken-reference) (Client Invite & Onboarding)
-* [Transfer Ownership](broken-reference) (Transfer projects to clients)
-* [Private Marketplace](broken-reference)
-* [Commission](broken-reference)
+* [Client Invite](agency-features/client-invite.md) (Client Invite & Onboarding)
+* [Transfer Ownership](agency-features/transfer-ownership.md) (Transfer projects to clients)
+* [Private Marketplace](agency-features/private-marketplace.md)
+* [Commission](agency-features/commission.md)
 
 #### &#x20;

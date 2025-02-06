@@ -1,7 +1,7 @@
 # Timestamp
 
 {% hint style="info" %}
-For information on how Xano stores, reads, and formats timestamps, visit the [Timestamp](broken-reference) page.
+For information on how Xano stores, reads, and formats timestamps, visit the [Timestamp](../data-types/timestamp.md) page.
 {% endhint %}
 
 ### **to\_timestamp**

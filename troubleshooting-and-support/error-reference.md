@@ -58,7 +58,7 @@ When testing your endpoints, you can choose an auth token using the option shown
 
 You might see this error if you are trying to apply a text filter to a value that is not text (or interchangeable with text, such as an integer).
 
-For example, if you have a JSON object called "api\_1" and you are trying to apply a text transformation to a value inside of that object, it is likely that you are not using proper [dot notation](broken-reference) to target that text value directly.
+For example, if you have a JSON object called "api\_1" and you are trying to apply a text transformation to a value inside of that object, it is likely that you are not using proper [dot notation](../the-function-stack/building-with-visual-development/#dot-notation) to target that text value directly.
 
 </details>
 
@@ -74,7 +74,7 @@ When using the Stream return type, certain functions are not supported; specific
 
 <summary>Please use a numerically indexed array</summary>
 
-This error message is triggered when referencing something that is not an array, or an improperly formatted array, in a [For Each loop](broken-reference).
+This error message is triggered when referencing something that is not an array, or an improperly formatted array, in a [For Each loop](../the-function-stack/functions/data-manipulation/loops.md#for-each-loop).
 
 The solution would be to make sure you're targeting a proper array when building For Each loops.
 
@@ -100,7 +100,7 @@ In Xano, we have some protections around loops to prevent infinite looping. Make
 
 <summary>Invalid parameter count based on format</summary>
 
-When using [Direct Database Query](broken-reference) and dynamically specifying values, make sure that the number of arguments you define in your query statement match the number of substitutions defined in the Statement Arguments section.
+When using [Direct Database Query](../the-function-stack/functions/database-requests/direct-database-query.md) and dynamically specifying values, make sure that the number of arguments you define in your query statement match the number of substitutions defined in the Statement Arguments section.
 
 </details>
 
@@ -110,7 +110,7 @@ When using [Direct Database Query](broken-reference) and dynamically specifying 
 
 A scalar value just means a single value, not a list or a JSON object. You'll see this error if you attempt to apply a text-based transformation filter to something that is not a scalar value.
 
-This can happen if you are trying to target a value inside of an array or object and you are using incorrect [dot notation](broken-reference).
+This can happen if you are trying to target a value inside of an array or object and you are using incorrect [dot notation](../the-function-stack/building-with-visual-development/#dot-notation).
 
 </details>
 
@@ -153,8 +153,8 @@ For example, sometimes an external API request will not return certain values in
 
 There can be a number of ways to resolve this error, including:
 
-* Adding [conditional logic ](broken-reference)to determine the steps to take based on the existence of a value
-* Using the GET filter or [Conditional Set Filters ](broken-reference)to change the behavior based on if the value is provided
+* Adding [conditional logic ](../the-function-stack/functions/data-manipulation/conditional.md)to determine the steps to take based on the existence of a value
+* Using the GET filter or [Conditional Set Filters ](../the-function-stack/filters/manipulation.md#set_conditional)to change the behavior based on if the value is provided
 
 </details>
 
@@ -210,8 +210,6 @@ This is a rare error that can occur when using Create File Resource / a File Res
 This error indicates that the name you are trying to use for another API endpoint conflicts with an existing API. It's important to remember that URL parameters need to be considered as well.
 
 For example, assuming these endpoints have the same verb (such as POST), an endpoint named **/auth/me** would conflict with an endpoint named **/auth/{user\_id}**, because Xano has no way of knowing if "me" should actually be a value for user\_id.
-
-For more information, see [this section](broken-reference) of our documentation.
 
 </details>
 

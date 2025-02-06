@@ -92,7 +92,3 @@ In the above example there are six changes:
 4. Value input edited
 5. API Request function added
 6. Create Variable function added
-
-{% hint style="info" %}
-You can also [compare the differences between branches](broken-reference) within a workspace. So, if you want to transfer a branch from the source workspace to a destination workspace without instantly merging, you can still compare branches within the destination workspace.
-{% endhint %}

@@ -20,6 +20,6 @@ Click on a Client's instance to navigate to the instance to continue development
 
 See a high-level overview of your client instance's stats. Including limitations on their usage, database, and CPU usage.
 
-[Invite new clients](broken-reference) and manage invitations.
+[Invite new clients](client-invite.md) and manage invitations.
 
-Initiate an [ownership transfer](broken-reference) of a workspace to a client instance.
+Initiate an [ownership transfer](transfer-ownership.md) of a workspace to a client instance.

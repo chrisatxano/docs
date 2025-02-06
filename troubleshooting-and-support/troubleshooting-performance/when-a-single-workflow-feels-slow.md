@@ -43,7 +43,7 @@ Please carefully read the following to resolve your issue as streamlined as poss
 If you have taken the steps to troubleshoot your endpoint, please make sure that you prove the following information when contacting support.
 
 {% hint style="warning" %}
-Please be sure to read and understand [support expectations](when-a-single-workflow-feels-slow.md#what-to-expect) around these types of issues.
+Please be sure to read and understand [support expectations](../getting-help/#basic-support) around these types of issues.
 {% endhint %}
 
 **Please provide the following details**:
@@ -94,7 +94,7 @@ If you do not provide all of the information listed above, your support request 
 
 Due to the complex nature of these requests, it can take an extended period for us to work together with you to diagnose and resolve these issues. Expect to budget **at least** **two to three weeks** to support these specific requests. We do have [priority support packages](../getting-help/#premium-support) available if this is not sufficient for you.
 
-The team will review with you the actions you have already taken as detailed in our above, and make any recommendations for additional efficiency. Please understand that every Xano plan has its limits, and our ultimate recommendation may be to [upgrade](broken-reference) to a higher tier plan, but we will do everything we can to address outstanding issues before this.
+The team will review with you the actions you have already taken as detailed in our above, and make any recommendations for additional efficiency. Please understand that every Xano plan has its limits, and our ultimate recommendation may be to upgrade to a higher tier plan, but we will do everything we can to address outstanding issues before this.
 
 #### Is there anywhere else I can get help?
 

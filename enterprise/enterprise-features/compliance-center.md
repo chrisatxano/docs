@@ -22,7 +22,7 @@ Inside the Compliance Center, you can access various reporting areas for differe
 
 <figure><img src="../../.gitbook/assets/CleanShot 2024-01-22 at 08.58.12.png" alt=""><figcaption></figcaption></figure>
 
-Middlware Reporting allows you to audit your APIs, functions, and tasks to ensure that they are all using the expected [middleware](broken-reference). From this view, you can also review when APIs have customized middleware, meaning they have been given different settings than what is applied at the parent object level.
+Middlware Reporting allows you to audit your APIs, functions, and tasks to ensure that they are all using the expected [middleware](../../the-function-stack/building-with-visual-development/middleware.md). From this view, you can also review when APIs have customized middleware, meaning they have been given different settings than what is applied at the parent object level.
 
 #### Version History
 
