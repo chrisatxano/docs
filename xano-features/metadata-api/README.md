@@ -35,7 +35,7 @@ For implementations wanting an easier way to integrate, it may be useful to star
 
 ## Master Metadata API
 
-The [Master Metadata API](broken-reference) is useful for listing Instances of an account in a UI. It has the ability to browse Instances or retrieve a specific Instance. The Swagger documentation can be accessed at the following URL:
+The [Master Metadata API](./#master-metadata-api) is useful for listing Instances of an account in a UI. It has the ability to browse Instances or retrieve a specific Instance. The Swagger documentation can be accessed at the following URL:
 
 ```
 https://app.xano.com/api:meta

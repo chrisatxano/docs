@@ -41,7 +41,7 @@ Direct Database Query allows you to query tables across your Instance. For examp
 
 You can leverage custom view aliases to make direct database queries easier to write, and more readable, based on exactly the data that you need.
 
-Head to your database table, and create a [custom view](broken-reference). When creating your custom view, you can provide a **Database View Alias**, which you can use in your Direct Database Query statement.
+Head to your database table, and create a [custom view](../../../the-database/database-basics/database-views.md). When creating your custom view, you can provide a **Database View Alias**, which you can use in your Direct Database Query statement.
 
 In the screenshot below, we've created a database view to filter people named David in our people table. When saving the view, we're providing an alias called 'david'.
 

@@ -22,31 +22,31 @@ The builder will be comprised of up to three different sections — **inputs**, 
 
 An API is a piece of logic or a workflow that can be called to run from external sources. Think about when you tap a button or link anywhere in an application; there are API calls happening behind the scenes to make sure those taps perform the expected action.
 
-[ ](./#apis)📖 [**Learn more about APIs**](./#apis)
+[ ](./#apis)📖 [**Learn more about APIs**](apis/)
 
 ### Custom Functions
 
 A custom function is similar to an API, but it is reusable logic that you can insert into any other function stack. These are useful if you are implementing similar logic in multiple places, and allows you to build and maintain that logic in a single location.
 
-[ ](./#custom-functions)📖 [**Learn more about custom functions**](./#custom-functions)
+[ ](./#custom-functions)📖 [**Learn more about custom functions**](../functions/custom-functions.md)
 
 ### Background Tasks
 
 A background task is a workflow that runs automatically based on a schedule that you define.
 
-[ ](./#background-tasks)📖 [**Learn more about background tasks**](./#background-tasks)
+[ ](./#background-tasks)📖 [**Learn more about background tasks**](background-tasks.md)
 
 ### Triggers
 
 A trigger is a workflow that runs every time something else happens. Xano supports two different kinds of triggers: **database triggers** and **realtime triggers**. Database triggers run every time a certain change is made in a database table, and realtime triggers run based on events in a realtime channel.
 
-[ ](./#triggers)📖 [**Learn more about triggers**](./#triggers)
+[ ](./#triggers)📖 [**Learn more about triggers**](triggers.md)
 
 ### Middleware
 
 Think of middleware as an extra security guard at the entrance and exit of your other function stacks. You can build and deploy middleware to run either before a function stack, or right before it delivers a response. This is useful for things like input or output sanitization, custom error logging, security, and more.
 
-[ ](./#middleware)📖 [**Learn more about middleware**](./#middleware)
+[ ](./#middleware)📖 [**Learn more about middleware**](middleware.md)
 
 ***
 
@@ -97,7 +97,7 @@ You can include a description of the changes you are publishing. Additionally, y
 
 <figure><img src="../../.gitbook/assets/CleanShot 2023-01-03 at 13.06.38@2x.png" alt="" width="375"><figcaption><p>Optionally include a description of the published changes. Also, you may publish other drafts in the workspace at the same time. </p></figcaption></figure>
 
-Once a draft is published, the changes will become live. Meaning if the API endpoint is called from a front-end, the changes will be reflected. Publishing a draft will create a [Schema Version](broken-reference) of the API Endpoint, which allows you to roll back to previously published versions.&#x20;
+Once a draft is published, the changes will become live. Meaning if the API endpoint is called from a front-end, the changes will be reflected. Publishing a draft will create a new version of the API Endpoint, which allows you to roll back to previously published versions.&#x20;
 
 **How do I know if I have drafts to publish?**
 

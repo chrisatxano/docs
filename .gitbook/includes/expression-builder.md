@@ -33,8 +33,8 @@ Please note that operators may differ based on where you are building the expres
 * **DOES NOT INCLUDE** - Used for comparing text. Does not include determines if a text string is not included in another text string.
 * **IN** - If a single value is found in an array (list). Start with the single value on the left side and the right side should contain the array.&#x20;
 * **NOT IN** - If a single value is not found in an array (list). The single value should be on the left side and the array on the right side.&#x20;
-* **REGEX MATCHES** - [Regular Expression](broken-reference) used for finding patterns in text.
-* **REGEX DOES NOT MATCH** - [Regular Expression](broken-reference) used for finding a pattern that does not match in text.
+* **REGEX MATCHES** - [Regular Expression](https://regex101.com/) used for finding patterns in text.
+* **REGEX DOES NOT MATCH** - [Regular Expression](https://regex101.com/) used for finding a pattern that does not match in text.
 * **OVERLAPS** - Used for comparing two arrays. Overlaps determines if any values in one array are present in the second array.&#x20;
 * **DOES NOT OVERLAP** - Used for comparing two arrays. Does not overlaps determines if no values in the first array are present in the second array.
 * **CONTAINS** - Contains is an advanced filter used for JSON and arrays. It looks for an exact schema match.

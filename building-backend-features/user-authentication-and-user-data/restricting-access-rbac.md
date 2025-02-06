@@ -38,7 +38,7 @@ If the precondition is met, then the user who is the requester will have permiss
 
 [Extras](broken-reference) allow you to store data within the authentication token, which you can access and use on authenticated API endpoints.&#x20;
 
-First, you must set up the [sign-up & login](broken-reference) to include the user's role at the time of authentication.&#x20;
+First, you must set up the [sign-up & login](./) to include the user's role at the time of authentication.&#x20;
 
 In this example, we will use the login endpoint to pass the user's role into extras of the auth token at the time of authentication.&#x20;
 
@@ -50,6 +50,4 @@ Now that the user's role is passed into the authToken, we can eliminate the Get 
 
 <figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption><p>Set extras.role (as defined in the creation of the authentication token) equal to admin.</p></figcaption></figure>
 
-If the user's role is equal to admin then they will pass the precondition and have permission to execute the rest of the Function Stack.&#x20;
-
-_**\*NOTE: The quick authToken look-up will not include extras as defined in your sign-up and login API endpoints. This is because it does not mimic actual sign-up and login but is a convenient look-up of a valid authentication token and is for testing purposes. To test an authToken with valid extras you must run one of the endpoints, copy the resulting authToken, and paste it into the header of the API endpoint you wish to use extras with.**_&#x20;
+If the user's role is equal to admin then they will pass the precondition and have permission to execute the rest of the Function Stack. &#x20;

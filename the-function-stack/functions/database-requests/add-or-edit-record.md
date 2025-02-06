@@ -29,4 +29,3 @@ You need to tell Xano which record you want to edit by providing a field\_name a
 {% endtab %}
 {% endtabs %}
 
-u

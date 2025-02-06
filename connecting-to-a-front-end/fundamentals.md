@@ -14,7 +14,7 @@ When you build APIs in Xano, each API has an **endpoint URL** which your fronten
 
 Some frontends might support connecting to your Xano database directly, eliminating the need for any API endpoints — however, this typically only facilitates simple tasks like adding, updating, and changing data.
 
-:blue\_book: [**Read more about direct database connections**](../xano-features/infrastructure/direct-database-connector.md)
+:blue\_book: [**Read more about direct database connections**](../xano-features/instance-settings/direct-database-connector.md)
 
 ### Metadata API
 

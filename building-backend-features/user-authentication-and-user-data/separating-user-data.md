@@ -2,7 +2,7 @@
 
 Separating and restricting access to data are two common features of building a backend. Separating data is crucial for multi-tenant systems. It means that even though all your users have data in the same table, they are only able to see and access the data that belongs to them.&#x20;
 
-[Restricting Access](broken-reference) (Role-Based Access Control) takes this to another level if, for example, there are special roles assigned to users like an admin who may have permission to access more data than a standard user. You can read more on restricting access or RBAC by clicking the link at the beginning of this paragraph.&#x20;
+[Restricting Access](restricting-access-rbac.md) (Role-Based Access Control) takes this to another level if, for example, there are special roles assigned to users like an admin who may have permission to access more data than a standard user. You can read more on restricting access or RBAC by clicking the link at the beginning of this paragraph.&#x20;
 
 {% embed url="https://youtu.be/ohL2vR5wp3o" %}
 
@@ -18,11 +18,11 @@ There is also an items table. Each item belongs to a user.
 
 #### How to enforce a user only sees the items that belongs to them
 
-Here we have an API endpoint, which gets all the items from the items table. The first step is to require user [authentication](broken-reference) on the endpoint.
+Here we have an API endpoint, which gets all the items from the items table. The first step is to require user [authentication](./) on the endpoint.
 
 ![Require authentication for the API endpoint.](<../../.gitbook/assets/CleanShot 2022-04-25 at 15.09.05.png>)
 
-Now that authentication is required, the next step is to open the [Query All Records](broken-reference) function and add an expression to the by custom query section.
+Now that authentication is required, the next step is to open the [Query All Records](../../the-function-stack/functions/database-requests/query-all-records/) function and add an expression to the by custom query section.
 
 ```
 WHERE
@@ -33,7 +33,7 @@ db: items.user_id = auth id
 
 ![Filter the record where the user\_id must be equal to the auth id.](<../../.gitbook/assets/CleanShot 2022-04-25 at 15.14.44.png>)
 
-When we go to run the API endpoint in Run\&Debug, an auth token is required to run the API. In Xano, we can easily search for a user to use a auth token for testing. In your application, the user will need to [authenticate](broken-reference) first by logging in or signing up.
+When we go to run the API endpoint in Run\&Debug, an auth token is required to run the API. In Xano, we can easily search for a user to use a auth token for testing. In your application, the user will need to [authenticate](./) first by logging in or signing up.
 
 Let's select user 2, Klay and run the API endpoint:
 

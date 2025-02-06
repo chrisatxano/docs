@@ -166,14 +166,13 @@
 ## Xano Features
 
 * [Snippets](xano-features/snippets.md)
-* [Infrastructure](xano-features/infrastructure/README.md)
-  * [Static IP](xano-features/infrastructure/static-ip.md)
-  * [Direct Database Connector](xano-features/infrastructure/direct-database-connector.md)
-  * [Server Region](xano-features/infrastructure/server-region.md)
-  * [Custom Domain](xano-features/infrastructure/custom-domain.md)
-  * [Backup and Restore](xano-features/infrastructure/backup-and-restore.md)
+* [Instance Settings](xano-features/instance-settings/README.md)
+  * [Release Track Preferences](xano-features/instance-settings/release-track-preferences.md)
+  * [Static IP (Outgoing)](xano-features/instance-settings/static-ip-outgoing.md)
+  * [Change Server Region](xano-features/instance-settings/change-server-region.md)
+  * [Direct Database Connector](xano-features/instance-settings/direct-database-connector.md)
+  * [Backup and Restore](xano-features/instance-settings/backup-and-restore.md)
 * [Advanced Back-end Features](xano-features/advanced-back-end-features/README.md)
-  * [Static IP](xano-features/advanced-back-end-features/static-ip.md)
   * [Xano Link](xano-features/advanced-back-end-features/xano-link.md)
   * [Developer API (Deprecated)](xano-features/advanced-back-end-features/developer-api-deprecated.md)
 * [Metadata API](xano-features/metadata-api/README.md)
@@ -203,10 +202,8 @@
 
 * [Realtime Collaboration](team-collaboration/realtime-collaboration.md)
 * [Managing Team Members](team-collaboration/managing-team-members.md)
-* [User Presence](team-collaboration/user-presence.md)
 * [Branching & Merging](team-collaboration/branching-and-merging.md)
 * [Role-based Access Control (RBAC)](team-collaboration/role-based-access-control-rbac.md)
-* [Activity Monitoring](team-collaboration/activity-monitoring.md)
 
 ## Agencies
 
@@ -234,10 +231,6 @@
 
 * [Account Page](your-xano-account/account-page.md)
 * [Billing](your-xano-account/billing.md)
-* [Instance Settings](your-xano-account/instance-settings/README.md)
-  * [Release Track Preferences](your-xano-account/instance-settings/release-track-preferences.md)
-  * [Static IP (Outgoing)](your-xano-account/instance-settings/static-ip-outgoing.md)
-  * [Change Server Region](your-xano-account/instance-settings/change-server-region.md)
 * [Referrals & Commissions](your-xano-account/referrals-and-commissions.md)
 
 ## Troubleshooting & Support

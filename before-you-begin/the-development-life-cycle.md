@@ -1,8 +1,8 @@
 ---
+icon: recycle
 description: >-
   Learn more about the fundamentals of application development and the software
   development life cycle.
-icon: recycle
 ---
 
 # The Development Life Cycle
@@ -47,11 +47,11 @@ With a solid foundation to work with, this phase is where the actual development
 
 Xano helps accelerate this stage with features like:
 
-* [Generation of API CRUD Operations](https://docs.xano.com/api/the-basics/crud-operations)
-* [Auto-Documentation](https://docs.xano.com/api/auto-documentation)
-* [Real-time Collaboration](https://docs.xano.com/team-collaboration/real-time-collaboration)
+* [Generation of API CRUD Operations](../the-function-stack/building-with-visual-development/apis/)
+* [Auto-Documentation](../the-function-stack/building-with-visual-development/apis/swagger-openapi-documentation.md)
+* [Real-time Collaboration](broken-reference)
 
-If you're working with a team, you can leverage Xano features like [real-time collaboration](https://docs.xano.com/team-collaboration/real-time-collaboration) to seamlessly work within the same workspace, or create [Branches and Merge](https://docs.xano.com/api/branches-and-merging) them in when you're ready to move to the testing phase.
+If you're working with a team, you can leverage Xano features like [real-time collaboration](broken-reference) to seamlessly work within the same workspace, or create [Branches and Merge](../team-collaboration/branching-and-merging.md) them in when you're ready to move to the testing phase.
 
 </details>
 

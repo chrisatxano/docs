@@ -2,21 +2,21 @@
 
 Security functions are a mix of helper functions and cryptography/encryption functions to bring added security to your function stack and application.
 
-* [**UUID**](https://docs.xano.com/working-with-data/functions/security#uuid) - Generate a globally unique identifier.
-* [**Create Authentication** **Token**](https://docs.xano.com/working-with-data/functions/security#create-authentication-token) - Create a Token used for Authentication.
-* [**Validate (Check) Password**](https://docs.xano.com/working-with-data/functions/security#validate-check-password) - Validate a match against a hashed password.
-* [**Generate Password**](https://docs.xano.com/working-with-data/functions/security#generate-password) - Generate a password.
-* [**Random Number**](https://docs.xano.com/working-with-data/functions/security#random-number) - Generate a random number
-* [**Create Secret Key**](https://docs.xano.com/working-with-data/functions/security#create-secret-key) - Create a secret key.
-* [**Create RSA Secret**](https://docs.xano.com/working-with-data/functions/security#create-rsa-secret) - Create a RSA secret.
-* [**Create Elliptic Curve Key**](https://docs.xano.com/working-with-data/functions/security#create-elliptic-curve-key) - Create Elliptic Curve key.
-* [**JWE Encode**](https://docs.xano.com/working-with-data/functions/security#jwe-encode) - Encode a payload as a JWS token.
-* [**JWE Decode**](https://docs.xano.com/working-with-data/functions/security#jwe-decode) - Decode a JWE token.
-* [**JWS Encode**](https://docs.xano.com/working-with-data/functions/security#jws-decode) - Encode a payload as a JWS token.
-* [**JWS Decode**](https://docs.xano.com/working-with-data/functions/security#jws-decode) - Decode a JWS token.
-* [**Encrypt**](https://docs.xano.com/working-with-data/functions/security#encrypt) - Encrypt a payload as raw binary data.
-* [**Decrypt**](https://docs.xano.com/working-with-data/functions/security#decrypt) - Decrypt a payload to its original form.
-* [**Examples and additional content**](https://docs.xano.com/working-with-data/functions/security#examples)
+* [**UUID**](security.md#uuid) - Generate a globally unique identifier.
+* [**Create Authentication** **Token**](security.md#create-authentication-token) - Create a Token used for Authentication.
+* [**Validate (Check) Password**](security.md#validate-check-password) - Validate a match against a hashed password.
+* [**Generate Password**](security.md#generate-password) - Generate a password.
+* [**Random Number**](security.md#random-number) - Generate a random number
+* [**Create Secret Key**](security.md#create-secret-key) - Create a secret key.
+* [**Create RSA Secret**](security.md#create-rsa-secret) - Create a RSA secret.
+* [**Create Elliptic Curve Key**](security.md#create-elliptic-curve-key) - Create Elliptic Curve key.
+* [**JWE Encode**](security.md#jwe-encode) - Encode a payload as a JWS token.
+* [**JWE Decode**](security.md#jwe-decode) - Decode a JWE token.
+* [**JWS Encode**](security.md#jws-encode) - Encode a payload as a JWS token.
+* [**JWS Decode**](security.md#jws-decode) - Decode a JWS token.
+* [**Encrypt**](security.md#encrypt) - Encrypt a payload as raw binary data.
+* [**Decrypt**](security.md#decrypt) - Decrypt a payload to its original form.
+* [**Examples and additional content**](security.md#examples)
 
 #### **UUID** <a href="#uuid" id="uuid"></a>
 
@@ -30,7 +30,7 @@ Create a Token used for Authentication. Authentication is an important concept i
 
 * **dbtable**: Refers to a database table that has authentication enabled. Select the table you wish to authenticate against
 * **id**: The ID to be stored in the token. Typically, this is a user ID, which you will get from a user record.
-* **extras**: Extras allow you to store additional data in the authentication token. An example of this may be a user's role. Use the SET filter to define a path and the value of the extra. [Read more about extras](https://docs.xano.com/building-features/authentication-sign-up-and-log-in/authentication#extras).
+* **extras**: Extras allow you to store additional data in the authentication token. An example of this may be a user's role. Use the SET filter to define a path and the value of the extra. [Read more about extras](../../building-backend-features/user-authentication-and-user-data/#extras).
 * **expiration**: The amount of time, in seconds, the authentication token will last. You can set this to a very large number if you don't plan on having the token expire.
 * **Return variable:** Contains the output of the created authentication token.
 

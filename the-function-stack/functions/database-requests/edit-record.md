@@ -24,4 +24,3 @@ Edit the contents of an existing record.
 {% endtab %}
 {% endtabs %}
 
-u

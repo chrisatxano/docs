@@ -27,7 +27,7 @@ Browse is a straightforward approach to getting API Request History. The require
 
 Search workspace history allows for granular filtering and sorting of a workspace's API Request History.
 
-Request History is similar to [content search](broken-reference), except instead of fields for searching and filtering, request history uses the same options from the Xano dashboard.
+Request History is similar to [content search](content.md#search-and-browse-content), except instead of fields for searching and filtering, request history uses the same options from the Xano dashboard.
 
 * duration - duration of an API request, in seconds.
 * status - the status code.

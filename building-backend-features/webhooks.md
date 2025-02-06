@@ -6,13 +6,13 @@ Simply put, **Webhooks are ways for your online accounts to "speak" to one anoth
 
 ### How to set up an API endpoint to be a Webhook
 
-Webhooks always use the [POST](broken-reference) API Verb since the other services are "Sending/Posting Data" to your Webhook endpoint. In order to receive the response from a webhook,  the very first function in your Function stack should be [Get All Raw Input](broken-reference), as shown below.
+Webhooks always use the POST API Verb since the other services are "Sending/Posting Data" to your Webhook endpoint. In order to receive the response from a webhook,  the very first function in your Function stack should be [Get All Raw Input](../the-function-stack/functions/utility-functions.md#get-all-raw-input), as shown below.
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### How do I preview the response from a Webhook?
 
-You can use the [Request History](broken-reference) to see the response of a Webhook. This is important to do because it will help you create the logic in your function stack based on the data being sent. You can see how to access the Request History to view the response of a Webhook in the tutorial below.
+You can use the [Request History](../maintenance-monitoring-and-logging/request-history.md) to see the response of a Webhook. This is important to do because it will help you create the logic in your function stack based on the data being sent. You can see how to access the Request History to view the response of a Webhook in the tutorial below.
 
 ### A practical example of how to use a Webhook with Typeform
 
