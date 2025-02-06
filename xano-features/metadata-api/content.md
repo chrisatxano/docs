@@ -68,6 +68,6 @@ This action cannot be done and will result in the loss of content (records).
 
 To see examples of getting content via browse and search please visit the next page:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="search.md" %}
+[search.md](search.md)
 {% endcontent-ref %}

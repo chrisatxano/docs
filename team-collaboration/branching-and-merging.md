@@ -66,7 +66,7 @@ You can access a different branch by adding :branch name after the canonical:
 https://xb17-511e-40b9.xano.io/api:b4afb8:v2/tutorial
 ```
 
-You can also use a [Set Http Header](broken-reference) function, to set the X-Branch header followed by the Branch name. For example:
+You can also use a [Set Http Header](../the-function-stack/functions/utility-functions.md#http-header) function, to set the X-Branch header followed by the Branch name. For example:
 
 ```
 X-Branch: v2

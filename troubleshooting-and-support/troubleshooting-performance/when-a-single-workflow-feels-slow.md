@@ -76,27 +76,23 @@ If you do not provide all of the information listed above, your support request 
 
 **Workspace name**:
 
-![You can find the name of your workspace at the top of the navigation bar.](<../../.gitbook/assets/Untitled presentation (16).png>)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 09.59.00.png" alt=""><figcaption></figcaption></figure>
 
 **API Endpoint** **URL** that is slow:
 
-
-
-![](https://lh4.googleusercontent.com/_QMvAAfnDsO0Nt8t4TJMkqSKO_lkqjc06KO_RwDGdoxlTcnXoRjR_sdnUG8Idh26BMU3XzPcemYS7UgDwE1OB5PFQ2r4X9pmCLW-XOCvxN3X1tV3yEjLzjlO6UYPB0zTX93avF9KJbvNXZB82BLPUtw)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 09.59.41.png" alt=""><figcaption></figcaption></figure>
 
 **JSON data payload** (if you are passing data to the API endpoint):
 
-![Please provide a valid JSON payload if you send data to the endpoint.](<../../.gitbook/assets/Untitled presentation (19).png>)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 10.00.37.png" alt=""><figcaption></figcaption></figure>
 
-**User ID or email address** (if the endpoint requires Authentication):
-
-![Please provide a valid user ID or email address if the endpoint requires authentication. You can retrieve that information from the user table or on the API endpoint like so.](<../../.gitbook/assets/Untitled presentation (18).png>)
+**User ID or email address** (if the endpoint requires Authentication)
 
 
 
 ### What to Expect
 
-Due to the complex nature of these requests, it can take an extended period for us to work together with you to diagnose and resolve these issues. Expect to budget **at least** **two to three weeks** to support these specific requests. We do have [priority support packages](broken-reference) available if this is not sufficient for you.
+Due to the complex nature of these requests, it can take an extended period for us to work together with you to diagnose and resolve these issues. Expect to budget **at least** **two to three weeks** to support these specific requests. We do have [priority support packages](../getting-help/#premium-support) available if this is not sufficient for you.
 
 The team will review with you the actions you have already taken as detailed in our above, and make any recommendations for additional efficiency. Please understand that every Xano plan has its limits, and our ultimate recommendation may be to [upgrade](broken-reference) to a higher tier plan, but we will do everything we can to address outstanding issues before this.
 
@@ -105,5 +101,5 @@ The team will review with you the actions you have already taken as detailed in 
 We understand that sometimes waiting isn’t an option. There are multiple other avenues that you can take to get support with Xano.
 
 * **The Xano Community** ([community.xano.com](https://community.xano.com))
-* **Xano Development Partners** - We have Xano partners that we can connect you with if you would like direct help developing in Xano. If you would like to enlist a Xano Development Partner, please [fill out this form](https://forms.monday.com/forms/1b0b1daa743d0f865899dc6af85adf9a).&#x20;
+* **Xano Development Partners** - We have Xano partners that we can connect you with if you would like direct help developing in Xano. If you would like to enlist a Xano Development Partner, please [fill out this form](https://xano.com/marketplace).&#x20;
 * **Connect With Xano Experts** - Create a post in the [Find an Expert](https://community.xano.com/categories/find-an-expert) category of the Community. Some members of the Community have a Trusted Xano Expert title. These members have been recognized by the Xano team to give great advice and support, however, they are not directly affiliated with Xano. These members may provide paid support services, which are also not affiliated with Xano in any way.

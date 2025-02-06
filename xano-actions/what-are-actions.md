@@ -32,8 +32,6 @@ Zero-dependency means Actions do not contain:
 _\*Settings registry is available for actions for API keys and other sensitive tokens or keys._
 {% endhint %}
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Using Actions</strong></td><td>Learn more about how to use Xano Actions</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Scoped Functions</strong></td><td>Once you know the basics, dive deeper into Scoped Functions</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Settings Registry</strong></td><td>Finally, take a look at the Settings Registry, a crucial element to interacting with external services via Actions</td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
-
 ### Creating an Action
 
 <div align="left"><figure><img src="../.gitbook/assets/CleanShot 2024-10-10 at 09.52.49@2x.png" alt="" width="375"><figcaption></figcaption></figure></div>

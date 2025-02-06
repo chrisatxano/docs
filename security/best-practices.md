@@ -30,7 +30,7 @@ Password requirements for Single Sign-On (SSO) are managed by the SSO provider.&
 
 Two-factor authentication (2FA) security, or two-step authentication, can be enabled for logging in to a Xano account. 2FA security requires the use of two different forms of identification to access and authenticate an account. It is an extra layer of security beyond email and password credentials that secures an account by requiring an authentication step from something that belongs to the user.&#x20;
 
-2FA security can be enabled from the account page of a Xano account. [Learn how to enable 2FA](broken-reference).
+2FA security can be enabled from the account page of a Xano account. [Learn how to enable 2FA](../your-xano-account/account-page.md#enabling-2fa-two-factor-authentication).
 
 ### Inactivity Timeout
 

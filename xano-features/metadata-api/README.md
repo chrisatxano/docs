@@ -49,7 +49,7 @@ https://app.xano.com/api:meta
 
 The Metadata API requires a Personal Access Token to authenticate.&#x20;
 
-You can create up to 10 Personal Access Tokens, which can be given different [scopes](./#scopes) to create, read, update, or delete via the Metadata API. Personal Access Tokens will also obey permissions from [RBAC](broken-reference) settings (premium add-on). For example, if you don't have access to the database via RBAC then neither will your Personal Access Token. A read-only scope is available, which is especially useful for a 3rd party application you want to give access to but need to restrict edits, deleting, or creating content.&#x20;
+You can create up to 10 Personal Access Tokens, which can be given different [scopes](./#scopes) to create, read, update, or delete via the Metadata API. Personal Access Tokens will also obey permissions from [RBAC](../../team-collaboration/role-based-access-control-rbac.md) settings (premium add-on). For example, if you don't have access to the database via RBAC then neither will your Personal Access Token. A read-only scope is available, which is especially useful for a 3rd party application you want to give access to but need to restrict edits, deleting, or creating content.&#x20;
 
 {% hint style="warning" %}
 Personal Access Tokens represent your account. Make sure use the appropriate [scopes](./#scopes) are used. Do not give out Personal Access Tokens without ensuring proper intent for them to be used.
@@ -159,19 +159,3 @@ Creates the various schema types available for a workspace table.
 Reads, updates, and deletes the schema of a database table.
 
 <figure><img src="../../.gitbook/assets/CleanShot 2023-04-11 at 19.06.10@2x.png" alt=""><figcaption></figcaption></figure>
-
-## Examples
-
-The following subpages are various examples of how to leverage the Metadata API.
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}

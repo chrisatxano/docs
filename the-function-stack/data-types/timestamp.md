@@ -42,8 +42,8 @@ The database table view is using the unix timestamp internally but transforming 
   (Note: a space is used to separate the date from the time instead of the “T” character in ISO 8601. Also, the offset does not include the colon.)
 * **Relative time**. Xano uses relative time [formats](https://www.php.net/manual/en/datetime.formats.php#datetime.formats.relative) from php.net[.](https://www.php.net/manual/en/datetime.formats.php#datetime.formats.relative) For example: \
   now, last Monday, +7 days, etc. \
-  (Relative times normally don’t have any timezone information, so it will often be important to reference the timezone in any type of [filter](broken-reference).)
-* **Parse Timestamp** the parse\_timestamp [filter](broken-reference) allows you to take a human-readable time format and parse it into a Unix timestamp in milliseconds to be stored in the Xano database. The characters used are the same as formatting date and time and can be found [here from php.net](https://www.php.net/manual/en/datetime.format.php).
+  (Relative times normally don’t have any timezone information, so it will often be important to reference the timezone in any type of [filter](../filters/timestamp.md#parse_timestamp).)
+* **Parse Timestamp** the parse\_timestamp [filter](../filters/timestamp.md#parse_timestamp) allows you to take a human-readable time format and parse it into a Unix timestamp in milliseconds to be stored in the Xano database. The characters used are the same as formatting date and time and can be found [here from php.net](https://www.php.net/manual/en/datetime.format.php).
 
 ### **What are my options with formatting date and time?**
 

@@ -36,7 +36,7 @@ If the precondition is met, then the user who is the requester will have permiss
 
 #### RBAC Example 2: Use Extras
 
-[Extras](broken-reference) allow you to store data within the authentication token, which you can access and use on authenticated API endpoints.&#x20;
+[Extras](./#extras) allow you to store data within the authentication token, which you can access and use on authenticated API endpoints.&#x20;
 
 First, you must set up the [sign-up & login](./) to include the user's role at the time of authentication.&#x20;
 

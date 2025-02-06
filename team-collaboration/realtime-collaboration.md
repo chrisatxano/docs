@@ -39,7 +39,7 @@ This also exists in the database view. Quickly see exactly what each team member
 
 **Revision History**
 
-As your team members make changes, you can see these drafts by clicking the Revertable Changes indicator at the top of the page. You can see a history of changes your team members have made in [**Drafts**](broken-reference).
+As your team members make changes, you can see these drafts by clicking the Revertable Changes indicator at the top of the page. You can see a history of changes your team members have made in [**Drafts**](../the-function-stack/building-with-visual-development/#creating-a-draft).
 
 <figure><img src="../.gitbook/assets/CleanShot 2023-01-03 at 16.36.18@2x.png" alt=""><figcaption><p>An example of revertable changes on a function stack</p></figcaption></figure>
 

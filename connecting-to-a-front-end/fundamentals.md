@@ -20,7 +20,7 @@ Some frontends might support connecting to your Xano database directly, eliminat
 
 The Metadata API is a set of API endpoints that Xano provides, enabling you to programmatically manage data inside of your workspaces, including retrieving information about tables, table data, and API endpoints. Some frontends utilize this method to facilitate the connection between itself and Xano, providing an easier way to utilize your Xano APIs with that platform.
 
-:blue\_book: [**Read more about the Metadata API**](broken-reference)
+:blue\_book: [**Read more about the Metadata API**](../xano-features/metadata-api/)
 
 ## How do I choose the right frontend?
 

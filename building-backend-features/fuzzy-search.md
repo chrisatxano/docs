@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Fuzzy Search
 
 Xano offers robust search capabilities, commonly referred to as _fuzzy search_, that you can utilize while querying records in a function stack. This includes normalization of words (ie. party vs parties), case-insensitive support, flexible expressions (words, phrases, and negations), and weighted priorities (ie. title vs description) for relevance.
@@ -14,7 +10,7 @@ The following demonstrates how to set up search in your database, the logic behi
 
 ### **Creating a Search Index**
 
-First, create an [index](broken-reference). Indexes are used to quickly locate data without having to search every row in a database table every time a database table is accessed. An index is used to define which fields of the database table you want to search. You can even build multiple search indexes on the same table to build different search criteria. For example, if you have both public and private data in the same table, you can build a "normal user" and an "administrator" search.
+First, create an [index](../the-database/database-performance-and-maintenance/indexing.md). Indexes are used to quickly locate data without having to search every row in a database table every time a database table is accessed. An index is used to define which fields of the database table you want to search. You can even build multiple search indexes on the same table to build different search criteria. For example, if you have both public and private data in the same table, you can build a "normal user" and an "administrator" search.
 
 To create an index, click **Indexes** at the top of the table you would like to build search for, and then click **Create Index.**
 
@@ -30,7 +26,7 @@ Once ready, click **Save** and Xano will build your index. This can take a few m
 
 ### Building a Search API
 
-After generating the index, it can be implemented it into a query in the function stack. Use the **Custom Query** feature in the **Filter** tab of the [**Query All Records**](broken-reference) function.&#x20;
+After generating the index, it can be implemented it into a query in the function stack. Use the **Custom Query** feature in the **Filter** tab of the [**Query All Records**](../the-function-stack/functions/database-requests/query-all-records/) function.&#x20;
 
 When adding a custom query, the newly created index is available in the expression builder, noted by the **$** symbol. It is also labeled as _search_ underneath the name.
 

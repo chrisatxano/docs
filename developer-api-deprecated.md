@@ -5,7 +5,7 @@ hidden: true
 # Developer API (Deprecated)
 
 {% hint style="warning" %}
-The Developer API is deprecated. Please see the [Metadata API (beta)](broken-reference) for the newest solution.
+The Developer API is deprecated. Please see the [Metadata API (beta)](xano-features/metadata-api/) for the newest solution.
 {% endhint %}
 
 {% embed url="https://youtu.be/sN8JK1L57bI" %}

@@ -12,7 +12,7 @@ Securing your Realtime channels is a multi-step process, and is not always solel
 
 * Setting the proper channel permissions for your use case
 * Using nested channels to separate data
-* Using [Realtime Triggers](broken-reference) to act as a primary or secondary measure to block messages from being sent to the channel
+* Using [Realtime Triggers](../the-function-stack/building-with-visual-development/triggers.md) to act as a primary or secondary measure to block messages from being sent to the channel
 * Generating separate authentication tokens for connecting to the realtime server
 * Obfuscating the implementation on your front-end, and ensuring that channel creation is handled properly
 
@@ -78,7 +78,7 @@ Using the list of permissions on this page, determine the correct set of permiss
 
 Triggers are function stacks that can run when messages or events are sent to the channel(s) impacted by these permissions. You need to first save your changes to enable adding triggers when creating new permissions.
 
-For more information about Realtime Triggers, see [this section](broken-reference) of our documentation.
+For more information about Realtime Triggers, see [this section](../the-function-stack/building-with-visual-development/triggers.md) of our documentation.
 
 ## Permission Examples
 

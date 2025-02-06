@@ -6,7 +6,7 @@ At this time, Static IP is only available for instances in the United States, Sa
 
 Static IP address is available on any paid plan address for outgoing API requests. This is commonly required by 3rd party API providers requiring an IP whitelist.
 
-Your static IP will only apply to outgoing requests -- meaning requests you make to third-party APIs using the [External API Request](broken-reference) function.
+Your static IP will only apply to outgoing requests -- meaning requests you make to third-party APIs using the [External API Request](../../the-function-stack/functions/apis-and-lambdas/external-api-request.md) function.
 
 ### How to Enable Static IP
 
