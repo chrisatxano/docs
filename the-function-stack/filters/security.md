@@ -6,19 +6,19 @@
 * [**hmac\_md5**](security.md#hmac_md5) **-** Returns a MD5 signature representation of the value using a shared secret via the HMAC method
 * [**hmac\_sha1**](security.md#hmac_sha1) **-** Returns a SHA1 signature representation of the value using a shared secret via the HMAC method
 * [**hmac\_sha256**](security.md#hmac_sha256)[ **/ hmac\_sha384 / hmac\_sha512**](security.md#hmac_sha256) **-** Returns a SHA256/384/512 signature representation of the value using a shared secret via the HMAC method
-* [**jwe\_decode**](security.md#jwe_decode) **-** Decodes the value represented as JWE token and returns the original payload.
-* [**jwe\_encode**](security.md#jwe_encode) **-** Encodes the value and returns the result as a JWE token.
+* [**jwe\_decode**](security.md#jwe_encode-jwe_decode) **-** Decodes the value represented as JWE token and returns the original payload.
+* [**jwe\_encode**](security.md#jwe_encode-jwe_decode) **-** Encodes the value and returns the result as a JWE token.
 * [**md5**](security.md#md5) **-** Returns an MD5 signature representation of the value.
 * [**secureid\_decode**](security.md#secureid_decode) **-** Returns the id of the original encode.
 * [**secureid\_encode**](security.md#secureid_encode) **-** Returns an encrypted version of the id.
-* [**sha1**](security.md#sha1) **-** Returns a SHA1 signature representation of the value.
-* [**sha256 / sha384 / sha512**](security.md#sha256) **-** Returns a SHA256/384/512 signature representation of the value.
+* [**sha1**](security.md#sha1-sha256-sha384-sha512) **-** Returns a SHA1 signature representation of the value.
+* [**sha256 / sha384 / sha512**](security.md#sha1-sha256-sha384-sha512) **-** Returns a SHA256/384/512 signature representation of the value.
 
 #### create\_uid:
 
 Returns a unique 64bit unsigned int value seeded off the value.
 
-![In this example, the variable crypto becomes 3612171568446766000.](../../.gitbook/assets/Screenshot_2020-07-02_22-28-00.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.09.41.png" alt=""><figcaption></figcaption></figure>
 
 #### decrypt:
 
@@ -39,7 +39,7 @@ Encrypts the value and returns the result in raw binary form. Find more details 
 Returns a MD5 signature representation of the value using a shared secret via the HMAC method.\
 The secret key is a unique piece of information that is used to compute the HMAC and is known both by the sender and the receiver of the message. This key will vary in length depending on the algorithm that you use.
 
-![In this example, the variable var\_1 becomes 0ea035295cb4a89735c302776b3689446bf2d7af.](https://mrkr.io/s/60106a183d1d3d26b1257435/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.13.17.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -48,28 +48,28 @@ The secret key is a unique piece of information that is used to compute the HMAC
 Returns a SHA1 signature representation of the value using a shared secret via the HMAC method.\
 The secret key is a unique piece of information that is used to compute the HMAC and is known both by the sender and the receiver of the message. This key will vary in length depending on the algorithm that you use.
 
-![In this example, the variable var\_1 becomes 0ea035295cb4a89735c302776b3689446bf2d7af.](https://mrkr.io/s/60106ad28c857726544861db/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.14.05.png" alt=""><figcaption></figcaption></figure>
 
 #### hmac\_sha256 / hmac384 / hmac512
 
 Returns a SHA256/384/512 signature representation of the value using a shared secret via the HMAC method.\
 The secret key is a unique piece of information that is used to compute the HMAC and is known both by the sender and the receiver of the message. This key will vary in length depending on the algorithm that you use.
 
-![In this example, the variable var\_1 becomes 734aeac141e3a20937ccc918179b4e200f38ff58726432efb82717799d86c880.](https://mrkr.io/s/60106b7916169730cbfbb0cd/0)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.14.55.png" alt=""><figcaption></figcaption></figure>
 
-#### jwe\_decode:
-
-Decodes the value represented as JWE token and returns the original payload.
-
-![In this example, we use the JWE token that was encoded below and decoded it back to 456.](../../.gitbook/assets/jwedecode.png)
-
-
-
-#### jwe\_encode
+#### jwe\_encode / jwe\_decode:
 
 Encodes the value and returns the result as a JWE token.
 
-![In this example, we use the jwe\_encode filter and it returns a JWE token.](../../.gitbook/assets/jweencode.png)
+HEADERS: Any custom headers to include in the JWE token Sample: `{"kid": "12345"}`
+
+KEY: The encryption key for the JWE token Sample: `a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6`
+
+KEY\_ALGORITHM: Choose one of the algorithms used to encode the token.
+
+CONTENT\_ALGORITHM: Choose one of the algorithms used to encode the token.
+
+TTL: Token expiration time in seconds Sample: `3600` (1 hour), `0` means no expiration
 
 
 
@@ -77,28 +77,22 @@ Encodes the value and returns the result as a JWE token.
 
 Returns an MD5 signature representation of the value. A salt value can be added to the text to provide an extra layer of security.
 
-![](../../.gitbook/assets/Screenshot_2020-07-02_22-34-09.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.22.06.png" alt=""><figcaption></figcaption></figure>
 
 #### secureid\_decode
 
 Returns the id of the original encode. If a salt was added to encode this value the same salt needs to be added to decrypt it.
 
-![Example: the variable is the secureid\_encode example with the secureid\_decode filter, it becomes 123456.](../../.gitbook/assets/secureiddecode.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.21.36.png" alt=""><figcaption></figcaption></figure>
 
 #### secureid\_encode
 
-Returns an encrypted version of the id. A salt value can be added to the text to provide an extra layer of security.
+Returns an encrypted version of an integer. A salt value can be added to the text to provide an extra layer of security.
 
-![In this example, the variable is an integer 123456 with the secureid\_encode filter it becomes QWd1cA.1NMF7ukY3mQ.](../../.gitbook/assets/secureidencode.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.20.57.png" alt=""><figcaption></figcaption></figure>
 
-#### sha1
+#### sha1 / sha256 / sha384 / sha512
 
 Returns a SHA1 signature representation of the value. A salt value can be added to the text to provide an extra layer of security.
 
-![](../../.gitbook/assets/sha1.png)
-
-#### sha256 / sha384 / sha512:
-
-Returns a SHA256/384/512 signature representation of the value. A salt value can be added to the text to provide an extra layer of security.
-
-![](../../.gitbook/assets/sha256.png)
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-06 at 11.19.46.png" alt=""><figcaption></figcaption></figure>
