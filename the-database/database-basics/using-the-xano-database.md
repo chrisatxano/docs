@@ -180,6 +180,10 @@ Right-click on the header of a field to access field-related settings and make a
 
 {% hint style="warning" %}
 Please note that renaming a field should be handled with care, as it may impact any function steps that reference that field.
+
+You can click ![](<../../.gitbook/assets/CleanShot 2025-02-10 at 11.18.05.png>) when viewing a database table to open **Referenced By** and view any database operations that utilize that column first to understand where changes need to be made. In the screenshot below, we know we want to update the name column, so we can use **Referenced By** to find where it's used beforehand.
+
+![](<../../.gitbook/assets/CleanShot 2025-02-10 at 11.24.08.png>)
 {% endhint %}
 
 ![](<../../.gitbook/assets/CleanShot 2024-12-15 at 11.50.54.png>) Access field settings (the options detailed earlier in this document)
