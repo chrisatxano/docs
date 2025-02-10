@@ -51,6 +51,7 @@
   * [Triggers](the-function-stack/building-with-visual-development/triggers.md)
   * [Middleware](the-function-stack/building-with-visual-development/middleware.md)
   * [Configuring Expressions](the-function-stack/building-with-visual-development/configuring-expressions.md)
+  * [Working with Data](the-function-stack/building-with-visual-development/working-with-data.md)
 * [Functions](the-function-stack/functions/README.md)
   * [Database Requests](the-function-stack/functions/database-requests/README.md)
     * [Query All Records](the-function-stack/functions/database-requests/query-all-records/README.md)
@@ -107,9 +108,9 @@
   * [Boolean](the-function-stack/data-types/boolean.md)
   * [Timestamp](the-function-stack/data-types/timestamp.md)
   * [Null](the-function-stack/data-types/null.md)
+* [Environment Variables](the-function-stack/environment-variables.md)
 * [Additional Features](the-function-stack/additional-features/README.md)
   * [Response Caching](the-function-stack/additional-features/response-caching.md)
-* [Environment Variables](the-function-stack/environment-variables.md)
 
 ## Testing and Debugging <a href="#testing-debugging" id="testing-debugging"></a>
 

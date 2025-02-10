@@ -1,8 +1,8 @@
 ---
+icon: key
 description: >-
   Get a quick primer on the key concepts and terminology that we use throughout
   the product and documentation to get you started quickly.
-icon: key
 ---
 
 # Key Concepts
@@ -50,6 +50,14 @@ A database is essentially a digital warehouse for information. It's where websit
 ### 🔌 API
 
 {% include "../.gitbook/includes/definition-of-an-api.md" %}
+
+***
+
+## 🏷️ Variables
+
+Variables are like containers or labels that store information you want to use later in a workflow. Think of them as named boxes where you can keep different types of items, such as numbers, words, or lists. You give each box a name so you can easily find and use the information it holds whenever you need it in your project. This makes it simple to update or change the data without needing to rewrite everything.
+
+Variables are temporary and exist only while a workflow is running, used for storing information you need to access quickly, whereas values in a database are like records in a filing cabinet, stored permanently until you decide to update or delete them, accessible across various workflows and sessions. This makes databases ideal for managing large sets of data over time, and variables more appropriate for temporary data handling.
 
 ***
 
