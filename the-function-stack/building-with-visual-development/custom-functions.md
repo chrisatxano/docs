@@ -60,6 +60,30 @@ You'll be able to supply data for any inputs the custom function is expecting he
 
 ***
 
+### Creating Custom Functions from Existing Function Stacks
+
+If you have a function stack that you'd like to convert into a custom function, you can do so in one of the following ways.
+
+{% stepper %}
+{% step %}
+### Convert the entire stack
+
+Click the three dots in the upper-right corner and choose Convert To Function
+
+<div align="left"><figure><img src="../../.gitbook/assets/CleanShot 2025-02-12 at 12.13.55.png" alt=""><figcaption></figcaption></figure></div>
+{% endstep %}
+
+{% step %}
+### Select individual steps to convert to a function
+
+You can select a group of steps and click ![](<../../.gitbook/assets/CleanShot 2025-02-12 at 12.16.11.png>)to convert those steps into a custom function.
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-12 at 12.14.46.gif" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+***
+
 ## Custom Function Settings
 
 ### From the Settings panel
