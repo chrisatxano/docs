@@ -242,6 +242,7 @@
   * [When a single workflow feels slow](troubleshooting-and-support/troubleshooting-performance/when-a-single-workflow-feels-slow.md)
   * [When everything feels slow](troubleshooting-and-support/troubleshooting-performance/when-everything-feels-slow.md)
   * [RAM Usage](troubleshooting-and-support/troubleshooting-performance/ram-usage.md)
+  * [Function Stack Performance](troubleshooting-and-support/troubleshooting-performance/function-stack-performance.md)
 * [Getting Help](troubleshooting-and-support/getting-help/README.md)
   * [Granting Access](troubleshooting-and-support/getting-help/granting-access.md)
   * [Community Code of Conduct](troubleshooting-and-support/getting-help/community-code-of-conduct.md)

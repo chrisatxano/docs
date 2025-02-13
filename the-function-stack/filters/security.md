@@ -1,11 +1,11 @@
 # Security
 
-* [**create\_uid**](security.md#create_uid-1) **-** Returns a unique 64bit unsigned int value seeded off the value.
+* [**create\_uid**](security.md#create_uid) **-** Returns a unique 64bit unsigned int value seeded off the value.
 * [**decrypt**](security.md#decrypt) **-** Decrypts the value and returns the result.
 * [**encrypt**](security.md#encrypt) **-** Encrypts the value and returns the result.
 * [**hmac\_md5**](security.md#hmac_md5) **-** Returns a MD5 signature representation of the value using a shared secret via the HMAC method
 * [**hmac\_sha1**](security.md#hmac_sha1) **-** Returns a SHA1 signature representation of the value using a shared secret via the HMAC method
-* [**hmac\_sha256**](security.md#hmac_sha256)[ **/ hmac\_sha384 / hmac\_sha512**](security.md#hmac_sha256) **-** Returns a SHA256/384/512 signature representation of the value using a shared secret via the HMAC method
+* [**hmac\_sha256**](security.md#hmac_sha256-hmac384-hmac512)[ **/ hmac\_sha384 / hmac\_sha512**](security.md#hmac_sha256-hmac384-hmac512) **-** Returns a SHA256/384/512 signature representation of the value using a shared secret via the HMAC method
 * [**jwe\_decode**](security.md#jwe_encode-jwe_decode) **-** Decodes the value represented as JWE token and returns the original payload.
 * [**jwe\_encode**](security.md#jwe_encode-jwe_decode) **-** Encodes the value and returns the result as a JWE token.
 * [**md5**](security.md#md5) **-** Returns an MD5 signature representation of the value.

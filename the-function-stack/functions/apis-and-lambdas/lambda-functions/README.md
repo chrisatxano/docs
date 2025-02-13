@@ -17,7 +17,7 @@ Lambdas have the ability to reference all the available data just like normal fu
 
 #### Context Variables <a href="#context-variables" id="context-variables"></a>
 
-Depending on how you use a Lambda, you may have support to access some additional variables, known as context variables. These follow the same naming convention as special variables by using a `$` prefix. The most common context variables will be `$this`, `$index`, `$parent`, and `$result`. The meaning of these variables are best described within the examples of the [higher order filters](https://docs.xano.com/working-with-data/lambdas-javascript/higher-order-filters).
+Depending on how you use a Lambda, you may have support to access some additional variables, known as context variables. These follow the same naming convention as special variables by using a `$` prefix. The most common context variables will be `$this`, `$index`, `$parent`, and `$result`. The meaning of these variables are best described within the examples of the [higher order filters](https://docs.xano.com/the-function-stack/filters/transform#lambda-filters).
 
 #### Libraries
 

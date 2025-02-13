@@ -118,7 +118,7 @@ const marvelChannel = this.xanoClient.channel("marvel-chat-room");
 const marvelChannel = this.xanoClient.channel("marvel-chat-room");
 ```
 
-Just like before, we're defining a new variable, this time called **marvelChannel** with c`onst marvelChannel`
+Just like before, we're defining a new variable, this time called **marvelChannel** with `const marvelChannel`
 
 For the value, we are referencing `this.xanoClient`. 'this' refers to the **global object**. Without getting into too much detail, the global object can just be thought of as the entirety of your Javascript code. `channel("marvel-chat-room");` just defines the channel name.
 
@@ -294,8 +294,4 @@ Some strategies you can use to manage connections are:
 * Timing out connections after a certain period of inactivity by sending a Leave event from your front-end
 
 </details>
-
-## Learn More
-
-Hungry for more Realtime? Check out the following sections of documentation for more information.
 

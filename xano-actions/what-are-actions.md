@@ -106,16 +106,6 @@ Make sure to choose the appropriate access level for your Action.
 
 **Unlisted** - This Action will be available to anyone that has the URL, but will not be found when browsing available Actions.
 
-### Scoped Functions
-
-Scoped Functions are an implementation similar to Custom Functions, but usable in Actions. Each Action can have scoped functions defined, allowing you to reuse pieces of logic inside of the Action.
-
-Click the button in the top-right section of the page when building an Action to access scoped functions.
-
-<figure><img src="../.gitbook/assets/CleanShot 2024-10-15 at 21.29.14@2x.png" alt=""><figcaption></figcaption></figure>
-
-You can now build, run, and debug your scoped function just like any other function stack, and use it inside of your Action. The experience is almost identical to our [Custom Functions](../the-function-stack/functions/custom-functions.md) feature.
-
 ### Settings Registry
 
 Because Actions have no dependencies, each Action contains a Settings Registry, which is used in a similar manner to [environment variables](../the-function-stack/environment-variables.md). You will use the Settings Registry for situations where an Action requires an API key or other sensitive data that you need to ensure users of the Action supply without supplying it yourself.

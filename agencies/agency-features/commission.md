@@ -1,6 +1,6 @@
 # Commission
 
-The Agency plan automatically enrolls you in the Xano Partner Program enabling you to earn commission on [client invites](broken-reference).&#x20;
+The Agency plan automatically enrolls you in the Xano Partner Program enabling you to earn commission on [client invites](client-invite.md).&#x20;
 
 Commissions can be viewed only by the owner of the Instance. Commissions are shown in the top right of the Client Dashboard:\
 \

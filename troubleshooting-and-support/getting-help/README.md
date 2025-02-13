@@ -45,7 +45,7 @@ _Participation requires adhering to the_ [_Community Code of Conduct_](broken-re
 
 ## Premium Support
 
-Xano offers improved response times that can be added to any existing paid account. Learn more about them below, and upgrade to any one of them in the [Billing](https://app.xano.com/admin/billing) section of your Xano account.
+Xano offers improved response times that can be added to any existing paid account. Learn more about them below, and upgrade to any one of them in the [Billing](https://app.xano.com/billing) section of your Xano account.
 
 Additionally, a [White House Escalation](./#white-house-emergency-escalation) service is available typically for Enterprise Plans.&#x20;
 

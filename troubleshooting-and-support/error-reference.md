@@ -189,7 +189,7 @@ To resolve this, please check the following:
 
 * Are you targeting a number directly, and is it actually a number?
   * It is possible to store numbers as text strings, and while these are typically interchangeable, in some cases you may find that retaining an integer or decimal data type is necessary. You can apply filters such as **to\_int** or **to\_dec** to change the data type based on your needs
-* Are you using proper [dot notation](broken-reference)?
+* Are you using proper [dot notation](../the-function-stack/building-with-visual-development/#dot-notation)?
   * You might be trying to target a value inside of an object, but are not using proper dot notation to reference that value, or perhaps the value does not exist.
 
 </details>

@@ -2,7 +2,7 @@
 
 One of the unique features of the Agency plan is the ability to transfer ownership of a workspace to a client Instance. This feature may be useful if you need to start development on a client project before the client is on a Xano instance.&#x20;
 
-You are able to start a project in a workspace within your Agency instance. Once the client sets up their instance and links it to your Agency via the [client invite](broken-reference) process, you can perform a transfer of ownership.
+You are able to start a project in a workspace within your Agency instance. Once the client sets up their instance and links it to your Agency via the [client invite](client-invite.md) process, you can perform a transfer of ownership.
 
 The transfer ownership action can be found in the menu icon of the client dashboard.
 

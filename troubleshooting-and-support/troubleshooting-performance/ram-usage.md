@@ -16,7 +16,7 @@ This is something that should be investigated further.
 
 #### Reducing RAM Usage <a href="#reducing-ram-usage" id="reducing-ram-usage"></a>
 
-If you are finding yourself in a situation where you are experiencing symptoms of RAM exhaustion, there are a few things you can to do try and mitigate the situation.CommentIt's important to note that in some cases, when mitigation is not possible, that may signal it's time to upgrade your Xano subscription tier to increase your available RAM. You can always reach out to Xano Support for further clarification.C
+If you are finding yourself in a situation where you are experiencing symptoms of RAM exhaustion, there are a few things you can to do try and mitigate the situation. It's important to note that in some cases, when mitigation is not possible, that may signal it's time to upgrade your Xano subscription tier to increase your available RAM. You can always reach out to Xano Support for further clarification.
 
 **Database RAM**
 
@@ -25,11 +25,8 @@ Spikes in Database RAM can be caused by one or more of the following:
 * Tables that contain fields with large amounts of data, such as JSON payloads or sizable text content
   * Try moving these large fields to a separate table or determining if you can reduce the amount of data stored.
   * Depending on how often the data needs to be accessed, you can also store the large data in text files and store the file path in the table instead.
-*   Table references to other tables with a high number of fields
-
-    * Use the [Auto Complete](../../the-database/database-basics/relationships.md#auto-complete) setting on the referenced table to reduce the amount of data loaded when viewing the table
-
-
+* Table references to other tables with a high number of fields
+  * Use the [Auto Complete](../../the-database/database-basics/relationships.md#auto-complete) setting on the referenced table to reduce the amount of data loaded when viewing the table
 * Running queries with joins on large tables
   * Make sure you are using proper [indexing](../../the-database/database-performance-and-maintenance/indexing.md) on large tables
   * Use pagination on your base query
@@ -47,7 +44,7 @@ Spikes in API RAM can be caused by one or more of the following:
 
 Please note that when using Lambda functions, the contents of **all variables** are loaded into Lambda memory. This is most often the cause of memory issues when using Lambda functions.
 
-Spikes in Lambda RAM can be caused by one or more of the following:Comment
+Spikes in Lambda RAM can be caused by one or more of the following:
 
 * Contents of other variables are too large for the Lambda to handle during processing
 * Using file resources in conjunction with Lambdas

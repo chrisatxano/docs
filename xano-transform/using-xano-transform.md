@@ -440,7 +440,7 @@ The expression data type can be applied to any value input and allows you to per
 
 {% embed url="https://youtu.be/xJweDspuVNo" %}
 
-Please see our full, in-depth documentation on the Expression data type [here](broken-reference).
+Please see our full, in-depth documentation on the Expression data type [here](../the-function-stack/data-types/expression.md).
 
 ***
 
@@ -1101,12 +1101,12 @@ return modifiedProducts;
 
 ### Text vs Expression
 
-The get and set filters parse the path argument using the [Xano expression](broken-reference) syntax. If you have a path that looks like an expression, but needs to be interpreted as text, then wrap it with brackets and quotes.
+The get and set filters parse the path argument using the [Xano expression](../the-function-stack/data-types/expression.md) syntax. If you have a path that looks like an expression, but needs to be interpreted as text, then wrap it with brackets and quotes.
 
 Some 3rd party APIs (like Stripe) rely on dot notation arguments being sent as text and then interpreted on their side. In this scenario, it is important to wrap them with the bracket syntax below using double quotation marks.
 
 {% hint style="info" %}
-The [Import cURL](broken-reference) feature has been updated to properly escape all arguments.
+The [Import cURL](../the-function-stack/functions/apis-and-lambdas/external-api-request.md) feature has been updated to properly escape all arguments.
 {% endhint %}
 
 |        AS ARRAY       |           AS TEXT          |

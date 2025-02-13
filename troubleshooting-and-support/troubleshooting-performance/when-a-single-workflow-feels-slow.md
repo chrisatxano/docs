@@ -1,7 +1,5 @@
 # When a single workflow feels slow
 
-###
-
 ## When a single API Endpoint feels slow
 
 ### 1. Look at the response times in the Debugger
@@ -16,7 +14,7 @@ This API endpoint takes a Star Wars planet name and returns information about th
 
 #### **Debugging the screenshot below** <a href="#functionvstatement" id="functionvstatement"></a>
 
-A.  There are technically **three (3)** items in the function stack.
+A. There are technically **three (3)** items in the function stack.
 
 B. After you click **Run & Debug**, click the debugger tab to see the results and response times.
 
@@ -28,7 +26,7 @@ D. You'll see that the total response time is **5.39s** which is quite long for 
 
 <figure><img src="../../.gitbook/assets/CleanShot 2022-09-12 at 15.26.54.png" alt=""><figcaption></figcaption></figure>
 
-If you have already addressed efficiency concerns in your database and function stacks as detailed in [how to improve your API response time](broken-reference), the next step is to [upgrade your Xano plan](broken-reference) for improved performance.
+If you have already addressed efficiency concerns in your database and function stacks as detailed in [how to improve your API response time](function-stack-performance.md), the next step is to upgrade your Xano plan for improved performance.
 
 ## Contacting Support
 
@@ -101,5 +99,5 @@ The team will review with you the actions you have already taken as detailed in 
 We understand that sometimes waiting isn’t an option. There are multiple other avenues that you can take to get support with Xano.
 
 * **The Xano Community** ([community.xano.com](https://community.xano.com))
-* **Xano Development Partners** - We have Xano partners that we can connect you with if you would like direct help developing in Xano. If you would like to enlist a Xano Development Partner, please [fill out this form](https://xano.com/marketplace).&#x20;
-* **Connect With Xano Experts** - Create a post in the [Find an Expert](https://community.xano.com/categories/find-an-expert) category of the Community. Some members of the Community have a Trusted Xano Expert title. These members have been recognized by the Xano team to give great advice and support, however, they are not directly affiliated with Xano. These members may provide paid support services, which are also not affiliated with Xano in any way.
+* **Xano Development Partners** - We have Xano partners that we can connect you with if you would like direct help developing in Xano. If you would like to enlist a Xano Development Partner, please visit the [Marketplace](https://xano.com/marketplace) to find a development partner.
+* **Connect With Xano Experts** - Create a post in the [Find an Expert](https://community.xano.com/find-a-xano-expert) category of the Community. Some members of the Community have a Trusted Xano Expert title. These members have been recognized by the Xano team to give great advice and support, however, they are not directly affiliated with Xano. These members may provide paid support services, which are also not affiliated with Xano in any way.
