@@ -40,7 +40,7 @@ Start with a blank canvas. Build anything.
 
 ***
 
-## API Groups
+## API Groups & API Group Settings
 
 All APIs live inside of API groups. These are just like folders that you can use to organize all of your different APIs.
 
@@ -50,13 +50,38 @@ Each API group can be customized to your liking using the following options.
 
 Additionally, you can change the **canonical ID** of an API group from the Security section of the settings menu. The canonical ID dictates part of the endpoint URLs used to access those APIs, so proceed with caution before changing this.
 
+To access your API groups, click ![](<../../../.gitbook/assets/CleanShot 2024-12-20 at 22.59.05.png>)in the left-hand navigation menu.&#x20;
+
+Click on a group to enter it, or click ![](<../../../.gitbook/assets/CleanShot 2024-12-20 at 23.00.00.png>)to create a new one.
+
 {% hint style="info" %}
 Some of these settings are only available after the API group is created.
 {% endhint %}
 
-To access your API groups, click ![](<../../../.gitbook/assets/CleanShot 2024-12-20 at 22.59.05.png>)in the left-hand navigation menu.&#x20;
+### CORS Management for API Groups
 
-Click on a group to enter it, or click ![](<../../../.gitbook/assets/CleanShot 2024-12-20 at 23.00.00.png>)to create a new one.
+CORS, or Cross-Origin Resource Sharing, is like a security guard for web applications. It ensures that resources on a web page only talk to servers they are allowed to. Imagine visiting a friend's house; if your friend's parents don't know you, they might not let you in. Similarly, CORS ensures that only trusted sources can interact with your web application, keeping data safe and secure. This is important because it helps protect users from potentially harmful interactions between different websites.
+
+In Xano, you can change CORS to one of three options:
+
+* **Default** - Xano uses wildcard values to allow all origins, methods, and headers. This satisfies the requirements of servers that ask for CORS, and also ensures that all requests are allowed.
+* **Custom** - You can specify your own CORS rules from here, such as only allowing requests from certain servers.
+  * **Allow Credentials** - When checked, this allows requests to include credentials like cookies, HTTP authentication, or client-side SSL certificates. This is necessary if your frontend needs to send authentication information to your backend.
+  * **Allow Methods** - These are the HTTP methods that your API will accept from other origins.
+  * **Allow Origins** - This section lets you specify which domains can access your API. The "Add Origin" button lets you:
+    * Add specific domains (e.g., [https://yourfrontend.com](https://yourfrontend.com))
+    * Use wildcards (e.g., \*)
+    * List multiple allowed origins
+  * **Allow Headers** - Defines which HTTP headers can be used in requests. The "Add Header" button lets you specify custom headers beyond the standard ones.
+  * **Max Age** - Set to 1 hour by default, this determines how long browsers should cache the CORS preflight response. This helps reduce the number of preflight requests (OPTIONS calls) that browsers make.
+
+{% hint style="info" %}
+**What is a preflight request?**
+
+Before accessing data from another site, your browser sends a "preflight request" to ask for permission. If approved, it proceeds with the main request. This step ensures your information stays safe during web interactions.
+{% endhint %}
+
+
 
 ***
 
