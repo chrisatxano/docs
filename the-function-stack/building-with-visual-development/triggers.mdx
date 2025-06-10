@@ -1,0 +1,128 @@
+---
+title: "Triggers"
+---
+
+<Info>
+**Quick Summary**
+
+Triggers are workflows that can run based on other events that happen in your workspace. Xano offers triggers for:
+
+* Database operations (adds, edits, deletes)
+* Realtime events
+* Workspace events (currently limited to branching operations)
+* MCP Server connections
+
+</Info>
+
+## What are triggers?
+
+Triggers in Xano are workflows that will run only when triggered by another event. You can build triggers for the following events.
+
+| Event Type     | Event                                 |
+| -------------- | ------------------------------------- |
+| **Database**   | New records                           |
+|                | Record edits                          |
+|                | Record deletes                        |
+|                | Table truncate (deleting all records) |
+| **Realtime**   | Channel events                        |
+| **Workspace**  | New branch                            |
+|                | Branch merge                          |
+|                | Live branch change                    |
+| **MCP Server** | Client Connect                        |
+
+## Accessing and Creating Triggers
+
+<Steps>
+  <Step title="Database Triggers">
+    You can find database triggers on each table by clicking the settings icon in the top-right corner.
+
+    Click + Add Database Trigger to create a new database trigger.
+
+    You can specify what [Data Sources](/the-database/database-basics/data-sources) the trigger will execute on. If no data source is set, then it will execute on all data sources.
+
+    Select the **actions** that will activate this trigger.
+
+    **Inserts**<br/>Any time a record is added to the table
+
+    **Updates**<br/>Any time a record is edited
+
+    **Deletes**<br/>Any time a record is deleted
+
+    **Truncates**<br/>When the content of the database table is cleared
+
+    Finally, you can set up custom filters so that the trigger only runs if the record matches certain conditions. For example, if you only want the trigger to run if a new order is created for a user, or a new user is created with a certain role.
+
+    ***
+
+    Database triggers have predefined inputs that contain all of the information you'll need to build a workflow based on the database event.
+
+    `new`<br/>This is the contents of the new record — if you're adding a record, this will contain the contents of the new record, and if you're updating a record, this will contain the contents of the updated record. On deletes and truncates, this will be empty.
+
+    `old`<br/>This is the contents of the old record — if you're deleting or editing a record, this will contain the contents of the record before the change. On inserts and truncates, this will be empty.
+
+    `action`<br/>The action that activated the trigger
+
+    `data source`<br/>The datasource this trigger has been executed against
+
+    ***
+  </Step>
+  <Step title="Realtime Triggers">
+    Realtime triggers are created for each channel. Once you've created a realtime channel, click the + Add Channel Trigger button to create a new channel trigger.
+
+    Select the **actions** that will activate the trigger.
+
+    **Message**<br/>Any time a new message is sent to the channel
+
+    **Join**<br/>Any time a new connection is made to the channel
+
+    ***
+
+    Realtime triggers have predefined inputs that contain all of the information you'll need to build a workflow based on the realtime event.
+
+    `Action` and ~~**Command**~~<br/>This will be either 'join' or 'message' depending on what was responsible for executing the trigger.
+
+    ***Action** and **Command** currently have the same values, but behind the scenes, the values do not come from the same source. We maintain two separate inputs for the purpose of expanding this functionality in the future.*
+
+    `Channel`<br/>The channel that this command or message is being sent to
+
+    `commandOptions`<br/>Any options that are provided with the command being sent to the channel
+
+    `payload`<br/>The contents of the command, such as the message body
+
+    `client`<br/>An internal client ID
+
+    ***
+  </Step>
+  <Step title="Workspace Triggers">
+    Workspace triggers can be created to execute workflows based on certain workspace-wide events. Currently, these are limited to branch changes.
+
+    You can find workspace triggers by clicking the settings icon in the top-right corner of your workspace dashboard.
+
+    Click + Add Workspace Trigger to create a new workspace trigger.
+
+    Select the **action(s)** that will execute this trigger.
+
+    **Branch Live**<br/>Any time a branch status is set to live
+
+    **Branch Merge**<br/>When a branch is merged
+
+    **Branch New**<br/>When a new branch is created
+  </Step>
+  <Step title="MCP Triggers">
+    MCP triggers can be created to run any time a client connects to the MCP server. This is useful for functions like:
+
+    * Logging connections to the MCP server
+    * Dynamically adjusting server instructions based on other data, such as the user who is connecting
+    * Restricting tools per connection
+
+    You can find MCP triggers by clicking the settings icon in the top-right corner of your MCP server.
+
+    Click + Add MCP Server Trigger to create a new MCP server trigger.
+
+    MCP Server triggers offer the following inputs:
+
+    `toolset`<br/>Contains the server information, such as the name and instructions.
+
+    `tools[]`<br/>An array that contains each tool.
+  </Step>
+</Steps>

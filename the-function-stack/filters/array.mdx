@@ -1,0 +1,438 @@
+---
+title: "Array"
+---
+
+<Tip>
+  **NOTE**
+
+  When a filter below refers to the **parent value**, we're talking about the value box that lives immediately above the filter.
+
+  <Frame caption="">
+    <img src="/images/465e2547-image.jpeg" />
+  </Frame>
+</Tip>
+
+```json
+[
+    {
+        "name": "Chris"
+        },
+    {
+        "name": "Shawn"
+        }
+]
+```
+
+### append
+
+Adds a new element to the end of the array, and return the updated array
+
+<Frame caption="">
+  <img src="/images/d0228175-image.jpeg" />
+</Frame>
+
+| Parameter    | Purpose                                  | Example    |
+| ------------ | ---------------------------------------- | ---------- |
+| parent value | The original array you'd like to modify  | \[1,2,3,4] |
+| value        | The value to add to the end of the array | 5          |
+
+| Example                                                                                                                                                              | Result                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| parent value: `[1, 2, 3, 4]`<br/>value: 5                                                                                                                                | `[1, 2, 3, 4, 5]`                                                                                                                           |
+| parent value: `["Think Visually", "Build Confidently"]` value:<br/>"Deploy Securely"                                                                                     | `["Think Visually, Build Confidently, "Deploy Securely"]`                                                                                   |
+| parent value:<br/>`[    {        "name": "Chris"        },    {        "name": "Shawn"        }]`
+<br/>value:<br/>`{        "name": "Cameron"        }` | `[    {        "name": "Chris"        },    {        "name": "Shawn"        },    {        "name": "Cameron"        }]` |
+
+***
+
+### count
+
+Returns the number of items in an array
+
+<Frame caption="">
+  <img src="/images/8d32729f-image.jpeg" />
+</Frame>
+
+| Paremeter    | Purpose            | Example                                                      |
+| ------------ | ------------------ | ------------------------------------------------------------ |
+| parent value | The array to count | `[1, 2, 3, 4, 5]`                                            |
+|              |                    | `[    {"name": "Chris"},    {"name": "Shawn"}]` |
+
+| Example                                                      | Output |
+| ------------------------------------------------------------ | ------ |
+| `[    {"name": "Chris"},    {"name": "Shawn"}]` | 2      || `[1, 2, 3, 4, 5]`                                            | 5      |
+
+***
+
+### diff / diff\_assoc
+
+### intsersect / intersect\_assoc
+
+These filters are used to compare arrays.
+
+* **diff** is used to show values from the first array that **are not** in the second array
+
+* **intersect** is used to show values from the first array that **are** in the second array
+
+Use the basic filter for value arrays, and the **\_assoc** version for arrays of objects.
+
+<Frame caption="">
+  <img src="/images/a8d86c75-image.jpeg" />
+</Frame>
+
+| Parameter    | Purpose                     | Example                                                      |
+| ------------ | --------------------------- | ------------------------------------------------------------ |
+| parent value | The first array to compare  | `[1, 2, 3, 4, 5]`                                            |
+|              |                             | `[    {"name": "Chris"},    {"name": "Shawn"}]` |
+| value        | The second array to compare | Same as above                                                |
+
+| Example                                                                                                                                                                                          | Output                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| Using **diff:**<br/>parent value: `[1,2,3,4,5]` value: `[3,4,5,6,7]`                                                                                                                                 | `[1, 2]`                                                     |
+| Using **diff\_assoc:**<br/>parent value:<br/>`[    {"name": "Chris"},    {"name": "Shawn"},    {"name": "Cameron"}]<br/>`value:`<br/>[    {"name": "Chris"},    {"name": "Shawn"}]`      | `[    {"name":"Cameron"}]`                       |
+| Using **intersect:**<br/>parent value: `[1,2,3,4,5]`<br/>value: `[3,4,5,6,7]`                                                                                                                            | `[3, 4, 5]`                                                  |
+| Using **intersect\_assoc:** parent value:`[    {"name": "Chris"},    {"name": "Shawn"}]`value:`[    {"name": "Chris"},    {"name": "Shawn"},    {"name": "Cameron"}]` | `[    {"name": "Chris"},    {"name": "Shawn"}]` |
+
+***
+
+### filter\_empty
+
+Returns a new srray with only entries that are not empty.
+
+An **empty** value can be `[]`, `{}`, `0`, `null`, `""`, or `false`.
+
+<Frame caption="">
+  <img src="/images/f15245fe-image.jpeg" />
+</Frame>
+
+| Parameter    | Purpose                                                                                                       | Example                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| parent value | The array to filter                                                                                           | `[1, 0, 2, 0, 3]`                                                  |
+|              |                                                                                                               | `[    {"name":"Chris"},    {},    {"name":"Shawn"}]` |
+| path         | When filtering arrays of objects, you can specify a path to optionally use a specific key to judge emptiness. |                                                                    |
+
+| Example                                                            | Output                                                     |
+| ------------------------------------------------------------------ | ---------------------------------------------------------- |
+| `[    {"name":"Chris"},    {},    {"name":"Shawn"}]` | `[    {"name":"Chris"},    {"name":"Shawn"}]` |
+| `[1, 0, 2, 0, 3]`                                                  | `[1, 2, 3]`                                                |
+
+***
+
+### first
+
+Get the first entry of an Array.
+
+<Frame caption="">
+  <img src="/images/11766009-image.jpeg" />
+</Frame>
+
+| Parameter    | Purpose                                    | Example                                                    |
+| ------------ | ------------------------------------------ | ---------------------------------------------------------- |
+| parent value | The array to retrieve the first entry from | `[1, 2, 3]`                                                |
+|              |                                            | `[    {"name":"Chris"},    {"name":"Shawn"}]` |
+
+| Example                                                    | Output                       |
+| ---------------------------------------------------------- | ---------------------------- |
+| `[1, 2, 3]`                                                | 1                            |
+| `[    {"name":"Chris"},    {"name":"Shawn"}]` | `{"name":"Chris"}` |
+
+***
+
+### filter\_empty\_array
+
+### filter\_empty\_object
+
+### filter\_empty\_text
+
+### filter\_false
+
+### filter\_null
+
+### filter\_zero
+
+These filters are designed to remove the corresponding values from an object or an array. Useful in scenarios where something is sending data to your APIs that you don't have full control over, such as a frontend platform that always sends empty strings or null values.
+
+| Parameter    | Purpose                       |
+| ------------ | ----------------------------- |
+| parent value | The array or object to target |
+
+| Example                                                                                                                                       | Output                                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `{        "title": "",        "name": false,        "width": 0,        "items": [],        "data": {},        "info": null}` | **filter\_empty\_array<br/>**`{        "title": "",        "name": false,        "width": 0,        "data": {},        "info": null}`   |
+| `{        "title": "",        "name": false,        "width": 0,        "items": [],        "data": {},        "info": null}` | **filter\_empty\_object<br/>**`{        "title": "",        "name": false,        "width": 0,        "items": [],        "info": null}` |
+| `{        "title": "",        "name": false,        "width": 0,        "items": [],        "data": {},        "info": null}` | **filter\_empty\_text<br/>**`{        "name": false,        "width": 0,        "items": [],        "data": {},        "info": null}`    |
+| `{        "title": "",        "name": false,        "width": 0,        "items": [],        "data": {},        "info": null}` | **filter\_false<br/>**`{        "title": "",        "width": 0,        "items": [],        "data": {},        "info": null}`            |
+| `{        "title": "",        "name": false,        "width": 0,        "items": [],        "data": {},        "info": null}` | **filter\_null<br/>**`{        "title": "",        "name": false,        "width": 0,        "items": [],        "data": {}}`            |
+| `{        "title": "",        "name": false,        "width": 0,        "items": [],        "data": {},        "info": null}` | **filter\_zero<br/>**`{        "title": "",        "name": false,        "items": [],        "data": {},        "info": null}`          |
+
+***
+
+### flatten
+
+Flattens a multi-level array into a single-level array.
+
+| Parameter    | Purpose              | Example                                                 |
+| ------------ | -------------------- | ------------------------------------------------------- |
+| parent value | The array to flatten | `[  [1, 2, 3],  [4, 5, 6],  [7, 8, 9]]` |
+
+| Example                                                                                                                                                                                                                                               | Output                                                                                                                                                                                                                                                                                              |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `[  [1, 2, 3],  [4, 5, 6],  [7, 8, 9]]`                                                                                                                                                                                               | `[1, 2, 3, 4, 5, 6, 7, 8, 9]`                                                                                                                                                                                                                                                           |
+| `[  {    id: 1,    name: "John",    pets: [      { type: "dog", name: "Rex" },      { type: "cat", name: "Whiskers" }    ]  },  {    id: 2,    name: "Sarah",    pets: [      { type: "bird", name: "Tweety" }    ]  }]]` | `[  {    ownerId: 1,    ownerName: "John",    petType: "dog",    petName: "Rex"  },  {    ownerId: 1,    ownerName: "John",    petType: "cat",    petName: "Whiskers"  },  {    ownerId: 2,    ownerName: "Sarah",    petType: "bird",    petName: "Tweety"  }]` |
+
+***
+
+### join
+
+Converts an array into a text string by *joining* each value and using a separator.
+
+<Frame caption="">
+  <img src="/images/6de8d76c-image.jpeg" />
+</Frame>
+
+| Parameter          | Purpose                                                         | Example                                             |
+| ------------------ | --------------------------------------------------------------- | --------------------------------------------------- |
+| parent value       | The array to join                                               | \["a", "b", "c"]                                    |
+| separator optional | The character or characters to place in between each array item | Can be any text value, or even a single empty space |
+
+| Example                                       | Output  |
+| --------------------------------------------- | ------- |
+| parent value: `["a", "b", "c"]` separator: \_ | `a_b_c` |
+| parent value: \[1, 2, 3, 4, 5] separator:     | `12345` |
+
+***
+
+### last
+
+Get the last entry of an Array.
+
+<Frame caption="">
+  <img src="/images/ef196039-image.jpeg" />
+</Frame>
+
+| Parameter    | Purpose                            | Example      |
+| ------------ | ---------------------------------- | ------------ |
+| parent value | The array to get the last entry of | \[`1, 2, 3]` |
+
+| Example     | Output |
+| ----------- | ------ |
+| `[1, 2, 3]` | `3`    |
+
+***
+
+### merge
+
+### merge\_recursive
+
+Merge two arrays or objects together and return the new item.
+
+* Use **merge **to merge single level data.
+
+* Use **merge\_recursive** to merge multi-level data.
+
+<Frame caption="">
+  <img src="/images/0eabcd96-image.jpeg" />
+</Frame>
+
+| Parameter    | Purpose                   | Example    |
+| ------------ | ------------------------- | ---------- |
+| parent value | The first array to merge  | \[1, 2, 3] |
+| value        | The second array to merge | \[4, 5, 6] |
+
+| Example                                                                                                                                           | Output                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| using **merge**parent value: `["a", "b", "c"]` value: `["d", "e", "f"]`                                                                           | `["a", "b", "c", "d", "e", "f"]`                                           |
+| using **merge\_recursive**parent value:`{    "a": "test",    "b": ["a","b"]}`value:`{    "c": "hi",    "b": ["c","d"]}` | `{    "a": "test",    "b": ["a","b","c","d"]    "c": "hi",}` |
+
+***
+
+### pop
+
+Pops the last element of the Array off and returns it.
+
+<Warning>
+Please note that Xano's **pop **filter does NOT remove the item from the array.
+
+</Warning>
+
+<Frame caption="">
+  <img src="/images/8a2ff016-image.jpeg" />
+</Frame>
+
+***
+
+### prepend
+
+Push an element on to the beginning of an array
+
+<Frame caption="">
+  <img src="/images/5cc443ab-image.jpeg" />
+</Frame>
+
+***
+
+### push
+
+Push an element on to the end of an array
+
+<Frame caption="">
+  <img src="/images/c2e52228-image.jpeg" />
+</Frame>
+
+***
+
+### range
+
+Returns array of values between the specified start/stop.
+
+<Frame caption="">
+  <img src="/images/612f0e43-image.jpeg" />
+</Frame>
+
+***
+
+### remove
+
+Remove any elements from the array that match the supplied value and return the new array
+
+<Frame caption="">
+  <img src="/images/2ec6dc31-image.jpeg" />
+</Frame>
+
+Use the **path** option to search inside of objects.
+
+Use the **strict** option to determine how precise the filter is (for example, treating 100 and "100" the same)
+
+***
+
+### safe\_array
+
+Always returns an array. Uses the existing value if it is an array or creates an array of one element.
+
+<Frame caption="">
+  <img src="/images/995b08cf-image.jpeg" />
+</Frame>
+
+***
+
+### shift
+
+Shifts the first element off the Array and returns it.
+
+<Frame caption="">
+  <img src="/images/84a0e0c8-image.jpeg" />
+</Frame>
+
+***
+
+### shuffle
+
+Returns the array in a randomized order
+
+<Frame caption="">
+  <img src="/images/9e38df91-image.jpeg" />
+</Frame>
+
+***
+
+### slice
+
+Extracts and returns a section of an array
+
+* **offset** - what index should the slice start, starting at 0
+
+* **length** - how many items to slice
+
+<Frame caption="">
+  <img src="/images/00027478-image.jpeg" />
+</Frame>
+
+***
+
+### sort
+
+Sort an Array of elements with an optional path inside the element, sort type, and ascending/descending. Sort types include:
+
+* **text** - case-sensitive sort for text
+* **itext** - case-insensitive sort for text
+* **number** - to sort numerically
+* **natural** - case-sensitive sort that is alphanumerical and natural to humans
+* **inatural** - case-insensitive sort that is alphanumerical and natural to humans
+
+Ascending order is performed with a true boolean. Descending order uses a false boolean.
+
+The example below shows the difference between case-sensitivity sort with text and itext:
+
+<Frame caption="">
+  <img src="/images/6dc587c9-image.jpeg" />
+</Frame>
+
+<Frame caption="">
+  <img src="/images/2764cfea-image.jpeg" />
+</Frame>
+
+The example below shows how to use the number sort type:
+
+<Frame caption="">
+  <img src="/images/895c8aa2-image.jpeg" />
+</Frame>
+
+The example below shows using the natural sorting option
+
+<Frame caption="">
+  <img src="/images/5eb027a4-image.jpeg" />
+</Frame>
+
+***
+
+### unique
+
+Returns unique values of an Array. You can also use this filter with an array of objects by specifying a path to the key you would like to use to judge uniqueness.
+
+<Frame caption="">
+  <img src="/images/075a86b4-image.jpeg" />
+</Frame>
+
+***
+
+### unshift
+
+Push an element to the beginning of an Array and return the new Array.
+
+<Frame caption="">
+  <img src="/images/e2334802-image.jpeg" />
+</Frame>
+
+***
+
+### pick/unpick
+
+These filters are meant to be used when dealing with Object field types and are particularly useful if you are receiving a large object, from a webhook for example, where only a few of those records are required for your workflows. You can also use them with an array of objects by specifying a path to the key you would like to make changes to.
+
+**Pick**: Identify values you would like to keep and the filter will return a new object containing only the values you have selected.
+
+<Frame caption="Example Object">
+  <img src="/images/f6874572-image.jpeg" />
+</Frame>
+
+<Frame caption="Defining the Keys we want to include in our new object.">
+  <img src="/images/5bd553a0-image.jpeg" />
+</Frame>
+
+<Frame caption="Result">
+  <img src="/images/4ba49334-image.jpeg" />
+</Frame>
+
+**Unpick**: Identify values you would like to exclude and the filter will return a new object containing only the fields that weren’t omitted.
+
+<Frame caption="Example Object">
+  <img src="/images/73396bc4-image.jpeg" />
+</Frame>
+
+<Frame caption="Defining the Keys we want to exclude from our new object.">
+  <img src="/images/e113424c-image.jpeg" />
+</Frame>
+
+<Frame caption="Result">
+  <img src="/images/4ba49334-image.jpeg" />
+</Frame>

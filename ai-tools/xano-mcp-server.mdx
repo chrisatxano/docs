@@ -1,0 +1,124 @@
+---
+title: "Xano MCP Server"
+icon: server
+description: Manage your Xano data using your favorite MCP client
+---
+
+<Check>
+Need a primer on MCP? Read this first: [Introduction to building MCP Servers in Xano](/ai-tools/mcp-builder#intro)
+
+</Check>
+
+<Info>
+## Quick Summary
+
+The Xano MCP Server allows you to interact with your Xano instance and workspaces using MCP. This enables you to do things like...
+
+* Create database tables and update table schema
+
+* Generate sample data
+
+* Parse and search your request history
+
+...all from your favorite MCP client, such as Claude, Cursor, or Windsurf.
+
+The Xano MCP Server is powered by our [Metadata API](/xano-features/metadata-api), and we expect to eventually allow for all of the methods present there to be used as tools within the Xano MCP Server.
+
+Connect to the Xano MCP Server from your instance settings -> **Metadata API & MCP Server**
+</Info>
+
+## What is the Xano MCP Server?
+
+The Xano MCP Server, powered by our [Metadata API](/xano-features/metadata-api), enables you to interact with your Xano instance and workspaces without leaving your favorite MCP client.
+
+## Connecting to the Xano MCP Server
+
+<Steps>
+<Step title="From the Instance selection screen, click the ⚙️ icon next to your instance, and choose Metadata API & MCP Server" />
+<Step title="Generate an Access Token">
+Access Tokens are used for authentication when connecting to the Xano MCP server. For more information on generating access tokens, see this reference: [Generate an Access Token](/xano-features/metadata-api#generate-an-access-token)
+</Step>
+<Step title="Choose your connection method">
+For most clients, at this time, SSE is likely the method that you'll want to choose. However, we have made a streaming connection available as well. Click the URL to copy it to your clipboard.
+</Step>
+<Step title="Connect using your client of choice">
+
+For more information on connecting your clients to an MCP server, refer to [Connecting Clients](/ai-tools/mcp-builder/connecting-clients) or to your client's documentation for the most up to date information.
+
+The instructions linked above are for connecting an MCP server built using Xano's MCP builder, but are fundamentally the same for the Xano MCP Server — just replace the URL with what you copied in step 3.
+</Step>
+</Steps>
+
+## Available Tools
+
+### User Authentication
+
+* **getLoggedInUser** - Validates the provided Access Token and returns the associated account details.
+
+### Workspace Management
+
+* **listWorkspaces** - Lists all workspaces accessible by the authenticated user.
+
+* **getWorkspace** - Retrieves detailed information about a specific workspace.
+
+* **getWorkspaceBranches** - Lists all branches (e.g., development, production) within the specified workspace.
+
+* **workspaceGetDataSources** - Lists all external data sources connected to the specified workspace.
+
+* **workspaceRealtimeDetails** - Retrieves [Realtime](/realtime/realtime-in-xano) information for the specified workspace.
+
+### Table Management
+
+* **addTable** - Creates a new table within the specified workspace.
+
+* **getTables** - Lists all tables within a specific workspace.
+
+* **getTable** - Retrieves the details of a specific table within the workspace.
+
+* **deleteTable** - Deletes a specific table and all data it contains from the workspace.
+
+* **updateTableMeta** - Modifies the metadata (e.g., schema, field definitions, descriptions) of the specified table.
+
+* **updateTableSecurity** - Updates the security rules for the specified table.
+
+### Table Content Management
+
+* **getTableContent** - Retrieves a list of records from the specified table.
+
+* **getTableContentItem** - Retrieves a single, specific record from the table using its ID.
+
+* **updateTableContentItem** - Updates an existing record in the table using its ID.
+
+* **deleteTableContentItem** - Deletes a single, specific record from the table using its ID.
+
+* **searchTableContent** - Searches for records within the table using complex filter criteria and sorting options.
+
+* **patchTableContentBySearch** - Updates fields of all records in the table that match the specified search criteria.
+
+* **deleteTableContentBySearch** - Deletes all records from the table that match the specified search criteria.
+
+* **addTableContentBulk** - Adds multiple new records to the table in a single operation.
+
+* **patchTableContentBulk** - Updates multiple existing records in the table in a single bulk operation.
+
+* **deleteTableContentBulk** - Deletes multiple records from the table in bulk, based on a list of record IDs.
+
+### API Management
+
+* **listAPIGroups** - Lists all API groups within the specified workspace.
+
+* **getApiGroup** - Retrieves details for a specific API group within the workspace.
+
+* **listAPIs** - Lists all individual API endpoints defined within a specific API group.
+
+* **getApiGroupSwagger** - Returns the JSON version of the [Swagger (OpenAPI Documentation)](/the-function-stack/building-with-visual-development/apis/swagger-openapi-documentation) for a specific API group
+
+* **getApiSwagger** - Returns the JSON version of the [Swagger (OpenAPI Documentation)](/the-function-stack/building-with-visual-development/apis/swagger-openapi-documentation) for a specific API
+
+### Request Management
+
+* **getRequestHistory** - Lists the history of API requests made to the specified workspace.
+
+* **searchRequestHistory** - Performs an advanced search of the workspace's API request history using filters and sorting.
+
+

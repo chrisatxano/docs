@@ -1,0 +1,74 @@
+---
+title: "Add Record"
+---
+
+Add Record allows you to add a new record to an existing table.
+
+<Frame>
+  <iframe src="https://demo.arcade.software/4tLbIYlynMcDDSpqRvb5?embed" title="https://demo.arcade.software/4tLbIYlynMcDDSpqRvb5?embed" allowFullScreen allow="clipboard-write" class="contentkit-webframe" width="1000" height="500"></iframe>
+</Frame>
+
+<Tabs>
+  <Tab title="Filter">
+    In this section, you will specify the data to be added to the record.
+
+    Click
+    <Frame caption="">
+      <img src="/images/30e379e4-image.jpeg" />
+    </Frame>
+    to quickly enable or disable all fields.
+
+    Hover over each field name and click
+    <Frame caption="">
+      <img src="/images/df467d0a-image.jpeg" />
+    </Frame>
+    to disable that field — this means that no data will be written, or the default value in the database will be used instead, if set.
+    <Frame caption="">
+      <img src="/images/ccb79742-image.jpeg" />
+    </Frame>
+
+    If you have an object that already contains all of the data to use in the add record step, click
+    <Frame caption="">
+      <img src="/images/d9d03ea1-image.jpeg" />
+    </Frame>
+    to auto-fill from that variable.
+
+    <Warning>
+    You are able to manually specify a record ID, but proceed with caution. If you have workflows that rely on sequential IDs, or multiple requests try and add records with the same ID simultaneously, you might run into problems. By default, Xano will auto-increment the ID for you, which is usually best practice.
+    </Warning>
+  </Tab>
+  <Tab title="Output">
+    ### Customizing the return
+
+    Click
+    <Frame caption="">
+      <img src="/images/af34b8b7-image.jpeg" />
+    </Frame>
+    to edit the fields returned in the query.
+
+    <Info>
+    Note that customizing to reduce the fields returned will not have an impact on query speed, but may help with other performance issues in your function stacks. It is always good practice to only return the fields necessary.
+
+    </Info>
+
+    ### Return As
+
+    Change the variable name that this function will output to.
+
+    <Info>
+    If you're using conditional steps, you can use the same variable name in multiple steps to make satisfying the conditional or outputting data in the response easier.
+
+    For example, if we are sending a specific response based on if a variable is true or false, we can set both of those outputs to the same variable, making building our response easier.
+
+    </Info>
+  </Tab>
+  <Tab title="Settings">
+    Give this function a description for easy understanding of what this function achieves.
+
+    This description will appear in the function stack, giving you easier readability for complex logic.
+
+    <Frame caption="">
+      <img src="/images/b191952c-image.jpeg" />
+    </Frame>
+  </Tab>
+</Tabs>

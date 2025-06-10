@@ -1,0 +1,77 @@
+---
+title: "Backup And Restore"
+---
+
+## How do backups work in Xano?
+
+On all of our paid plans, Xano keeps a rolling 3-day backup of your entire instance automatically, should the need arise to restore to an earlier point.
+
+You also have the ability to take and restore backups manually.
+
+If you are on a free plan, please note that **no backups are available**.
+
+## Creating a Backup
+
+<Steps>
+<Step title="From your [instance selection screen](https://app.xano.com/instance?mode=master), click next to the instance you want to create a backup of.">
+  <Frame>
+    <img src="/images/45cc2876-image.jpeg" />
+  </Frame>
+</Step>
+<Step title="In the panel that opens, choose Database Backup.">
+</Step>
+<Step title="Click Manual Backup">
+</Step>
+<Step title="Check the option to include media storage if you'd like that to be included in your backup.">
+  Please note that media storage should only be backed up if absolutely necessary, as it can greatly increase the size of and duration to backup / restore the instance.
+</Step>
+<Step title="Click to start the process.">
+  <Frame caption="">
+    <img src="/images/a10aff24-image.jpeg" />
+  </Frame>
+</Step>
+</Steps>
+
+## Restoring a Backup
+
+<Warning>
+It is **strongly advised **that you first create a backup before restoring another, just in case you need to roll back.
+</Warning>
+
+<Steps>
+<Step title="From your [instance selection screen](https://app.xano.com/instance?mode=master), click next to the instance you want to restore a backup of.">
+  <Frame caption="">
+    <img src="/images/45cc2876-image.jpeg" />
+  </Frame>
+</Step>
+<Step title="In the panel that opens, choose Database Backup.">
+</Step>
+<Step title="Click Download and Restore">
+</Step>
+<Step title="Choose the backup you'd like to restore and click">
+  <Frame caption="">
+
+  <img src="/images/5a3f6103-image.jpeg" />
+</Frame>
+</Step>
+</Steps>
+
+## Custom Backup Policy
+
+You can define your own custom schedule for when automatic backups take place.
+
+<Steps>
+<Step title="From your [instance selection screen](https://app.xano.com/instance?mode=master), click next to the instance you want to adjust backup policy for.">
+  <Frame caption="">
+
+  <img src="/images/45cc2876-image.jpeg" />
+  </Frame>
+</Step>
+<Step title="In the panel that opens, choose Database Backup.">
+</Step>
+<Step title="Click Policy">
+</Step>
+<Step title="Choose the time window you'd like your backups to run in.">
+Typically, backups will happen early morning PST hours. However, you can select your own time window to more closely align with your needs from here.
+</Step>
+</Steps>

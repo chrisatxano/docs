@@ -1,0 +1,164 @@
+---
+title: "Custom Functions"
+sidebarTitle: "Overview"
+description: Build business logic once and reuse it in multiple places
+---
+
+<Info>
+**Quick Summary**
+
+Custom functions are very similar to your APIs — they have inputs, a function stack, and a response. However, they can not be called externally. Instead, custom functions allow you to build something and use it in other places, while maintaining it in a centralized location.
+
+</Info>
+
+## What is a custom function?
+
+Custom functions can be thought of as a building block for the rest of your backend. You can build a custom function just like an API endpoint, and insert that custom function into other function stacks, giving you easily reusable logic while only having to maintain it in one place. When you make a change inside of a custom function, that change is automatically in effect everywhere you have chosen to use the custom function.
+
+***
+
+## Building and Using Custom Functions
+
+<Steps>
+  <Step title="Access your custom functions from the left-hand menu.">
+    <Frame caption="">
+      <img src="/images/1901edc6-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Click + Add Function to create a new custom function.">
+    Give your custom function a **name**, **description**, **tags**, and choose your [Request History](/maintenance-monitoring-and-logging/request-history) settings.
+
+    You can also choose to store your custom functions inside of a folder. If the folder already exists, just start typing the name and select it from the auto-complete. If the folder doesn't exist, you can create a new one from here.
+
+    <Frame caption="">
+      <img src="/images/dc7b9f02-image.jpeg" />
+    </Frame>
+    When you're done, click Save .
+  </Step>
+  <Step title="Build your custom function">
+    A custom function has three sections — the same as an API endpoint.
+
+    ### ⬇️ Inputs
+
+    The inputs are anything that a function stack needs to run. For example, a function stack that logs in a user probably needs a username or email and a password; these would be the inputs.
+
+    ### 🔄 Function stack
+
+    This is where all of the magic happens. All of the business logic that is performed lives here.
+
+    As you add functions to your function stack, it will suggest next steps based on most popular user activity.
+
+    ### ⬆️ Response
+
+    Once the function stack has done its job, it needs to know what to return. This lives in the Response section.
+  </Step>
+  <Step title="Insert your new custom function into other function stacks.">
+    ### Insert your new custom function into other function stacks.
+
+    When you're ready to use your new custom function in other function stacks, click
+    <Frame caption="">
+      <img src="/images/2c5feb7c-image.jpeg" />
+    </Frame>
+    , choose **Custom Functions** from the panel that opens, and select your custom function.
+
+    You'll be able to supply data for any inputs the custom function is expecting here.
+
+    <Frame caption="">
+      <img src="/images/b1656994-image.jpeg" />
+    </Frame>
+  </Step>
+</Steps>
+
+***
+
+### Creating Custom Functions from Existing Function Stacks
+
+If you have a function stack that you'd like to convert into a custom function, you can do so in one of the following ways.
+
+<Steps>
+  <Step title="Convert the entire stack">
+    Click the three dots in the upper-right corner and choose Convert To Function
+
+    <Frame caption="">
+      <img src="/images/2ba76ceb-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Select individual steps to convert to a function">
+    You can select a group of steps and click
+
+    <Frame caption="">
+      <img src="/images/31f8c7d6-image.jpeg" />
+    </Frame>
+
+    to convert those steps into a custom function.
+
+    <Frame caption="">
+      ![](/images/asdasd.gif)
+    </Frame>
+  </Step>
+</Steps>
+
+***
+
+## Custom Function Settings
+
+### From the Settings panel
+
+<Frame caption="">
+  <img src="/images/1a9e6efc-image.jpeg" />
+</Frame>
+
+| Name             | Purpose                                                                                                                                                                                                                                                           |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name             | The name of the custom function.                                                                                                                                                                                                                                  |
+| Description      | An internal description, just for you.                                                                                                                                                                                                                            |
+| Tags             | Use tags to organize objects throughout your Xano workspace and find them later                                                                                                                                                                                   |
+| Request History  | - Inherit Settings: Use whatever is set in your workspace branch defaults<br/>- Other: Set specific request history settings for this Function<br/><br/>📖 [**Learn more about request history**](/maintenance-monitoring-and-logging/request-history) |
+| Response caching | Cache the response and redeliver it during future runs<br/><br/>📖 [**Learn more about response caching**](/the-function-stack/additional-features/response-caching)                                                                                                  |
+
+***
+
+## Custom Function Folders
+
+You can organize your custom functions into folders for better organization.
+
+* Folders are not required if you prefer not to use them. You can store all of your functions in folders, or use a combination of folders and no folders.
+* A folder requires having at least one function inside of it — empty folders are not supported.
+
+<Steps>
+  <Step title="Creating New Functions">
+    When creating a new function, you'll be given the option to store it in a folder.
+
+    Just start typing the name of the folder. If it exists, select it from the auto-complete dropdown. If it doesn't exist, it will be created for you.
+
+    <Frame caption="">
+      <img src="/images/a1b9949b-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Creating New Folders with Existing Functions">
+    Click the Add Folder button to create a new folder for your existing functions.
+
+    <Frame caption="">
+      <img src="/images/f74d5605-image.jpeg" />
+    </Frame>
+
+    Give your new folder a name, and use the autocomplete to select at least one function to add to it.
+
+    <Frame caption="">
+      <img src="/images/500c6424-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Moving Existing Functions into Folders">
+    Select the functions to move by using the checkboxes on the left-hand side, and click Move
+
+    <Frame caption="">
+      <img src="/images/b86676ce-image.jpeg" />
+    </Frame>
+
+    Type a new folder name, or add them to an existing folder. When you're ready, click Save
+
+    <Frame caption="">
+      <img src="/images/6b511acd-image.jpeg" />
+    </Frame>
+  </Step>
+</Steps>
