@@ -1,0 +1,77 @@
+---
+title: "Relationships"
+description: Database Relationships are used to define related data between one or more tables.
+---
+
+<Info>
+  **Quick Definition**
+
+  Database relationships show how different tables of data connect to each other - like how a customer's ID links their personal information to their complete order history. These relationships can be one-to-one (one person, one social security number), one-to-many (one customer, many orders), or many-to-many (many students can take many classes).
+</Info>
+
+## 🧑‍🤝‍🧑 Types of Relationships
+
+In Xano, there are three primary ways tables can be related:
+
+#### 1. One-to-One
+
+This is like a person and their unique passport. Each data entry in one table relates to exactly one entry in another table.
+
+#### 2. One-to-Many
+
+Think of a parent and their children. A single entry in one table can relate to multiple entries in another. For example, one teacher can teach many students.
+
+#### 3. Many-to-Many
+
+Similar to students enrolling in various courses, any entry in one table can relate to multiple entries in another.
+
+***
+
+## ❓ Why Use Relationships?
+
+* **Data Consistency**: Ensures all references are valid.
+
+* **Reduced Redundancy**: Minimizes repeated data.
+
+* **Efficient Data Retrieval**: Makes it easier to access related data.
+
+Understanding these basic concepts can simplify how you view databases and highlight why tools like Xano are powerful for managing data.
+
+***
+
+## 👀 Using the Table Reference Field Type
+
+When you add a table reference field to a database table, that field simply stores the IDs of the record(s) being referenced; the data is not actually duplicated. To access the actual data is typically done via an add-on as part of a function stack.
+
+### Auto-Complete
+
+Auto-Complete allows you to configure how the referenced records look inside of other tables.
+
+For this example, we have two tables: `user` and `userRole`
+
+<Frame caption="">
+  <img src="/images/230e7f34-image.jpeg" />
+</Frame>
+
+<Frame caption="">
+  <img src="/images/492706ec-image.jpeg" />
+</Frame>
+
+<Frame>
+  <iframe width="1000" height="500" src="https://demo.arcade.software/RWmuIhxQkGk0OoOiBCdD?embed" title="https://demo.arcade.software/RWmuIhxQkGk0OoOiBCdD?embed" allowFullScreen allow="clipboard-write" class="contentkit-webframe"></iframe>
+</Frame>
+
+<Steps>
+  <Step title="Navigate to the table you are referencing data from to adjust the Auto-Complete settings.">
+    
+  </Step>
+  <Step title="Click the ⋮ icon and choose Auto-Complete">
+    
+  </Step>
+  <Step title="Click 'Customize' if this is your first time enabling Auto-Complete customization on this table.">
+    
+  </Step>
+  <Step title="Click 'Add Column' to add a new field that will appear on tables that reference this one.">
+    
+  </Step>
+</Steps>

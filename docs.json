@@ -1,0 +1,490 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "willow",
+  "name": "Xano Docs",
+  "colors": {
+    "primary": "#3884ff",
+    "light": "#3884ff",
+    "dark": "#3884ff"
+  },
+  "favicon": "/logo/logo_symbol_blue.svg",
+  "navigation": {
+    
+        "groups": [
+          {
+            "group": " ",
+            "pages": [
+              "index",
+              "frequently-asked-questions"
+            ]
+          },
+          {
+            "group": "Before You Begin",
+            "pages": [
+              "before-you-begin/using-these-docs",
+              "before-you-begin/where-should-i-start",
+              "before-you-begin/set-up-a-free-xano-account",
+              "before-you-begin/key-concepts",
+              "before-you-begin/the-development-life-cycle",
+              "before-you-begin/navigating-xano",
+              "link/pricing"
+            ]
+          },
+          {
+            "group": "The Database",
+            "pages": [
+              "the-database/designing-your-database",
+              {
+                "group": "Database Basics",
+                "pages": [
+                  "the-database/database-basics",
+                  "the-database/database-basics/using-the-xano-database",
+                  "the-database/database-basics/field-types",
+                  "the-database/database-basics/relationships",
+                  "the-database/database-basics/database-views",
+                  "the-database/database-basics/export-and-sharing",
+                  "the-database/database-basics/data-sources"
+                ]
+              },
+              {
+                "group": "Migrating your Data",
+                "pages": [
+                  "the-database/migrating-your-data",
+                  "the-database/migrating-your-data/airtable-to-xano",
+                  "the-database/migrating-your-data/supabase-to-xano",
+                  "the-database/migrating-your-data/csv-import-and-export"
+                ]
+              },
+              {
+                "group": "Database Performance and Maintenance",
+                "pages": [
+                  "the-database/database-performance-and-maintenance",
+                  "the-database/database-performance-and-maintenance/storage",
+                  "the-database/database-performance-and-maintenance/indexing",
+                  "the-database/database-performance-and-maintenance/maintenance",
+                  "the-database/database-performance-and-maintenance/schema-versioning"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "🛠️The Function Stack",
+            "pages": [
+              {
+                "group": "Building with Visual Development",
+                "pages": [
+                  "the-function-stack/building-with-visual-development",
+                  {
+                    "group": "APIs",
+                    "pages": [
+                      "the-function-stack/building-with-visual-development/apis",
+                      "the-function-stack/building-with-visual-development/apis/swagger-openapi-documentation"
+                    ]
+                  },
+                  {
+                    "group": "Custom Functions",
+                    "pages": [
+                      "the-function-stack/building-with-visual-development/custom-functions",
+                      "the-function-stack/building-with-visual-development/custom-functions/async-functions"
+                    ]
+                  },
+                  "the-function-stack/building-with-visual-development/background-tasks",
+                  "the-function-stack/building-with-visual-development/triggers",
+                  "the-function-stack/building-with-visual-development/middleware",
+                  "the-function-stack/building-with-visual-development/configuring-expressions",
+                  "the-function-stack/building-with-visual-development/working-with-data"
+                ]
+              },
+              {
+                "group": "Functions",
+                "pages": [
+                  "the-function-stack/functions",
+                  "the-function-stack/functions/ai-tools",
+                  {
+                    "group": "Database Requests",
+                    "pages": [
+                      {
+                        "group": "Query All Records",
+                        "pages": [
+                          "the-function-stack/functions/database-requests/query-all-records",
+                          "the-function-stack/functions/database-requests/query-all-records/external-filtering-examples"
+                        ]
+                      },
+                      "the-function-stack/functions/database-requests/get-record",
+                      "the-function-stack/functions/database-requests/add-record",
+                      "the-function-stack/functions/database-requests/edit-record",
+                      "the-function-stack/functions/database-requests/add-or-edit-record",
+                      "the-function-stack/functions/database-requests/patch-record",
+                      "the-function-stack/functions/database-requests/delete-record",
+                      "the-function-stack/functions/database-requests/bulk-operations",
+                      "the-function-stack/functions/database-requests/database-transaction",
+                      "the-function-stack/functions/database-requests/external-database-query",
+                      "the-function-stack/functions/database-requests/direct-database-query",
+                      "the-function-stack/functions/database-requests/get-database-schema"
+                    ]
+                  },
+                  {
+                    "group": "Data Manipulation",
+                    "pages": [
+                      "the-function-stack/functions/data-manipulation/create-variable",
+                      "the-function-stack/functions/data-manipulation/update-variable",
+                      "the-function-stack/functions/data-manipulation/conditional",
+                      "the-function-stack/functions/data-manipulation/switch",
+                      "the-function-stack/functions/data-manipulation/loops",
+                      "the-function-stack/functions/data-manipulation/math",
+                      "the-function-stack/functions/data-manipulation/arrays",
+                      "the-function-stack/functions/data-manipulation/objects",
+                      "the-function-stack/functions/data-manipulation/text"
+                    ]
+                  },
+                  "the-function-stack/functions/security",
+                  {
+                    "group": "APIs & Lambdas",
+                    "pages": [
+                      "the-function-stack/functions/apis-and-lambdas/realtime-functions",
+                      "the-function-stack/functions/apis-and-lambdas/external-api-request",
+                      "the-function-stack/functions/apis-and-lambdas/lambda-functions"
+                    ]
+                  },
+                  "the-function-stack/functions/data-caching-redis",
+                  "the-function-stack/functions/custom-functions",
+                  "the-function-stack/functions/utility-functions",
+                  "the-function-stack/functions/file-storage",
+                  "the-function-stack/functions/cloud-services"
+                ]
+              },
+              {
+                "group": "Filters",
+                "pages": [
+                  "the-function-stack/filters/manipulation",
+                  "the-function-stack/filters/math",
+                  "the-function-stack/filters/timestamp",
+                  "the-function-stack/filters/text",
+                  "the-function-stack/filters/array",
+                  "the-function-stack/filters/transform",
+                  "the-function-stack/filters/conversion",
+                  "the-function-stack/filters/comparison",
+                  "the-function-stack/filters/security"
+                ]
+              },
+              {
+                "group": "Data Types",
+                "pages": [
+                  "the-function-stack/data-types/text",
+                  "the-function-stack/data-types/expression",
+                  "the-function-stack/data-types/array",
+                  "the-function-stack/data-types/object",
+                  "the-function-stack/data-types/integer",
+                  "the-function-stack/data-types/decimal",
+                  "the-function-stack/data-types/boolean",
+                  "the-function-stack/data-types/timestamp",
+                  "the-function-stack/data-types/null"
+                ]
+              },
+              "the-function-stack/environment-variables",
+              {
+                "group": "Additional Features",
+                "pages": [
+                  "the-function-stack/additional-features/response-caching"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Testing and Debugging",
+            "pages": [
+              "testing-debugging/testing-and-debugging-function-stacks",
+              "testing-debugging/unit-tests",
+              "testing-debugging/test-suites",
+              "ci-cd"
+            ]
+          },
+          {
+            "group": "File Storage",
+            "pages": [
+              "file-storage/file-storage-in-xano",
+              "file-storage/private-file-storage"
+            ]
+          },
+          {
+            "group": "Realtime",
+            "pages": [
+              "realtime/realtime-in-xano",
+              "realtime/channel-permissions",
+              "realtime/realtime-in-webflow"
+            ]
+          },
+          {
+            "group": "Maintenance, Monitoring, and Logging",
+            "pages": [
+              "maintenance-monitoring-and-logging/statement-explorer",
+              "maintenance-monitoring-and-logging/request-history",
+              {
+                "group": "Instance Dashboard",
+                "pages": [
+                  "maintenance-monitoring-and-logging/instance-dashboard",
+                  "maintenance-monitoring-and-logging/instance-dashboard/memory-usage"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Building Backend Features",
+            "pages": [
+              {
+                "group": "User Authentication & User Data",
+                "pages": [
+                  "building-backend-features/user-authentication-and-user-data",
+                  "building-backend-features/user-authentication-and-user-data/separating-user-data",
+                  "building-backend-features/user-authentication-and-user-data/restricting-access-rbac",
+                  "building-backend-features/user-authentication-and-user-data/oauth-sso"
+                ]
+              },
+              "building-backend-features/webhooks",
+              "building-backend-features/messaging",
+              "building-backend-features/emails",
+              "building-backend-features/custom-report-generation",
+              "building-backend-features/fuzzy-search",
+              "building-backend-features/chatbots"
+            ]
+          },
+          {
+            "group": "Xano Features",
+            "pages": [
+              "xano-features/snippets",
+              {
+                "group": "Instance Settings",
+                "pages": [
+                  "xano-features/instance-settings",
+                  "xano-features/instance-settings/release-track-preferences",
+                  "xano-features/instance-settings/static-ip-outgoing",
+                  "xano-features/instance-settings/change-server-region",
+                  "xano-features/instance-settings/direct-database-connector",
+                  "xano-features/instance-settings/backup-and-restore",
+                  "xano-features/instance-settings/security-policy"
+                ]
+              },
+              "xano-features/workspace-settings",
+              {
+                "group": "Advanced Back-end Features",
+                "pages": [
+                  "xano-features/advanced-back-end-features",
+                  "xano-features/advanced-back-end-features/xano-link",
+                  "xano-features/advanced-back-end-features/developer-api-deprecated"
+                ]
+              },
+              {
+                "group": "Metadata API",
+                "pages": [
+                  "xano-features/metadata-api",
+                  "xano-features/metadata-api/master-metadata-api",
+                  "xano-features/metadata-api/tables-and-schema",
+                  "xano-features/metadata-api/content",
+                  "xano-features/metadata-api/search",
+                  "xano-features/metadata-api/file",
+                  "xano-features/metadata-api/request-history",
+                  "xano-features/metadata-api/workspace-import-and-export",
+                  "xano-features/metadata-api/token-scopes-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Build With AI",
+            "pages": [
+              "xano-ai/building-a-backend-using-ai",
+              "xano-ai/get-started-assistant",
+              "xano-ai/ai-database-assistant",
+              "xano-ai/ai-lambda-assistant",
+              "xano-ai/ai-sql-assistant",
+              "xano-ai/api-request-assistant",
+              "xano-ai/template-engine",
+              "xano-ai/streaming-apis",
+              "using-ai-builders-with-xano"
+            ]
+          },
+          {
+            "group": "Build For AI",
+            "pages": [
+              {
+                "group": "MCP Builder",
+                "icon": "server",
+                "pages": [
+                  "ai-tools/mcp-builder",
+                  "ai-tools/mcp-builder/connecting-clients",
+                  "ai-tools/mcp-builder/mcp-functions"
+                ]
+              },
+              "ai-tools/xano-mcp-server"
+            ]
+          },
+          {
+            "group": "Xano Transform",
+            "pages": [
+              "xano-transform/using-xano-transform"
+            ]
+          },
+          {
+            "group": "Xano Actions",
+            "pages": [
+              "xano-actions/what-are-actions",
+              "xano-actions/browse-actions"
+            ]
+          },
+          {
+            "group": "Team Collaboration",
+            "pages": [
+              "team-collaboration/realtime-collaboration",
+              "team-collaboration/managing-team-members",
+              "team-collaboration/branching-and-merging",
+              "team-collaboration/role-based-access-control-rbac"
+            ]
+          },
+          {
+            "group": "Agencies",
+            "pages": [
+              "agencies/xano-for-agencies",
+              {
+                "group": "Agency Features",
+                "icon": "joystick",
+                "pages": [
+                  "agencies/agency-features",
+                  "agencies/agency-features/agency-dashboard",
+                  "agencies/agency-features/client-invite",
+                  "agencies/agency-features/transfer-ownership",
+                  "agencies/agency-features/agency-profile",
+                  "agencies/agency-features/commission",
+                  "agencies/agency-features/private-marketplace"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Enterprise",
+            "pages": [
+              "enterprise/xano-for-enterprise",
+              {
+                "group": "Enterprise Features",
+                "icon": "joystick",
+                "pages": [
+                  "enterprise/enterprise-features",
+                  {
+                    "group": "Microservices",
+                    "pages": [
+                      "enterprise/enterprise-features/microservices",
+                      {
+                        "group": "Ollama",
+                        "pages": [
+                          "enterprise/enterprise-features/microservices/ollama",
+                          "enterprise/enterprise-features/microservices/ollama/choosing-a-model"
+                        ]
+                      }
+                    ]
+                  },
+                  "enterprise/enterprise-features/tenant-center",
+                  "enterprise/enterprise-features/compliance-center",
+                  "enterprise/enterprise-features/security-policy",
+                  "enterprise/enterprise-features/instance-activity",
+                  "enterprise/enterprise-features/deployment",
+                  "enterprise/enterprise-features/rbac-role-based-access-control",
+                  "enterprise/enterprise-features/xano-link"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Your Xano Account",
+            "pages": [
+              "your-xano-account/account-page",
+              "your-xano-account/billing",
+              "your-xano-account/referrals-and-commissions"
+            ]
+          },
+          {
+            "group": "Troubleshooting & Support",
+            "pages": [
+              "troubleshooting-and-support/error-reference",
+              {
+                "group": "Troubleshooting Performance",
+                "icon": "turtle",
+                "pages": [
+                  "troubleshooting-and-support/troubleshooting-performance",
+                  "troubleshooting-and-support/troubleshooting-performance/when-a-single-workflow-feels-slow",
+                  "troubleshooting-and-support/troubleshooting-performance/when-everything-feels-slow",
+                  "troubleshooting-and-support/troubleshooting-performance/ram-usage",
+                  "troubleshooting-and-support/troubleshooting-performance/function-stack-performance"
+                ]
+              },
+              {
+                "group": "Getting Help",
+                "icon": "message-question",
+                "pages": [
+                  "troubleshooting-and-support/getting-help",
+                  "troubleshooting-and-support/getting-help/granting-access",
+                  "troubleshooting-and-support/getting-help/community-code-of-conduct",
+                  "troubleshooting-and-support/getting-help/community-content-modification-policy"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Special Pricing",
+            "pages": [
+              "special-discount-pricing/students",
+              "special-discount-pricing/non-profits"
+            ]
+          },
+          {
+            "group": "Security",
+            "icon": "key",
+            "pages": [
+              "security/best-practices"
+            ]
+          }
+        ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Security & Compliance",
+          "href": "https://security.xano.com/",
+          "icon": "shield"
+        },
+        {
+          "anchor": "Feature Requests",
+          "href": "https://community.xano.com/feature-requests",
+          "icon": "comments-question-check"
+        },
+        {
+          "anchor": "Known Issues",
+          "href": "https://community.xano.com/known-issues",
+          "icon": "square-exclamation"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/logo_wordmark_blue_1_.svg",
+    "dark": "logo/logo_wordmark_white.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Log in",
+        "href": "https://app.xano.com/login?segment=eyJhbm9ueW1vdXNJZCI6IjU4NTcwNzY4NDUuODY1MzMwMTE5MCIsInV0bV9tZWRpdW0iOiIiLCJ1dG1fc291cmNlIjoiIiwidXRtX2NhbXBhaWduIjoiIiwidXRtX3Rlcm0iOiIiLCJ1dG1fY29udGVudCI6IiIsInJlZmVycmVyIjoiIn0%3D"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get started for free",
+      "href": "https://app.xano.com/signup?plan=build&cluster_id=1&segment=eyJhbm9ueW1vdXNJZCI6IjU4NTcwNzY4NDUuODY1MzMwMTE5MCIsInV0bV9tZWRpdW0iOiIiLCJ1dG1fc291cmNlIjoiIiwidXRtX2NhbXBhaWduIjoiIiwidXRtX3Rlcm0iOiIiLCJ1dG1fY29udGVudCI6IiIsInJlZmVycmVyIjoiIn0%3D"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/nocodebackend",
+      "youtube": "https://www.youtube.com/@nocodebackend",
+      "linkedin": "https://www.linkedin.com/company/xano",
+      "facebook": "https://www.facebook.com/xanoinc"
+    }
+  }
+}

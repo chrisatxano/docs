@@ -1,0 +1,75 @@
+---
+title: "Working With Data"
+---
+
+## Understanding Working with Data
+
+When we talk about working with data in Xano, we are referring to anything that touches a piece of data in your workflows — whether it is an API, custom function, task, or anything else. Data will typically always be passing through these workflows, and it's important to understand the various ways you can access and interact with this data.
+
+## Database vs Variables
+
+The **database** is used to store information that you will need to recall again later, and across workflows, such as:
+
+* User accounts
+* Product and order information
+* Blog posts or comments
+
+**Variables** are used inside of individual workflows to store information temporarily that you only need to finish the set of functions being executed, such as:
+
+* The current date / time
+* Data from a database that needs temporary manipulation or transformation, such as combining a first and last name or calculating a discount
+* The output of individual functions in a function stack, like getting a record from a database table
+
+## Data in Functions
+
+Most functions that you can add to a function stack will have some kind of output available. The output of these functions are stored in a **variable**.
+
+In the screenshot shown below, we are using a get record function to retrieve a record from our `author` table. On the right side of that function, take note of return as **author1**. This is the variable that the record we retrieve is stored in, and what we will use to get that data in subsequent functions.
+
+<Frame caption="">
+  <img src="/images/ad1138d5-image.jpeg" />
+</Frame>
+
+When we add another function, we can reference **author1** as shown below.
+
+<Frame caption="">
+  <img src="/images/4edd215e-image.jpeg" />
+</Frame>
+
+## Data in Filters
+
+Filters are like mini-functions that can ride alongside other functions in your function stack. They are used to perform a wide array of tasks against a piece of data.
+
+Our current function stack does nothing but retrieve a record from our `author` table.
+
+<Frame caption="">
+  <img src="/images/f95d4c2d-image.jpeg" />
+</Frame>
+
+Let's transform this data by changing the author's name to uppercase. The simplest of data transformation happens in an **Update Variable** function. Try it for yourself below.
+
+<Frame>
+  <iframe width="1000" height="500" src="https://demo.arcade.software/uyjNpHs3rAIK0XAkko84?embed" title="https://demo.arcade.software/uyjNpHs3rAIK0XAkko84?embed" allowFullScreen allow="clipboard-write" class="contentkit-webframe"></iframe>
+</Frame>
+
+## Changing Variable Names
+
+As you build your function stacks, you'll want to ensure you are naming variables appropriately, so you can understand what they contain.
+
+When adding a function, you'll usually have the option to set the variable name.
+
+<Frame caption="">
+  <img src="/images/67430ddf-image.jpeg" />
+</Frame>
+
+If you need to change the variable name after you've already referenced the data elsewhere, Xano will ask you if you want to update the references to that variable. In the below screenshot, after changing the **author1** variable name, Xano lets us know that the variable is already referenced in an **Update Variable** step, and in our response. Click
+<Frame caption="">
+  <img src="/images/be827eec-image.jpeg" />
+</Frame>
+to automatically change all of these to reflect the new variable, or click Skip to leave them the same. If you aren't sure which option to choose, more often than not, you'll want to update the references.
+
+<Frame caption="">
+  <img src="/images/a284069b-image.jpeg" />
+</Frame>
+
+

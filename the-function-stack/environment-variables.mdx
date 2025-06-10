@@ -1,0 +1,56 @@
+---
+title: "Environment Variables"
+---
+
+Environment Variables are persistent variables that are available across your entire workspace. Typically, these are used to store things like external API keys or other sensitive information that you need to use across multiple function stacks, without storing it in a database table.
+
+<Frame>
+  <iframe src="https://demo.arcade.software/tKoCMy9H9eGLCgrNGSUc?embed" title="https://demo.arcade.software/tKoCMy9H9eGLCgrNGSUc?embed" allowFullScreen allow="clipboard-write" class="contentkit-webframe" width="1000" height="500"></iframe>
+</Frame>
+
+## Adding Environment Variables
+
+<Steps>
+  <Step title="From the left-hand navigation, click Settings">
+    
+  </Step>
+  <Step title="On the next screen, click 'Manage' to edit your environment variables">
+    <Frame caption="">
+      <img src="/images/574d317b-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Click '+ Variable' to add a new environment variable.">
+    <Frame caption="">
+      <img src="/images/473424a8-image.jpeg" />
+    </Frame>
+
+    Give your environment variable a name that you can easily recognize; this is how you'll identify it when calling it in function stacks.
+
+    Provide a value for the variable.
+
+    <Info>
+      Environment variables can only be updated from your workspace settings.
+    </Info>
+  </Step>
+  <Step title="Use environment variables in your function stacks">
+    They'll be available in the dropdown under **ENV**
+
+    <Frame caption="">
+      <img src="/images/638f6ada-image.jpeg" />
+    </Frame>
+  </Step>
+</Steps>
+
+## Xano-generated Environment Variables
+
+Xano maintains several environment variables you can use.
+
+| Variable Name          | Contents                                                |
+| ---------------------- | ------------------------------------------------------- |
+| \$remote\_ip           | Contains the IP address the request came from           |
+| \$http\_headers        | Contains the headers of the request                     |
+| \$request\_uri         | Contains the URL of the request                         |
+| \$request\_querystring | Contains any URL parameters attached to the request URL |
+| \$datasource           | Contains the datasource the request is targeting        |
+| \$branch               | Contains the branch the request is targeting            |
+| \$request\_method      | Contains the request method (GET, POST, DELETE, etc...) |

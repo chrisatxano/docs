@@ -1,0 +1,397 @@
+---
+title: "Connecting Clients"
+---
+
+## <img width="40" src="/images/23acb65a-image.jpeg" /> Cursor
+
+The below instructions will allow you to connect your Xano MCP server to Cursor and make them available across any project. The below method does not support authentication. If you need authentication or want to define per-project MCPs, use these instructions instead.
+
+<Steps>
+<Step title="Open your Cursor settings">
+<Frame caption="">
+  <img src="/images/ff5d1869-image.jpeg" />
+</Frame>
+</Step>
+<Step title="Under the Features subsection, scroll down to MCP Servers" />
+<Step title="Click + Add new MCP Server" >
+
+Give your server a name.
+
+The `type` should be `sse`
+
+Paste your server URL in the Server URL section. You can retrieve your server URL by navigating to your server in Xano and clicking **Copy Connection URL**.
+
+</Step>
+<Step title="You should now see your MCP Server ready in Cursor">
+<Frame caption="">
+  <img src="/images/897ef275-image.jpeg" />
+</Frame>
+</Step>
+<Step title="In your chat window, you can now interact with the tools included in your MCP server that's connected">
+
+Make sure the conversation type is set to Agent
+
+<Frame caption="">
+  <img src="/images/0cd9ef02-image.jpeg" />
+</Frame>
+
+In our example, we have a tool that checks if a user is marked as an administrator.
+
+<Frame caption="">
+  <img src="/images/bdef672e-image.jpeg" />
+</Frame>
+
+</Step>
+</Steps>
+
+## <img width="40" src="/images/23acb65a-image.jpeg" /> Cursor (per-project)
+
+<Steps>
+<Step title="In your project's root directory, create a new folder called `.cursor`" />
+<Step title="Create a new file inside of that folder called `mcp.json`" />
+<Step title="Fill out the required details inside of `mcp.json`">
+
+If the file is blank, start with the basic structure and replace the placeholder values with your own.
+
+```json
+{
+  "mcpServers": {
+    "xano": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "YOUR CONNECTION URL HERE",
+        "--header",
+        "Authorization:${AUTH_TOKEN}"
+      ],
+      "env": {
+        "AUTH_TOKEN": "Bearer YOUR AUTH TOKEN HERE"
+      }
+    }
+  }
+}
+```
+
+You can add multiple entries if you have multiple MCP servers. See the below example.
+
+```json
+{
+  "mcpServers": {
+    "xano_development": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    },
+    "xano_production": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    },
+    "xano_tools": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    }
+  }
+}
+```
+</Step>
+<Step title="Restart Cursor.">
+In your chat window, you can now interact with the tools included in your MCP server that's connected
+
+Make sure the conversation type is set to Agent
+
+<Frame caption="">
+  <img src="/images/0cd9ef02-image.jpeg" />
+</Frame>
+
+In our example, we have a tool that checks if a user is marked as an administrator.
+
+<Frame caption="">
+  <img src="/images/bdef672e-image.jpeg" />
+</Frame>
+
+</Step>
+</Steps>
+
+
+## <img width="40" src="/images/4482fc67-image.jpeg" /> Claude Desktop
+
+<Steps>
+<Step title="Install the prerequisites">
+
+You need Node.js installed on your system.
+
+Download the latest installer from the [Node.js official website](https://nodejs.org/en) for your specific platform.
+
+</Step>
+<Step title="Open Claude Desktop's config file in your text / code editor of choice">
+
+* Mac OS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+* Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+</Step>
+<Step title="Add an entry in the config file for your Xano MCP server">
+
+Click **Edit Config **and in the window that opens, open `claude_desktop_config.json` in your favorite text or code editor.
+
+If the file is blank, start with the basic structure and replace the placeholder values with your own.
+
+```json
+{
+  "mcpServers": {
+    "YOUR SERVER NAME HERE": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "YOUR CONNECTION URL HERE"
+      ]
+    }
+  }
+}
+```
+
+If any of your tools require authentication, you can add that to your config file. See the below example.
+
+```json
+{
+  "mcpServers": {
+    "xano": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "YOUR CONNECTION URL HERE",
+        "--header",
+        "Authorization: Bearer ${AUTH_TOKEN}"
+      ],
+      "env": {
+        "AUTH_TOKEN": "YOUR AUTH TOKEN HERE"
+      }
+    }
+  }
+}
+```
+
+<Warning>
+**Windows Users:**
+
+Claude Desktop currently has a bug related to spaces inside of headers. To mitigate this, change the authentication section of your config file to look like the following:
+
+```
+        "Authorization:${AUTH_TOKEN}"
+      ],
+      "env": {
+        "AUTH_TOKEN": "Bearer YOUR AUTH TOKEN HERE"
+```
+
+</Warning>
+
+You can add multiple entries if you have multiple MCP servers. See the below example.
+
+```json
+{
+  "mcpServers": {
+    "xano_development": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    },
+    "xano_production": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    },
+    "xano_tools": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    }
+  }
+}
+```
+
+</Step>
+<Step title="Relaunch Claude Desktop to interact with your MCP server(s)">
+
+In Claude, you should see a new icon under your chat box with a 🛠️ icon.
+
+<Frame caption="">
+  <img src="/images/490ccf75-image.jpeg" />
+</Frame>
+
+You can click on this to view information about your available tools.
+
+<Frame caption="">
+  <img src="/images/b5766935-image.jpeg" />
+</Frame>
+
+</Step>
+</Steps>
+
+## Windsurf
+
+<Steps>
+<Step title="Head to your Windsurf settings">
+
+<Frame caption="">
+  <img src="/images/b1d1ba3f-image.jpeg" />
+</Frame>
+
+</Step>
+<Step title="Click Cascade, and then Add Server">
+
+<Frame caption="">
+  <img src="/images/c100fd16-image.jpeg" />
+</Frame>
+
+</Step>
+<Step title="Click 'Add Custom Server'">
+
+<Frame caption="">
+  <img src="/images/ca889728-image.jpeg" />
+</Frame>
+
+</Step>
+<Step title="Fill out the config file with your MCP server details">
+
+If the file is blank, start with the basic structure and replace the placeholder values with your own.
+
+```json
+{
+  "mcpServers": {
+    "YOUR SERVER NAME HERE": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "YOUR CONNECTION URL HERE"
+      ]
+    }
+  }
+}
+```
+
+If any of your tools require authentication, you can add that to your config file. See the below example.
+
+```json
+{
+  "mcpServers": {
+    "xano": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "YOUR CONNECTION URL HERE",
+        "--header",
+        "Authorization: Bearer ${AUTH_TOKEN}"
+      ],
+      "env": {
+        "AUTH_TOKEN": "YOUR AUTH TOKEN HERE"
+      }
+    }
+  }
+}
+```
+
+You can add multiple entries if you have multiple MCP servers. See the below example.
+
+```json
+{
+  "mcpServers": {
+    "xano_development": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    },
+    "xano_production": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    },
+    "xano_tools": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "CONNECTION URL HERE"
+      ]
+    }
+  }
+}
+```
+
+</Step>
+<Step title="Click the Refresh button, and you should see your MCP server(s) available" />
+</Steps>
+
+## Methods
+
+### Streaming
+
+Streaming connections allow your MCP server to deliver responses in smaller chunks. Great for emulating the typical chatbot experience, where you can provide the experience of the response being 'typed'.
+
+### SSE
+
+SSE connections may be more compatible with certain systems, but deliver the entire response as a whole once its ready, instead of in smaller pieces.
+
+## Which one should I use?
+
+It depends on your use case and what you're using to connect to the MCP server. Streaming connections allow for a more organic, "chatbot-like" experience and means that your users won't have to wait as long to start seeing the response. However, whatever is connecting to your MCP server needs to support streaming responses for this to work.
+
+
+## FAQ and Troubleshooting
+
+#### How do I use my MCP server in one of these clients?
+
+Once you're connected following the instructions above, you should be able to converse with the AI like you would any other, asking real-world questions that the tools you built should be able to answer.
+
+For example, if we have a tool that just returns a true or false, we'd probably be asking yes or no questions, such as "Does this user, john\@email.com, have administrator access?"
+
+<Frame caption="">
+  <img src="/images/f3f0d882-image.jpeg" />
+</Frame>
+
+An example of using a Xano MCP server in Claude Desktop
+
+#### I can't connect to my server from my client of choice.
+
+Check the error message you're receiving for clues. This could be due to one of the following:
+
+* An incorrectly formatted configuration file
+
+* Your Xano MCP Server is not set to allow connections
+
+* You're not providing an authentication token to a server that requires it
+
+#### For MCP servers with tools that require authentication, after a long waiting period, I get a connection error.
+
+In our current testing, we are finding that running multiple MCP clients causes this issue. Our recommendation is to stick with a single client for the time being.
+
+Try these steps:
+
+* Close any open MCP clients
+
+* Ensure that your authentication token is not expired
+
+* On Mac, run
+
+  ```bash
+  rm -rf ~/.mcp-auth
+  ```
+
+* Restart your MCP client and try connecting again
+
+

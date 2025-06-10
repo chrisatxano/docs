@@ -1,0 +1,49 @@
+---
+title: "Background Tasks"
+description: Build and run workflows on a set schedule
+---
+
+## What are background tasks?
+
+Background tasks, or sometimes referred to as "cron jobs" are workflows that run on a set schedule. Background tasks are great for things like sending out marketing emails, report generation, analytics, and large data processing jobs.
+
+## Building and Using Background Tasks
+
+<Steps>
+  <Step title="Click 'Tasks' in the left-hand menu to access your background tasks.">
+    <Frame caption="">
+      <img src="/images/e5aa9753-image.jpeg" />
+    </Frame> 
+  </Step>
+  <Step title="Click '+ Add background task to create a new background task.">
+    <Frame caption="">
+      <img src="/images/aa1f4697-image.jpeg" />
+    </Frame>
+
+    Fill in your desired options, such as **name**, **description**, **tags**, [**request history**](/maintenance-monitoring-and-logging/request-history), and the preferred [**data source**](/the-database/database-basics/data-sources).
+  </Step>
+  <Step title="Build your background task.">
+    Background tasks are a little different from APIs and custom functions, in that they do not have inputs or deliver a response. Tasks have two sections that require your attention.
+
+    ### 🔄 Function stack
+
+    This is where all of the magic happens. All of the business logic that is performed lives here.
+
+    As you add functions to your function stack, it will suggest next steps based on most popular user activity.
+
+    #### 📅 Schedule
+
+    The schedule determines when your background task runs, and how often.
+
+    <Info>
+      If a new run is scheduled to begin before the previous has completed, the currently due run will be skipped.
+    </Info>
+  </Step>
+  <Step title="Set your task to active.">
+    Once you have built your function stack and your task schedule, click Enable Task to set it as active, and publish your changes.
+
+    <Frame caption="">
+      <img src="/images/34f20d39-image.jpeg" />
+    </Frame>
+  </Step>
+</Steps>

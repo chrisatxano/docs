@@ -1,0 +1,10698 @@
+---
+title: "Metadata API"
+sidebarTitle: "Overview"
+---
+
+<Info>
+The Metadata API is in beta and is subject to changes including access.
+
+</Info>
+
+The Metadata API (Beta) enables you to interact with your Xano workspace schema and content programmatically. The Metadata API includes a comprehensive collection of API endpoints designed to add and modify database tables, schemas, and more.
+
+The Metadata API is also used in some cases to facilitate an integration with Xano by providing the integration partner with your Metadata API access token.
+
+## Getting Started with the Metadata API
+
+### Generate an Access Token
+
+An access token is required for any request you send to the Metadata API.
+
+## Before you proceed
+
+Generating an access token requires giving it specific permissions regarding what it can access. Make sure to review available scopes before proceeding. [Token Scopes Reference](/xano-features/metadata-api/token-scopes-reference)
+
+<Steps>
+<Step title="Click in the lower-left corner and choose Instances">
+<Frame caption="">
+
+  <img src="/images/94102258-image.jpeg" />
+</Frame>
+</Step>
+<Step title="Click ⚙️ next to your instance and choose Metadata API from the panel that opens">
+</Step>
+<Step title="Click">
+<Frame caption="">
+  <img src="/images/296961aa-image.jpeg" />
+</Frame>
+</Step>
+<Step title="Click">
+<Frame caption="">
+  <img src="/images/fd729d11-image.jpeg" />
+</Frame>
+</Step>
+<Step title="Give your access token a name">
+Access tokens can have different **scopes**, or permissions, defined. Giving each access token a recognizable name is important for you to quickly recognize which access tokens are created for specific purposes.
+</Step>
+<Step title="Select the expiry for your access token">
+By default, Xano will revoke your Metadata API access token after 7 days, which means if you need to access the API again, you would have to generate a new token.
+
+You can choose your own expiry duration; anything from **1 hour** to **never expire**.
+<Warning>
+Use caution when defining extended expiry or setting tokens to never expire. Token rotation is good security practice.
+
+You can always revoke a token at any time.
+
+</Warning>
+</Step>
+<Step title="Define the scopes for your token">
+The scopes tell Xano what this token has access to. Each scope has 4 options:
+
+**C (Create)** - Determines whether or not this token can create new data
+
+**R (Read)** - Determines whether or not this token can read existing data
+
+**U (Update)** - Determines whether or not this token can update existing data
+
+**D (Delete)** - Determines whether or not this token can delete data.
+
+<Info>
+**Hint**
+
+You can hover over each permission to quickly add or remove all four types of scope.
+
+![](/images/6095445a-image.jpeg)
+
+</Info>
+
+Each scope has their own API endpoints associated with them. If you aren't sure which scopes you need for this token, use the reference below for additional information.
+
+| Scope            | Description                                                                                                 |
+| ---------------- | ----------------------------------------------------------------------------------------------------------- |
+| Database         | Access any of the content in your Xano database                                                             |
+| Content          | Access any content outside of the database or function stacks, such as branches, data sources, and realtime |
+| Live Data Source | Access the data inside of your currently live data source                                                   |
+| API Groups       | Access API Groups and APIs                                                                                  |
+| Functions        | Access custom functions                                                                                     |
+| Addons           | Access addons                                                                                               |
+| Task             | Access background tasks                                                                                     |
+| Files            | Access file storage                                                                                         |
+| Request History  | Access request history                                                                                      |
+</Step>
+<Step title="Once you've set up your token, click button to copy it to your clipboard.">
+<Frame caption="">
+
+  <img src="/images/7b3cbfd6-image.jpeg" />
+</Frame>
+
+You will be shown your new access token. Click the button to copy it to your clipboard.
+
+<Frame caption="">
+  <img src="/images/8d486207-image.jpeg" />
+</Frame>
+
+<Warning>
+**You will only be shown this token once, so make sure to copy it and store it in a safe place.**
+
+If you lose the token, you should revoke it and create a new one.
+
+</Warning>
+</Step>
+</Steps>
+
+## Using your Access Token in Requests
+
+The token should be sent as a header in the following format:
+
+```
+Authorization: Bearer your_token_here
+```
+
+## Revoking an Access Token
+
+When you access the metadata API panel, you can review all of your currently issued tokens and their scopes.
+
+By choosing a token and clicking you can immediately revoke that token from use.
+
+<Frame caption="">
+  <img src="/images/7674dd0e-image.jpeg" />
+</Frame>
+
+***
+
+## The Account API
+
+The Account API allows you access to various settings and information about your Xano account.
+
+<Warning>
+Please use extreme caution when sharing your Metadata API access tokens, as they can provide access to all of your Xano data.
+
+</Warning>
+
+### Account API Endpoints
+
+<Accordion title="Account Information">
+### Validate the Access Token and identify the account details.
+
+get
+
+https\://app.xano.com/api:meta/auth/me
+
+Validate the Access Token and identify the account details. Authentication: required
+
+Authorizations
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/auth/me
+
+HTTP
+
+```
+GET /api:meta/auth/me HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": "text",
+  "name": "text",
+  "email": "text",
+  "extras": "text"
+}
+```
+
+### browse instances
+
+get
+
+https\://app.xano.com/api:meta/instance
+
+browse instances Authentication: required
+
+Authorizations
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject\[]
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/instance
+
+HTTP
+
+```
+GET /api:meta/instance HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  {
+    "name": "x1234-4567-8901",
+    "display": "My Instance",
+    "xano_domain": "x1234-4567-8901.n7.xano.com",
+    "custom_domain": "text",
+    "rate_limit": true,
+    "meta_api": "https://x1234-4567-8901.n7.xano.com/api:meta",
+    "meta_swagger": "https://x1234-4567-8901.n7.xano.com/apispec:meta?type=json"
+  }
+]
+```
+
+</Accordion>
+
+<Accordion title="Instances">
+### get instance
+
+get
+
+https\://app.xano.com/api:meta/instance/\{name}
+
+get instance Authentication: required
+
+Authorizations
+
+Path parameters
+
+namestringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/instance/\{name}
+
+HTTP
+
+```
+GET /api:meta/instance/{name} HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "x1234-4567-8901",
+  "display": "My Instance",
+  "xano_domain": "x1234-4567-8901.n7.xano.com",
+  "custom_domain": "text",
+  "rate_limit": true,
+  "meta_api": "https://x1234-4567-8901.n7.xano.com/api:meta",
+  "meta_swagger": "https://x1234-4567-8901.n7.xano.com/apispec:meta?type=json"
+}
+```
+
+### browse instances
+
+get
+
+https\://app.xano.com/api:meta/instance
+
+browse instances Authentication: required
+
+Authorizations
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject\[]
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/instance
+
+HTTP
+
+```
+GET /api:meta/instance HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  {
+    "name": "x1234-4567-8901",
+    "display": "My Instance",
+    "xano_domain": "x1234-4567-8901.n7.xano.com",
+    "custom_domain": "text",
+    "rate_limit": true,
+    "meta_api": "https://x1234-4567-8901.n7.xano.com/api:meta",
+    "meta_swagger": "https://x1234-4567-8901.n7.xano.com/apispec:meta?type=json"
+  }
+]
+```
+
+</Accordion>
+
+<Accordion title="Snippets">
+### list snippets owned by the authenticated user
+
+get
+
+https\://app.xano.com/api:meta/snippet
+
+list snippets owned by the authenticated user Authentication: required
+
+Authorizations
+
+Query parameters
+
+pageinteger · int64Optional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/snippet
+
+HTTP
+
+```
+GET /api:meta/snippet HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "curPage": 1,
+  "nextPage": 1,
+  "prevPage": 1,
+  "items": [
+    {
+      "canonical": "kRG3t_-i",
+      "created_at": "2023-03-23 23:32:56+0000",
+      "updated_at": "2023-03-27 17:58:48+0000",
+      "name": "Token Share Test",
+      "review": "pending",
+      "review_exception": "text",
+      "install_access": "public",
+      "install_access_description": "text",
+      "featured": true,
+      "verified": true
+    }
+  ]
+}
+```
+
+### update settings on the snippet
+
+post
+
+https\://app.xano.com/api:meta/snippet/\{canonical}
+
+update settings on the snippet Authentication: required
+
+Authorizations
+
+Path parameters
+
+canonicalstringRequired
+
+Body
+
+application/json
+
+install\_accessstring · enumRequiredPossible values: `public``link``token`
+
+install\_access\_descriptionstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/snippet/\{canonical}
+
+HTTP
+
+```
+POST /api:meta/snippet/{canonical} HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 63
+
+{
+  "install_access": "public",
+  "install_access_description": "text"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "canonical": "kRG3t_-i",
+  "created_at": "2023-03-23 23:32:56+0000",
+  "updated_at": "2023-03-27 17:58:48+0000",
+  "name": "Token Share Test",
+  "review": "pending",
+  "review_exception": "text",
+  "install_access": "public",
+  "install_access_description": "text",
+  "featured": true,
+  "verified": true
+}
+```
+
+### get a specific snippet by ID
+
+get
+
+https\://app.xano.com/api:meta/snippet/\{canonical}
+
+get a specific snippet by ID Authentication: required
+
+Authorizations
+
+Path parameters
+
+canonicalstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/snippet/\{canonical}
+
+HTTP
+
+```
+GET /api:meta/snippet/{canonical} HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "canonical": "kRG3t_-i",
+  "created_at": "2023-03-23 23:32:56+0000",
+  "updated_at": "2023-03-27 17:58:48+0000",
+  "name": "Token Share Test",
+  "review": "pending",
+  "review_exception": "text",
+  "install_access": "public",
+  "install_access_description": "text",
+  "featured": true,
+  "verified": true
+}
+```
+
+### creates a new install token on the snippet
+
+post
+
+https\://app.xano.com/api:meta/snippet/\{canonical}/token
+
+creates a new install token on the snippet Authentication: required
+
+Authorizations
+
+Path parameters
+
+canonicalstringRequired
+
+Body
+
+application/json
+
+max\_installsinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/snippet/\{canonical}/token
+
+HTTP
+
+```
+POST /api:meta/snippet/{canonical}/token HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 18
+
+{
+  "max_installs": 1
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "created_at": "2023-05-09 21:31:20+0000",
+  "updated_at": "2023-05-09 21:31:20+0000",
+  "token": "OL3T4JYM",
+  "max_installs": 23,
+  "current_installs": 1
+}
+```
+
+### returns a list of tokens for a snippet
+
+get
+
+https\://app.xano.com/api:meta/snippet/\{canonical}/token
+
+returns a list of tokens for a snippet Authentication: required
+
+Authorizations
+
+Path parameters
+
+canonicalstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject\[]
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/snippet/\{canonical}/token
+
+HTTP
+
+```
+GET /api:meta/snippet/{canonical}/token HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  {
+    "created_at": "2023-05-09 21:31:20+0000",
+    "updated_at": "2023-05-09 21:31:20+0000",
+    "token": "OL3T4JYM",
+    "max_installs": 23,
+    "current_installs": 1
+  }
+]
+```
+
+### updates a snippet token
+
+post
+
+https\://app.xano.com/api:meta/snippet/\{canonical}/token/\{token}
+
+updates a snippet token Authentication: required
+
+Authorizations
+
+Path parameters
+
+canonicalstringRequired
+
+tokenstringRequired
+
+Body
+
+application/json
+
+max\_installsinteger · int64Required
+
+current\_installsinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/snippet/\{canonical}/token/\{token}
+
+HTTP
+
+```
+POST /api:meta/snippet/{canonical}/token/{token} HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 39
+
+{
+  "max_installs": 1,
+  "current_installs": 1
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "created_at": "2023-05-09 21:31:20+0000",
+  "updated_at": "2023-05-09 21:31:20+0000",
+  "token": "OL3T4JYM",
+  "max_installs": 23,
+  "current_installs": 1
+}
+```
+
+### deletes a snippet token
+
+delete
+
+https\://app.xano.com/api:meta/snippet/\{canonical}/token/\{token}
+
+deletes a snippet token Authentication: required
+
+Authorizations
+
+Path parameters
+
+canonicalstringRequired
+
+tokenstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/snippet/\{canonical}/token/\{token}
+
+HTTP
+
+```
+DELETE /api:meta/snippet/{canonical}/token/{token} HTTP/1.1
+Host: app.xano.com
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+</Accordion>
+
+***
+
+## The Instance API
+
+The Instance API allows you to access data inside of your Xano instances, such as your database, files, and function stacks.
+
+<Accordion title="API Groups">
+### get workspace API group
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}
+
+get workspace API group Authentication: required Required API Scope: Workspace Api: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "API Group Test",
+  "description": "My API groups description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "canonical": "FRzyRdY0",
+  "branch": "v1",
+  "tag": [
+    "text"
+  ]
+}
+```
+
+### add workspace API group
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup
+
+add workspace API group Authentication: required Required API Scope: Workspace Api: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+branchstringOptional
+
+namestringRequired
+
+descriptionstringRequired
+
+docsstringOptional
+
+swaggerbooleanRequired
+
+tagstring\[] | nullableOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/apigroup
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/apigroup HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 96
+
+{
+  "branch": "text",
+  "name": "text",
+  "description": "text",
+  "docs": "text",
+  "swagger": true,
+  "tag": [
+    "text"
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "API Group Test",
+  "description": "My API groups description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "canonical": "FRzyRdY0",
+  "branch": "v1",
+  "tag": [
+    "text"
+  ]
+}
+```
+
+### delete workspace API group
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}
+
+delete workspace API group Authentication: required Required API Scope: Workspace Api: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### update workspace API group
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}
+
+update workspace API group Authentication: required Required API Scope: Workspace Api: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringRequired
+
+docsstringOptional
+
+swaggerbooleanRequired
+
+tagstring\[] | nullableOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 80
+
+{
+  "name": "text",
+  "description": "text",
+  "docs": "text",
+  "swagger": true,
+  "tag": [
+    "text"
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "API Group Test",
+  "description": "My API groups description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "canonical": "FRzyRdY0",
+  "branch": "v1",
+  "tag": [
+    "text"
+  ]
+}
+```
+
+### browse workspace API groups
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup
+
+browse workspace API groups Authentication: required Required API Scope: Workspace Api: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Query parameters
+
+branchstringOptional
+
+pageinteger · int64Optional
+
+per\_pageinteger · int64Optional
+
+searchstringOptional
+
+sortstring · enumOptionalPossible values: `created_at``updated_at``name`
+
+orderstring · enumOptionalPossible values: `asc``desc`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/apigroup
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/apigroup HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "curPage": 1,
+  "nextPage": 1,
+  "prevPage": 1,
+  "items": [
+    {
+      "id": 1,
+      "created_at": "2023-04-19 21:01:32+0000",
+      "updated_at": "2023-04-19 21:01:32+0000",
+      "name": "API Group Test",
+      "description": "My API groups description",
+      "docs": "Documentation",
+      "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+      "canonical": "FRzyRdY0",
+      "branch": "v1",
+      "tag": [
+        "text"
+      ]
+    }
+  ]
+}
+```
+
+### update workspace API group security settings
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/security
+
+update workspace API group security settings Authentication: required Required API Scope: Workspace Api: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+Body
+
+application/json
+
+guidstringRequired
+
+canonicalstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/security
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id}/security HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 34
+
+{
+  "guid": "text",
+  "canonical": "text"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "API Group Test",
+  "description": "My API groups description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "canonical": "FRzyRdY0",
+  "branch": "v1",
+  "tag": [
+    "text"
+  ]
+}
+```
+
+### browse API's in an API group
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api
+
+browse API's in an API group Authentication: required Required API Scope: Workspace Api: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+Query parameters
+
+pageinteger · int64Optional
+
+per\_pageinteger · int64Optional
+
+searchstringOptional
+
+sortstring · enumOptionalPossible values: `created_at``updated_at``name`
+
+orderstring · enumOptionalPossible values: `asc``desc`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id}/api HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "curPage": 1,
+  "nextPage": 1,
+  "prevPage": 1,
+  "items": [
+    {
+      "id": 1,
+      "created_at": "2023-04-19 21:01:32+0000",
+      "updated_at": "2023-04-19 21:01:32+0000",
+      "name": "API Test",
+      "description": "My APIs description",
+      "docs": "Documentation",
+      "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+      "cache": {
+        "active": true,
+        "ttl": 3600,
+        "input": true,
+        "auth": true,
+        "datasource": true,
+        "ip": true,
+        "headers": [
+          "text"
+        ],
+        "env": [
+          "text"
+        ]
+      },
+      "auth": {},
+      "verb": "GET",
+      "input": [
+        {}
+      ],
+      "tag": [
+        "text"
+      ]
+    }
+  ]
+}
+```
+
+</Accordion>
+
+<Accordion title="APIs">
+### get workspace API
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api/\{api\_id}
+
+get workspace API Authentication: required Required API Scope: Workspace Api: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+api\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api/\{api\_id}
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id}/api/{api_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "API Test",
+  "description": "My APIs description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "cache": {
+    "active": true,
+    "ttl": 3600,
+    "input": true,
+    "auth": true,
+    "datasource": true,
+    "ip": true,
+    "headers": [
+      "text"
+    ],
+    "env": [
+      "text"
+    ]
+  },
+  "auth": {},
+  "verb": "GET",
+  "input": [
+    {}
+  ],
+  "tag": [
+    "text"
+  ]
+}
+```
+
+### delete workspace API
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api/\{api\_id}
+
+delete workspace API Authentication: required Required API Scope: Workspace Api: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+api\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api/\{api\_id}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id}/api/{api_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### update workspace api
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api/\{api\_id}
+
+update workspace api Authentication: required Required API Scope: Workspace Api: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+api\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringRequired
+
+docsstringOptional
+
+verbstring · enumRequiredPossible values: `GET``POST``DELETE``PUT``PATCH``HEAD`
+
+authobjectOptional
+
+tagstring\[] | nullableOptional
+
+cacheobjectOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api/\{api\_id}
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id}/api/{api_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 210
+
+{
+  "name": "text",
+  "description": "text",
+  "docs": "text",
+  "verb": "GET",
+  "auth": {},
+  "tag": [
+    "text"
+  ],
+  "cache": {
+    "active": true,
+    "ttl": 3600,
+    "input": true,
+    "auth": true,
+    "datasource": true,
+    "ip": true,
+    "headers": [
+      "text"
+    ],
+    "env": [
+      "text"
+    ]
+  }
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### add workspace API
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api
+
+add workspace API Authentication: required Required API Scope: Workspace Api: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringRequired
+
+docsstringOptional
+
+verbstring · enumRequiredPossible values: `GET``POST``DELETE``PUT``PATCH``HEAD`
+
+tagstring\[] | nullableOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id}/api HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 78
+
+{
+  "name": "text",
+  "description": "text",
+  "docs": "text",
+  "verb": "GET",
+  "tag": [
+    "text"
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "API Test",
+  "description": "My APIs description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "cache": {
+    "active": true,
+    "ttl": 3600,
+    "input": true,
+    "auth": true,
+    "datasource": true,
+    "ip": true,
+    "headers": [
+      "text"
+    ],
+    "env": [
+      "text"
+    ]
+  },
+  "auth": {},
+  "verb": "GET",
+  "input": [
+    {}
+  ],
+  "tag": [
+    "text"
+  ]
+}
+```
+
+### update workspace api security settings
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api/\{api\_id}/security
+
+update workspace api security settings Authentication: required Required API Scope: Workspace Api: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+apigroup\_idinteger · int64Required
+
+api\_idinteger · int64Required
+
+Body
+
+application/json
+
+guidstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/apigroup/\{apigroup\_id}/api/\{api\_id}/security
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/apigroup/{apigroup_id}/api/{api_id}/security HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 15
+
+{
+  "guid": "text"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+</Accordion>
+
+<Accordion title="Workspace">
+### delete a workspace branch
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/branch/\{branch\_label}
+
+delete a workspace branch Authentication: required Required API Scope: Instance Workspace: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+branch\_labelstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/branch/\{branch\_label}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/branch/{branch_label} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### browse workspace branches
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/branch
+
+browse workspace branches Authentication: required Required API Scope: Instance Workspace: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject\[]
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/branch
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/branch HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  {
+    "created_at": "2023-06-22 22:59:11+0000",
+    "label": "v1",
+    "live": true,
+    "backup": "false"
+  }
+]
+```
+
+### delete workspace data source
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/datasource/\{label}
+
+delete workspace data source Authentication: required Required API Scope: Instance Workspace: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+labelstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/datasource/\{label}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/datasource/{label} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### update workspace data source
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/datasource/\{label}
+
+update workspace data source Authentication: required Required API Scope: Instance Workspace: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+labelstringRequired
+
+Body
+
+application/json
+
+colorstringOptionalDefault: `#ebc346`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/datasource/\{label}
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/datasource/{label} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 19
+
+{
+  "color": "#ebc346"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "color": "#008000",
+  "label": "live"
+}
+```
+
+### browse workspace data sources
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/datasource
+
+browse workspace data sources Authentication: required Required API Scope: Instance Workspace: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject\[]
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/datasource
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/datasource HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  {
+    "color": "#008000",
+    "label": "live"
+  }
+]
+```
+
+### create workspace data source
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/datasource
+
+create workspace data source Authentication: required Required API Scope: Instance Workspace: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+labelstringRequired
+
+colorstringOptionalDefault: `#ebc346`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/datasource
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/datasource HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 34
+
+{
+  "label": "text",
+  "color": "#ebc346"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "color": "#008000",
+  "label": "live"
+}
+```
+
+### export the database table + branch schema
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/export-schema
+
+Leave the `branch` parameter empty to indicate the current live branch. `password` is optional. If provided, will encrypt the export and will be required when importing the file. Required API Scope: Instance Workspace: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+passwordstringOptional
+
+branchstringOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/export-schema
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/export-schema HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 27
+
+{
+  "branch": "",
+  "password": ""
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### export the workspace and content
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/export
+
+Leave the `branch` parameter empty to indicate the current live branch. `password` is optional. If provided, will encrypt the export and will be required when importing the file. Required API Scope: Instance Workspace: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+passwordstringOptional
+
+branchstringOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/export
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/export HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 27
+
+{
+  "branch": "",
+  "password": ""
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### browse workspaces
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace
+
+browse workspaces Authentication: required
+
+Authorizations
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject\[]
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace
+
+HTTP
+
+```
+GET /api:meta/workspace HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  {
+    "id": 1,
+    "name": "My Workspace",
+    "description": "My Workspace Description",
+    "branch": "v1"
+  }
+]
+```
+
+### browse workspace
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}
+
+browse workspace Authentication: required Required API Scope: Instance Workspace: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "name": "My Workspace",
+  "description": "My Workspace Description",
+  "branch": "v1"
+}
+```
+
+</Accordion>
+
+<Accordion title="Tables">
+### update workspace table's autocomplete
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/autocomplete
+
+update workspace table's autocomplete Authentication: required Required API Scope: Workspace Database: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+autocompleteobject\[]Optional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/table/\{table\_id}/autocomplete
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/table/{table_id}/autocomplete HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 32
+
+{
+  "autocomplete": [
+    {
+      "name": "id"
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": "text",
+  "autocomplete": "text"
+}
+```
+
+### delete table content rows in bulk
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/bulk/delete
+
+The request body should contain an array of **row\_ids**, where each id identifies a row to be deleted. Required API Scope: Workspace Content: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idstringRequired
+
+table\_idstringRequired
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+application/json
+
+row\_idsstring\[]Optional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/bulk/delete
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/content/bulk/delete HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 15
+
+{
+  "row_ids": [
+    1
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "success": [
+    "text"
+  ],
+  "success_total": 1,
+  "error": [
+    "text"
+  ]
+}
+```
+
+### update table content in bulk
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/bulk/patch
+
+The request body should contain an array of **items**, where each item represents a row to be updated. For each row, provide the **row\_id** and **updates** array that specifies the columns (**path**) to update and the new values (**value**). The example below is assuming that the table being modified has a column labeled *name*.
+
+Required API Scope: Workspace Content: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+application/json
+
+itemsobject\[]Optional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/bulk/patch
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/content/bulk/patch HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 55
+
+{
+  "items": [
+    {
+      "row_id": 1,
+      "updates": {
+        "name": "test name"
+      }
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "success": [
+    "text"
+  ],
+  "success_total": 1
+}
+```
+
+### create new table content in bulk
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/bulk
+
+Each table has unique schema, which means that the request body should be an array of objects with the schema relevant to the table being used. The example below is assuming that the table has a column labeled "name".
+
+Required API Scope: Workspace Content: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+application/json
+
+allow\_id\_fieldbooleanOptional
+
+itemsobjectRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseinteger · int64\[]
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/bulk
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/content/bulk HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 55
+
+{
+  "items": [
+    {
+      "name": "test name"
+    }
+  ],
+  "allow_id_field": false
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  1
+]
+```
+
+### delete table content rows matching search criteria
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/search/delete
+
+Provide search criteria to delete all matching rows. Required API Scope: Workspace Content: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+application/json
+
+searchobjectOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/search/delete
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/content/search/delete HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 13
+
+{
+  "search": []
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "success": [
+    "text"
+  ],
+  "success_total": 1
+}
+```
+
+### patch table content rows matching search criteria
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/search/patch
+
+Provide search and update objects with path and new value to patch rows matching search criteria. Required API Scope: Workspace Content: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+application/json
+
+searchobjectOptional
+
+updatesobjectOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/search/patch
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/content/search/patch HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 58
+
+{
+  "search": [
+    {
+      "name": "test"
+    }
+  ],
+  "updates": {
+    "name": "new name"
+  }
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "success": [
+    "text"
+  ],
+  "success_total": 1
+}
+```
+
+### search table content with support for complex filtering and sorting
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/search
+
+search table content with support for complex filtering and sorting Authentication: required Required API Scope: Workspace Content: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+application/json
+
+pageinteger · int64OptionalDefault: `1`
+
+per\_pageinteger · int64OptionalDefault: `50`
+
+sortobjectOptional
+
+searchobjectOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/search
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/content/search HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 57
+
+{
+  "page": 1,
+  "per_page": 50,
+  "sort": {
+    "id": "desc"
+  },
+  "search": []
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "items": {},
+  "itemsReceived": 1,
+  "curPage": 1,
+  "nextPage": 1,
+  "prevPage": 1,
+  "offset": 1,
+  "perPage": 1,
+  "itemsTotal": 1,
+  "pageTotal": 1
+}
+```
+
+### delete table content
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/\{content\_id}
+
+delete table content Authentication: required Required API Scope: Workspace Content: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+content\_idstringRequired
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/\{content\_id}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/table/{table_id}/content/{content_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### get table content
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/\{content\_id}
+
+get table content Authentication: required Required API Scope: Workspace Content: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+content\_idstringRequired
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/\{content\_id}
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/table/{table_id}/content/{content_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### update existing table content
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content/\{content\_id}
+
+Each table has unique schema, which means that the request body should be updated with the schema relevant to the table being used. The example below is assuming that the table has a column labeled "name".
+
+Required API Scope: Workspace Content: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+content\_idstringRequired
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+objectOptionalExample: `{"name":"test name"}`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content/\{content\_id}
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/table/{table_id}/content/{content_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 20
+
+{
+  "name": "test name"
+}
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### browse table content
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content
+
+browse table content Authentication: required Required API Scope: Workspace Content: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Query parameters
+
+pageinteger · int64Optional
+
+per\_pageinteger · int64Optional
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/table/{table_id}/content HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "items": {},
+  "itemsReceived": 1,
+  "curPage": 1,
+  "nextPage": 1,
+  "prevPage": 1,
+  "offset": 1,
+  "perPage": 1,
+  "itemsTotal": 1,
+  "pageTotal": 1
+}
+```
+
+### create new table content
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/content
+
+Each table has unique schema, which means that the request body should be updated with the schema relevant to the table being used. The example below is assuming that the table has a column labeled "name".
+
+Required API Scope: Workspace Content: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+objectOptionalExample: `{"name":"test name"}`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/content
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/content HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 20
+
+{
+  "name": "test name"
+}
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### create a btree table index
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/index/btree
+
+create a btree table index Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+fieldsobject\[]Required
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/index/btree
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/index/btree HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 40
+
+{
+  "fields": [
+    {
+      "name": "name",
+      "op": "desc"
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": "text"
+}
+```
+
+### create a search table index
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/index/search
+
+create a search table index Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+langstring · enumRequiredPossible values: `simple``arabic``danish``dutch``english``finnish``french``german``hungarian``indonesian``irish``italian``lithuanian``nepali``norwegian``portuguese``romanian``russian``spanish``swedish``tamil``turkish`
+
+fieldsobject\[]Required
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/index/search
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/index/search HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 80
+
+{
+  "name": "search_label",
+  "lang": "english",
+  "fields": [
+    {
+      "name": "name",
+      "priority": 1
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": "text"
+}
+```
+
+### create a spatial table index
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/index/spatial
+
+create a spatial table index Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+fieldsobject\[]Required
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/index/spatial
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/index/spatial HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 60
+
+{
+  "fields": [
+    {
+      "name": "location",
+      "op": "gist_geometry_ops_2d"
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": "text"
+}
+```
+
+### create a unique table index
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/index/unique
+
+create a unique table index Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+fieldsobject\[]Required
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/index/unique
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/index/unique HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 40
+
+{
+  "fields": [
+    {
+      "name": "name",
+      "op": "desc"
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": "text"
+}
+```
+
+### create a vector table index
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/index/vector
+
+Options include `vector_ip_ops` (Inner Product), `vector_cosine_ops` (Cosine), `vector_l1_ops` (L1 Distance), `vector_l2_ops` (L2 Distance) Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+fieldsobject\[]Required
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/index/vector
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/index/vector HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 49
+
+{
+  "fields": [
+    {
+      "name": "name",
+      "op": "vector_ip_ops"
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": "text"
+}
+```
+
+### delete table index
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/index/\{index\_id}
+
+delete table index Authentication: required Required API Scope: Workspace Database: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+index\_idstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/table/\{table\_id}/index/\{index\_id}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/table/{table_id}/index/{index_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### browse table indexes
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/index
+
+browse table indexes Authentication: required Required API Scope: Workspace Database: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/table/\{table\_id}/index
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/table/{table_id}/index HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### replace all of the indexes of a workspace table
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/index
+
+replace all of the indexes of a workspace table Authentication: required Required API Scope: Workspace Database: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+indexobjectRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/table/\{table\_id}/index
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/table/{table_id}/index HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 117
+
+{
+  "index": [
+    {
+      "type": "primary",
+      "fields": [
+        {
+          "name": "id"
+        }
+      ]
+    },
+    {
+      "type": "btree",
+      "fields": [
+        {
+          "name": "created_at",
+          "op": "desc"
+        }
+      ]
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### update workspace table's metadata
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/meta
+
+update workspace table's metadata Authentication: required Required API Scope: Workspace Database: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestring | nullableOptional
+
+descriptionstring | nullableOptional
+
+tagstring\[] | nullableOptional
+
+authboolean | nullableOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/table/\{table\_id}/meta
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/table/{table_id}/meta HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 63
+
+{
+  "name": "text",
+  "description": "text",
+  "tag": [
+    "text"
+  ],
+  "auth": true
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### rename a column within the schema of a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/rename
+
+rename a column within the schema of a workspace table Authentication: required Required API Scope: Workspace Database: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+new\_namestringRequired
+
+old\_namestringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/rename
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/rename HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 47
+
+{
+  "new_name": "new_field",
+  "old_name": "old_field"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### create attachment schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/attachment
+
+create attachment schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/attachment
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/attachment HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 21
+
+{
+  "name": "attachment"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create audio schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/audio
+
+create audio schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/audio
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/audio HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 16
+
+{
+  "name": "audio"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create bool schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/bool
+
+create bool schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+defaultbooleanOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/bool
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/bool HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 35
+
+{
+  "name": "finished",
+  "default": false
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create date schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/date
+
+create date schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/date
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/date HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 23
+
+{
+  "name": "completed_at"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create decimal schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/decimal
+
+create decimal schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+defaultnumberOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+filtersobject | nullableOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/decimal
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/decimal HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 30
+
+{
+  "name": "score",
+  "default": 100
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create email schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/email
+
+create email schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+defaultstringOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/email
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/email HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 16
+
+{
+  "name": "email"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create enum schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/enum
+
+create enum schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+defaultstringOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+valuesstring\[]Optional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/enum
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/enum HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 67
+
+{
+  "name": "status",
+  "values": [
+    "To Do",
+    "In Progress",
+    "Done",
+    "Pending"
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create geo\_linestring schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_linestring
+
+create geo\_linestring schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_linestring
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/geo_linestring HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 15
+
+{
+  "name": "line"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create geo\_multilinestring schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_multilinestring
+
+create geo\_multilinestring schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_multilinestring
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/geo_multilinestring HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 16
+
+{
+  "name": "lines"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create geo\_multipoint schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_multipoint
+
+create geo\_multipoint schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_multipoint
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/geo_multipoint HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 17
+
+{
+  "name": "points"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create geo\_multipolygon schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_multipolygon
+
+create geo\_multipolygon schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_multipolygon
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/geo_multipolygon HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 19
+
+{
+  "name": "polygons"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create geo\_point schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_point
+
+create geo\_point schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_point
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/geo_point HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 16
+
+{
+  "name": "point"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create geo\_polygon schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_polygon
+
+create geo\_polygon schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+sensitivebooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/geo\_polygon
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/geo_polygon HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 18
+
+{
+  "name": "polygon"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create image schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/image
+
+create image schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/image
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/image HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 16
+
+{
+  "name": "image"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create int schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/int
+
+create int schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+defaultinteger · int64Optional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+filtersobject | nullableOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/int
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/int HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 30
+
+{
+  "name": "score",
+  "default": 100
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create json schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/json
+
+create json schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/json
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/json HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 15
+
+{
+  "name": "data"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create object schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/object
+
+create object schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+childrenobjectOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/object
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/object HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 89
+
+{
+  "name": "group",
+  "children": [
+    {
+      "name": "name",
+      "type": "text"
+    },
+    {
+      "name": "score",
+      "type": "int"
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create password reference schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/password
+
+create password reference schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+filtersobject | nullableOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/password
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/password HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 88
+
+{
+  "name": "password",
+  "filters": {
+    "min": 8,
+    "max": 64,
+    "minAlpha": 1,
+    "minDigit": 1,
+    "minSymbol": 1
+  }
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create table reference schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/tablerefuuid
+
+create table reference schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+tableref\_idinteger · int64Required
+
+nullablebooleanOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/tablerefuuid
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/tablerefuuid HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 36
+
+{
+  "name": "user_id",
+  "tableref_id": 101
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create table reference schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/tableref
+
+create table reference schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+tableref\_idinteger · int64Required
+
+nullablebooleanOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+filtersobject | nullableOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/tableref
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/tableref HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 36
+
+{
+  "name": "user_id",
+  "tableref_id": 101
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create text schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/text
+
+create text schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+defaultstringOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+formatstring · enumOptionalPossible values: ```plaintext``yaml``html``xml``markdown`
+
+filtersobject | nullableOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/text
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/text HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 49
+
+{
+  "name": "name",
+  "filters": {
+    "trim": true,
+    "max": 100
+  }
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create timestamp schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/timestamp
+
+create timestamp schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/timestamp
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/timestamp HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 23
+
+{
+  "name": "completed_at"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create uuid schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/uuid
+
+create uuid schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+defaultinteger · int64Optional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/uuid
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/uuid HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 18
+
+{
+  "name": "user_id"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create vector schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/vector
+
+create vector schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptional
+
+defaultstringOptional
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+vectorobjectRequired
+
+Show properties
+
+filtersobject | nullableOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/vector
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/vector HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 35
+
+{
+  "name": "name",
+  "vector": {
+    "size": 3
+  }
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### create video schema within a workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/video
+
+create video schema within a workspace table Authentication: required Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+nullablebooleanOptionalDefault: `true`
+
+requiredbooleanOptional
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private``internal`
+
+sensitivebooleanOptional
+
+stylestring · enumOptionalDefault: `single`Possible values: `single``list`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/type/video
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table/{table_id}/schema/type/video HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 16
+
+{
+  "name": "video"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "name": "text"
+}
+```
+
+### delete a specific schema element within workspace table
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/\{schema\_name}
+
+delete a specific schema element within workspace table Authentication: required Required API Scope: Workspace Database: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+schema\_namestringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/\{schema\_name}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/table/{table_id}/schema/{schema_name} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### get a specific schema element within workspace table
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema/\{schema\_name}
+
+get a specific schema element within workspace table Authentication: required Required API Scope: Workspace Database: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+schema\_namestringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema/\{schema\_name}
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/table/{table_id}/schema/{schema_name} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### browse workspace table's schema
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema
+
+browse workspace table's schema Authentication: required Required API Scope: Workspace Database: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/table/{table_id}/schema HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### replace the entire schema of a workspace table
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/schema
+
+replace the entire schema of a workspace table Authentication: required Required API Scope: Workspace Database: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+schemaobjectRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/table/\{table\_id}/schema
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/table/{table_id}/schema HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 458
+
+{
+  "schema": [
+    {
+      "name": "id",
+      "type": "int",
+      "description": "",
+      "nullable": false,
+      "default": "",
+      "required": true,
+      "access": "public",
+      "sensitive": false,
+      "style": "single"
+    },
+    {
+      "name": "created_at",
+      "type": "timestamp",
+      "description": "",
+      "nullable": false,
+      "default": "",
+      "required": true,
+      "access": "public",
+      "sensitive": false,
+      "style": "single"
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "description": "",
+      "nullable": false,
+      "default": "",
+      "required": true,
+      "access": "public",
+      "sensitive": false,
+      "style": "single"
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### update workspace table's security settings
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/security
+
+update workspace table's security settings Authentication: required Required API Scope: Workspace Database: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Body
+
+application/json
+
+guidstring | nullableOptional
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/table/\{table\_id}/security
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/table/{table_id}/security HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 15
+
+{
+  "guid": "text"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### truncate table's content and optionally reset the primary key
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}/truncate
+
+truncate table's content and optionally reset the primary key Authentication: required Required API Scope: Workspace Content: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Header parameters
+
+x-data-sourcestringOptionalDefault: `live`
+
+Body
+
+application/json
+
+resetbooleanRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/table/\{table\_id}/truncate
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/table/{table_id}/truncate HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 14
+
+{
+  "reset": true
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### delete workspace table and all of its content
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}
+
+delete workspace table and all of its content Authentication: required Required API Scope: Workspace Database: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/table/\{table\_id}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/table/{table_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### get workspace table
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table/\{table\_id}
+
+get workspace table Authentication: required Required API Scope: Workspace Database: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+table\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject\[]
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/table/\{table\_id}
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/table/{table_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  {
+    "id": 1,
+    "created_at": "2023-04-19 21:01:32+0000",
+    "updated_at": "2023-04-19 21:01:32+0000",
+    "name": "Test Database",
+    "description": "My test database description",
+    "docs": "Documentation",
+    "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+    "auth": true,
+    "tag": [
+      "text"
+    ]
+  }
+]
+```
+
+### browse workspace tables
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table
+
+browse workspace tables Authentication: required Required API Scope: Workspace Database: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Query parameters
+
+pageinteger · int64Optional
+
+per\_pageinteger · int64Optional
+
+searchstringOptional
+
+sortstring · enumOptionalPossible values: `created_at``updated_at``name`
+
+orderstring · enumOptionalPossible values: `asc``desc`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject\[]
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/table
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/table HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+[
+  {
+    "curPage": 1,
+    "nextPage": 1,
+    "prevPage": 1,
+    "items": [
+      {
+        "id": 1,
+        "created_at": "2023-04-19 21:01:32+0000",
+        "updated_at": "2023-04-19 21:01:32+0000",
+        "name": "Test Database",
+        "description": "My test database description",
+        "docs": "Documentation",
+        "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+        "auth": true,
+        "tag": [
+          "text"
+        ]
+      }
+    ]
+  }
+]
+```
+
+### create workspace table
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/table
+
+This endpoint can create a complete table in a single API request, as long as all values below are fully fleshed out. If you want to create the table in multiple steps, then just fill out the name field as shown in the example. Required API Scope: Workspace Database: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringOptional
+
+docsstringOptional
+
+authbooleanOptional
+
+guidstring | nullableOptional
+
+schemaobject | nullableOptional
+
+indexobject | nullableOptional
+
+tagstring\[] | nullableOptional
+
+autocompleteobject\[] | nullableOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/table
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/table HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 129
+
+{
+  "name": "new table 123",
+  "description": "",
+  "docs": "",
+  "auth": null,
+  "guid": null,
+  "schema": null,
+  "index": null,
+  "autocomplete": [],
+  "tag": []
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": "text"
+}
+```
+
+</Accordion>
+
+<Accordion title="Functions">
+### get workspace function
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/function/\{function\_id}
+
+get workspace function Authentication: required Required API Scope: Workspace Function: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+function\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/function/\{function\_id}
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/function/{function_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "Function Test",
+  "description": "My functions description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "branch": "v1",
+  "cache": {
+    "active": true,
+    "ttl": 3600,
+    "input": true,
+    "auth": true,
+    "datasource": true,
+    "ip": true,
+    "headers": [
+      "text"
+    ],
+    "env": [
+      "text"
+    ]
+  }
+}
+```
+
+### add workspace function
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/function
+
+add workspace function Authentication: required Required API Scope: Workspace Function: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+branchstringOptional
+
+descriptionstringRequired
+
+docsstringOptional
+
+namestringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/function
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/function HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 66
+
+{
+  "branch": "text",
+  "description": "text",
+  "docs": "text",
+  "name": "text"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "Function Test",
+  "description": "My functions description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "branch": "v1",
+  "cache": {
+    "active": true,
+    "ttl": 3600,
+    "input": true,
+    "auth": true,
+    "datasource": true,
+    "ip": true,
+    "headers": [
+      "text"
+    ],
+    "env": [
+      "text"
+    ]
+  }
+}
+```
+
+### delete workspace function
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/function/\{function\_id}
+
+delete workspace function Authentication: required Required API Scope: Workspace Function: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+function\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/function/\{function\_id}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/function/{function_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### update workspace function
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/function/\{function\_id}
+
+update workspace function Authentication: required Required API Scope: Workspace Function: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+function\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringRequired
+
+docsstringOptional
+
+cacheobjectOptional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/function/\{function\_id}
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/function/{function_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 172
+
+{
+  "name": "text",
+  "description": "text",
+  "docs": "text",
+  "cache": {
+    "active": true,
+    "ttl": 3600,
+    "input": true,
+    "auth": true,
+    "datasource": true,
+    "ip": true,
+    "headers": [
+      "text"
+    ],
+    "env": [
+      "text"
+    ]
+  }
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "Function Test",
+  "description": "My functions description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "branch": "v1",
+  "cache": {
+    "active": true,
+    "ttl": 3600,
+    "input": true,
+    "auth": true,
+    "datasource": true,
+    "ip": true,
+    "headers": [
+      "text"
+    ],
+    "env": [
+      "text"
+    ]
+  }
+}
+```
+
+### browse workspace functions
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/function
+
+browse workspace functions Authentication: required Required API Scope: Workspace Function: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Query parameters
+
+branchstringOptional
+
+pageinteger · int64Optional
+
+per\_pageinteger · int64Optional
+
+searchstringOptional
+
+sortstring · enumOptionalPossible values: `created_at``updated_at``name`
+
+orderstring · enumOptionalPossible values: `asc``desc`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/function
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/function HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "curPage": 1,
+  "nextPage": 1,
+  "prevPage": 1,
+  "items": [
+    {
+      "id": 1,
+      "created_at": "2023-04-19 21:01:32+0000",
+      "updated_at": "2023-04-19 21:01:32+0000",
+      "name": "Function Test",
+      "description": "My functions description",
+      "docs": "Documentation",
+      "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+      "branch": "v1",
+      "cache": {
+        "active": true,
+        "ttl": 3600,
+        "input": true,
+        "auth": true,
+        "datasource": true,
+        "ip": true,
+        "headers": [
+          "text"
+        ],
+        "env": [
+          "text"
+        ]
+      }
+    }
+  ]
+}
+```
+
+### update workspace function security settings
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/function/\{function\_id}/security
+
+update workspace function security settings Authentication: required Required API Scope: Workspace Function: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+function\_idinteger · int64Required
+
+Body
+
+application/json
+
+guidstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/function/\{function\_id}/security
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/function/{function_id}/security HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 15
+
+{
+  "guid": "text"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "Function Test",
+  "description": "My functions description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "branch": "v1",
+  "cache": {
+    "active": true,
+    "ttl": 3600,
+    "input": true,
+    "auth": true,
+    "datasource": true,
+    "ip": true,
+    "headers": [
+      "text"
+    ],
+    "env": [
+      "text"
+    ]
+  }
+}
+```
+
+</Accordion>
+
+<Accordion title="Tasks">
+### get workspace task
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/task/\{task\_id}
+
+get workspace task Authentication: required Required API Scope: Workspace Task: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+task\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/task/\{task\_id}
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/task/{task_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "Task Test",
+  "description": "My tasks description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "datasource": "test",
+  "active": true,
+  "branch": "v1"
+}
+```
+
+### add workspace task
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/task
+
+add workspace task Authentication: required Required API Scope: Workspace Task: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+branchstringOptional
+
+namestringRequired
+
+descriptionstringRequired
+
+docsstringOptional
+
+datasourcestringRequired
+
+activebooleanRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/task
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/task HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 100
+
+{
+  "branch": "text",
+  "name": "text",
+  "description": "text",
+  "docs": "text",
+  "datasource": "text",
+  "active": true
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "Task Test",
+  "description": "My tasks description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "datasource": "test",
+  "active": true,
+  "branch": "v1"
+}
+```
+
+### delete workspace task
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/task/\{task\_id}
+
+delete workspace task Authentication: required Required API Scope: Workspace Task: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+task\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/task/\{task\_id}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/task/{task_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{}
+```
+
+### update workspace task
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/task/\{task\_id}
+
+update workspace task Authentication: required Required API Scope: Workspace Task: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+task\_idinteger · int64Required
+
+Body
+
+application/json
+
+namestringRequired
+
+descriptionstringRequired
+
+docsstringOptional
+
+datasourcestringRequired
+
+activebooleanRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/task/\{task\_id}
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/task/{task_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 84
+
+{
+  "name": "text",
+  "description": "text",
+  "docs": "text",
+  "datasource": "text",
+  "active": true
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "Task Test",
+  "description": "My tasks description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "datasource": "test",
+  "active": true,
+  "branch": "v1"
+}
+```
+
+### browse workspace tasks
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/task
+
+browse workspace tasks Authentication: required Required API Scope: Workspace Task: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Query parameters
+
+branchstringOptional
+
+pageinteger · int64Optional
+
+per\_pageinteger · int64Optional
+
+searchstringOptional
+
+sortstring · enumOptionalPossible values: `created_at``updated_at``name`
+
+orderstring · enumOptionalPossible values: `asc``desc`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/task
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/task HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "curPage": 1,
+  "nextPage": 1,
+  "prevPage": 1,
+  "items": [
+    {
+      "id": 1,
+      "created_at": "2023-04-19 21:01:32+0000",
+      "updated_at": "2023-04-19 21:01:32+0000",
+      "name": "Task Test",
+      "description": "My tasks description",
+      "docs": "Documentation",
+      "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+      "datasource": "test",
+      "active": true,
+      "branch": "v1"
+    }
+  ]
+}
+```
+
+### update workspace task security settings
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/task/\{task\_id}/security
+
+update workspace task security settings Authentication: required Required API Scope: Workspace Task: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+task\_idinteger · int64Required
+
+Body
+
+application/json
+
+guidstringRequired
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/task/\{task\_id}/security
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/task/{task_id}/security HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 15
+
+{
+  "guid": "text"
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 1,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "updated_at": "2023-04-19 21:01:32+0000",
+  "name": "Task Test",
+  "description": "My tasks description",
+  "docs": "Documentation",
+  "guid": "YE1fwVhQ-enRlc6Sb42Gqru58-0",
+  "datasource": "test",
+  "active": true,
+  "branch": "v1"
+}
+```
+
+</Accordion>
+
+<Accordion title="Files">
+### list files within workspace
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/file
+
+list files within workspace Authentication: required Required API Scope: Workspace File: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Query parameters
+
+pageinteger · int64Optional
+
+per\_pageinteger · int64Optional
+
+searchstringOptional
+
+accessstring · enumOptionalPossible values: `public``private`
+
+sortstring · enumOptionalPossible values: `created_at``name``size``mime`
+
+orderstring · enumOptionalPossible values: `asc``desc`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/file
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/file HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "curPage": 1,
+  "nextPage": 1,
+  "prevPage": 1,
+  "items": [
+    {
+      "id": 10095,
+      "created_at": "2023-04-19 21:01:32+0000",
+      "name": "file_example_MP3_1MG.mp3",
+      "size": 1087849,
+      "type": "audio",
+      "mime": "audio/mpeg",
+      "access": "public",
+      "path": "/vault/Ramtdv50/3TA6XKsmLe-2BigGnwxSb0v00sI/qSWtbg../file_example_MP3_1MG.mp3"
+    }
+  ]
+}
+```
+
+### upload file to workspace
+
+post
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/file
+
+upload file to workspace Authentication: required Required API Scope: Workspace File: Create
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+contentstring · binaryRequired
+
+typestring · enumOptionalPossible values: `image``video``audio`
+
+accessstring · enumOptionalDefault: `public`Possible values: `public``private`
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+post
+
+/workspace/\{workspace\_id}/file
+
+HTTP
+
+```
+POST /api:meta/workspace/{workspace_id}/file HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: multipart/form-data
+Accept: */*
+Content-Length: 53
+
+{
+  "content": "binary",
+  "type": "image",
+  "access": "public"
+}
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "id": 10095,
+  "created_at": "2023-04-19 21:01:32+0000",
+  "name": "file_example_MP3_1MG.mp3",
+  "size": 1087849,
+  "type": "audio",
+  "mime": "audio/mpeg",
+  "access": "public",
+  "path": "/vault/Ramtdv50/3TA6XKsmLe-2BigGnwxSb0v00sI/qSWtbg../file_example_MP3_1MG.mp3"
+}
+```
+
+### delete file within workspace
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/file/\{file\_id}
+
+delete file within workspace Authentication: required Required API Scope: Workspace File: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+file\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseany | nullableDefault: `null`
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/file/\{file\_id}
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/file/{file_id} HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+No content
+```
+
+### bulk delete files within workspace
+
+delete
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/file/bulk\_delete
+
+bulk delete files within workspace Authentication: required Required API Scope: Workspace File: Delete
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+idsinteger · int64\[]Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseany | nullableDefault: `null`
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+delete
+
+/workspace/\{workspace\_id}/file/bulk\_delete
+
+HTTP
+
+```
+DELETE /api:meta/workspace/{workspace_id}/file/bulk_delete HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 11
+
+{
+  "ids": [
+    1
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+No content
+```
+
+</Accordion>
+
+<Accordion title="Realtime">
+### get workspace realtime details
+
+get
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/realtime
+
+get workspace realtime details Authentication: required Required API Scope: Instance Workspace: Read
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+get
+
+/workspace/\{workspace\_id}/realtime
+
+HTTP
+
+```
+GET /api:meta/workspace/{workspace_id}/realtime HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Accept: */*
+```
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "enabled": true,
+  "hash": "Dl3HlakmBZDhezv6yml7hliTM20",
+  "channels": [
+    {
+      "anonymous_clients": true,
+      "client_authenticated_messaging": true,
+      "client_private_messaging": true,
+      "client_private_messaging_authenticated_only": true,
+      "client_public_messaging": true,
+      "client_public_messaging_authenticated_only": true,
+      "description": "text",
+      "enabled": true,
+      "id": 1,
+      "pattern": "text",
+      "presence": true,
+      "wildcard": true
+    }
+  ]
+}
+```
+
+### update workspace realtime settings
+
+put
+
+https\://xxsw-1d5c-nopq.n7d.xano.io/api:meta/workspace/\{workspace\_id}/realtime
+
+update workspace realtime settings Authentication: required Required API Scope: Instance Workspace: Update
+
+Authorizations
+
+Path parameters
+
+workspace\_idinteger · int64Required
+
+Body
+
+application/json
+
+enabledbooleanOptional
+
+hashstringOptional
+
+channelsobject\[]Optional
+
+Show properties
+
+Responses
+
+200
+
+Success!
+
+application/json
+
+Responseobject
+
+Show properties
+
+400
+
+Input Error. Check the request payload for issues.
+
+401
+
+Unauthorized
+
+403
+
+Access denied. Additional privileges are needed access the requested resource.
+
+404
+
+Not Found. The requested resource does not exist.
+
+429
+
+Rate Limited. Too many requests.
+
+500
+
+Unexpected error
+
+put
+
+/workspace/\{workspace\_id}/realtime
+
+HTTP
+
+```
+PUT /api:meta/workspace/{workspace_id}/realtime HTTP/1.1
+Host: xxsw-1d5c-nopq.n7d.xano.io
+Authorization: Bearer JWT
+Content-Type: application/json
+Accept: */*
+Content-Length: 376
+
+{
+  "enabled": true,
+  "hash": "text",
+  "channels": [
+    {
+      "anonymous_clients": true,
+      "client_authenticated_messaging": true,
+      "client_private_messaging": true,
+      "client_private_messaging_authenticated_only": true,
+      "client_public_messaging": true,
+      "client_public_messaging_authenticated_only": true,
+      "description": "text",
+      "enabled": true,
+      "history": 0,
+      "id": 1,
+      "pattern": "text",
+      "presence": true,
+      "wildcard": true
+    }
+  ]
+}
+```
+
+application/json
+
+Test it
+
+200
+
+Success!
+
+```
+{
+  "enabled": true,
+  "hash": "Dl3HlakmBZDhezv6yml7hliTM20",
+  "channels": [
+    {
+      "anonymous_clients": true,
+      "client_authenticated_messaging": true,
+      "client_private_messaging": true,
+      "client_private_messaging_authenticated_only": true,
+      "client_public_messaging": true,
+      "client_public_messaging_authenticated_only": true,
+      "description": "text",
+      "enabled": true,
+      "id": 1,
+      "pattern": "text",
+      "presence": true,
+      "wildcard": true
+    }
+  ]
+}
+```
+
+</Accordion>
+
+The Metadata API is flexible regarding sending input values. You only need to send the values required to process your request. For example, if you are updating a schema and want to just update the name, then you only need to send the updated name and the other metadata of the schema will remain unchanged.
+
+<Tip>
+For partners wanting an easier way to integrate, it may be useful to start out with the Account API. This way the only prompt from the user will be to get their access token, and then you can use the Account API to get a list of the user's instances, leading to the Instance API for workspaces, tables, and APIs.
+
+</Tip>
+
+

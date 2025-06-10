@@ -1,0 +1,96 @@
+---
+title: "Custom Functions"
+---
+
+## What are custom functions?
+
+Custom functions are pieces of reusable logic that you can insert into other function stacks. This is most useful when you have a set of steps that remain the same, but need to be executed in multiple places. Placing those steps inside of a custom function allows you to quickly use those steps in other function stacks, while only needing to maintain them in one place.
+
+### Using Custom Functions
+
+<Frame>
+  <iframe src="https://demo.arcade.software/VGexEWGI0KkHspK9BMQH?embed" title="https://demo.arcade.software/VGexEWGI0KkHspK9BMQH?embed" allowFullScreen allow="clipboard-write" class="contentkit-webframe" width="1000" height="500"></iframe>
+</Frame>
+
+<Steps>
+  <Step title="From the left-side navigation, click button below to access the Library section, and choose Functions from the submenu that appears.">
+    <Frame caption="">
+      <img src="/images/d5d45e15-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="To create a custom function, click '+ Add function">
+    <Frame caption="">
+      <img src="/images/68ab7294-image.jpeg" />
+    </Frame>
+
+    Building a custom function is just like building an API. Refer to [that documentation](/the-function-stack/building-with-visual-development) for specific instructions on building the function stack.
+  </Step>
+  <Step title="'Publish' your changes">
+    <Frame caption="">
+      <img src="/images/84210b68-image.jpeg" />
+    </Frame>
+
+    You can Publish the custom function to ensure that every place it is called uses the same version.
+
+    <Info>
+    **Hint**
+
+    When using Run & Debug, you have the option of running draft versions of functions as well, so you don't have to publish changes until you are ready.
+
+    </Info>
+  </Step>
+  <Step title="Insert the custom function any place you need to use it.">
+    In the functions panel, you'll see an option labeled Custom Functions, shown below. Just click it to see a list of your custom functions and add them to other function stacks.
+
+    <Frame caption="">
+      <img src="/images/e840f553-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="When you make changes to the custom function, the changes populate across everywhere it is used.">
+    
+  </Step>
+</Steps>
+
+***
+
+## Async Execution
+
+Once you've built your custom function and added it to another function stack, you have the option of running the function **asynchronously**. This just means that the functions will be queued for execution, and the rest of your function stack will continue to execute right away.
+
+<Frame>
+  <iframe width="609" height="342" src="https://www.youtube.com/embed/-1wxYgc5i0U" title="Run Logic in Parallel with No-Code Async Functions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Frame>
+
+Asynchronous functions will utilize your background task resources (unless you are on an Enterprise plan), so it's important to manage expectations when it comes to execution speed. It would be most appropriate to use asynchronous functions when you need to trigger an operation as part of a larger function stack, but do not need to reference the output in the same stack.
+
+To enable asynchronous execution, right-click on the custom function in your function stack, and choose **Async Settings**.
+
+<Frame caption="">
+  <img src="/images/5cedeef0-image.jpeg" />
+</Frame>
+
+In the panel that opens, choose your desired execution type.
+
+<Frame caption="">
+  <img src="/images/88f52d67-image.jpeg" />
+</Frame>
+
+* **Synchronous** means that the function stack will wait for the custom function to execute before continuing. The custom function will output the result to the defined variable. This is the standard behavior that has always existed for custom functions.
+* **Async** means that the functions will be queued for execution using your background task resources. The function's output variable will be populated with a unique identifier for the queued excecution.
+* **Async (dedicated)** is available for Enterprise plans and gives you a method of specificity around the resources used to execute the custom function.
+
+When using async functions, the function request history will still populate, so you can review the requests once they have finished executing. Each request will be labeled with the execution method.
+
+<Frame caption="">
+  <img src="/images/c0b87bd4-image.jpeg" />
+</Frame>
+
+#### Async Function Await
+
+In scenarios where you want to use the output of your async functions later in the function stack, you can utilize the **Async Function Await** function, which accepts the UUIDs returned when an async function is executed.
+
+You can provide an array of IDs to get the output of, and specify how long you'd like to wait for those functions to finish executing in seconds using the timeout parameter.
+
+<Frame caption="">
+  <img src="/images/2d9a967d-image.jpeg" />
+</Frame>

@@ -1,0 +1,138 @@
+---
+title: "Swagger (OpenAPI Documentation)"
+---
+
+<Info>
+**Quick Summary**
+
+Swagger documentation provides a standardized way to describe and visualize APIs, showing what requests they accept and what responses they return - like a detailed menu that shows all available options. It allows developers to understand, test, and integrate with APIs without needing to read through pages of technical documentation.
+
+</Info>
+
+Xano automatically generates documentation for your APIs using [Swagger](https://swagger.io/docs/), which provides the information in a standardized format called [OpenAPI](https://www.openapis.org/). The documentation contains information like the API name, description, inputs, and expected response.
+
+Using these standardized methods allows for easy import of your API information into other platforms, such as your frontend of choice, as well as AI chatbots and large-language models for development assistance. In addition, it provides you an easy way to send API specifications to other developers you might be working with, without giving them access to the rest of your Xano workspace.
+
+## Accessing the Documentation
+
+Documentation is generated for each API group. At the top of the API group page, just click
+<Frame caption="">
+  <img src="/images/1bb09389-image.jpeg" />
+</Frame>
+to access the auto-generated documentation for that group.
+
+<Frame caption="Locating the Swagger documentation">
+  <img src="/images/2e76023a-image.jpeg" />
+</Frame>
+
+## Using the Documentation
+
+<Frame>
+  <iframe width="1000" height="500" src="https://demo.arcade.software/QDBGCvxr0Jf6Fq6Uqtar?embed" title="https://demo.arcade.software/QDBGCvxr0Jf6Fq6Uqtar?embed" allowFullScreen allow="clipboard-write" class="contentkit-webframe"></iframe>
+</Frame>
+
+<Steps>
+  <Step title="Review the API information shown.">
+    Each API will show you the method, the API name, and the description on the left side.
+
+    <Frame caption="">
+      <img src="/images/574845da-image.jpeg" />
+    </Frame>
+
+    On the right, you'll see a 🔓 icon if that API requires authentication.
+
+    <Frame caption="">
+      <img src="/images/2bacfc4a-image.jpeg" />
+    </Frame>
+
+    Click the `V` to interact with your API of choice.
+  </Step>
+  <Step title="Sending Authenticated Requests">
+    If any of the API(s) you want to interact with require authentication, click
+
+    <Frame caption="">
+      <img src="/images/5c797444-image.jpeg" />
+    </Frame>
+
+    at the top of the page to supply an authentication token.
+  </Step>
+  <Step title="Click 'Try it out' to send a request to that API.">
+    <Frame caption="">
+      <img src="/images/b502df4b-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Fill in any request body values or parameters necessary.">
+    <Frame caption="">
+      <img src="/images/459c1ff9-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Click 'Execute' to send the test request.">
+    <Frame caption="">
+      <img src="/images/f44d5d22-image.jpeg" />
+    </Frame>
+
+    You can review the response given below.
+
+    <Frame caption="">
+      <img src="/images/7f1c00b4-image.jpeg" />
+    </Frame>
+  </Step>
+</Steps>
+
+## Additional Features
+
+### Defining Sample Inputs and Responses
+
+<Tip>
+  **Note**
+
+  We're currently rolling out this feature to all users as part of our next release. If you don't have it yet, you will soon! Hang tight.
+</Tip>
+
+When [testing your function stacks](/testing-debugging/testing-and-debugging-function-stacks) in Xano, you can define sample input and output examples for your Swagger documentation.
+
+It is important that you do this to ensure that your documentation is as effective as possible, as well as for helping AI models understand what's expected when interacting with your APIs.
+
+<Steps>
+  <Step title="In the 'response' section of the Run panel, click Set As Example">
+    <Frame caption="">
+      <img src="/images/a3c4ebc7-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Review the sample input and response, and make any necessary adjustments">
+    <Warning>
+      Make sure these do not include any sensitive information.
+    </Warning>
+
+    <Frame caption="">
+      <img src="/images/df1910c3-image.jpeg" />
+    </Frame>
+  </Step>
+  <Step title="Click Save and you will see these defined in your Swagger documentation.">
+    <Frame caption="">
+      <img src="/images/d3752a34-image.jpeg" />
+    </Frame>
+
+    If you need to make adjustments later, you can do so from the settings menu.
+
+    <Frame caption="">
+      <img src="/images/58f13ba2-image.jpeg" />
+    </Frame>
+  </Step>
+</Steps>
+
+### Copy / Copy as cURL
+
+Throughout the documentation, you'll see
+<Frame caption="">
+  <img src="/images/e5eabd60-image.jpeg" />
+</Frame>
+icons. These will let you quickly copy the contents of that element, and in the presence of a cURL command, copy that command to quickly paste into a terminal or other API / testing platform of choice, such as [Postman](https://www.postman.com/).
+
+### JSON OpenAPI Spec
+
+<Frame caption="">
+  <img src="/images/ff9c8a88-image.jpeg" />
+</Frame>
+
+You can click the link at the top of the page to access a JSON-formatted version of your API spec. This is useful for other external platforms that rely on this type of standardized information about your APIs or providing to AI chatbots / LLMs.
