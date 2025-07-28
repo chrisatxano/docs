@@ -35,7 +35,7 @@ This is the contents of the new record — if you're adding a record, this will 
 This is the contents of the old record — if you're deleting or editing a record, this will contain the contents of the record before the change. On inserts and truncates, this will be empty.
 
 **`action`**\
-The action that activated the trigger
+The action that activated the trigger. Valid options are `insert`  `update`  `delete`  `truncate`
 
 **`data source`**\
 The datasource this trigger has been executed against
