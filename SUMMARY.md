@@ -285,6 +285,7 @@
   * [Granting Access](troubleshooting-and-support/getting-help/granting-access.md)
   * [Community Code of Conduct](troubleshooting-and-support/getting-help/community-code-of-conduct.md)
   * [Community Content Modification Policy](troubleshooting-and-support/getting-help/community-content-modification-policy.md)
+  * [Reporting Potential Bugs and Issues](troubleshooting-and-support/getting-help/reporting-potential-bugs-and-issues.md)
 * [Plan Comparison](troubleshooting-and-support/plan-comparison.md)
 
 ***
