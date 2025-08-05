@@ -102,7 +102,7 @@ We have many different ways to bring your data from other platforms into Xano. C
 
 **Can I pause my Xano subscription?**
 
-Because your paid Xano instance is created and maintained just for you, we do not currently offer a way for you to pause your subscription. You can move to our Hiatus plan, a special plan **for data retention only**, and come back to a fully operational plan whenever you're ready.
+Xano subscriptions can not be paused. If you're having difficulties, please reach out to our support team for assistance.
 
 **What happens if I cancel my subscription?**
 
