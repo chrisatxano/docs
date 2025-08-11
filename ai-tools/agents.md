@@ -21,7 +21,7 @@ AI agents in Xano refer to autonomous entities designed to perform tasks by leve
 These agents can process data, make decisions, and execute actions without human intervention. AI agents in Xano can efficiently handle a variety of applications, from chatbots to data analysis tools, enhancing automation and productivity.
 {% endhint %}
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><img src="../.gitbook/assets/yt (3).png" alt="" data-size="line"> <strong>Introduction to AI Agents</strong></td><td><a href="../.gitbook/assets/ai agents.png">ai agents.png</a></td><td></td></tr><tr><td><img src="../.gitbook/assets/yt (3).png" alt="" data-size="line"> <strong>Tools for Agents &#x26; MCP Servers</strong></td><td><a href="../.gitbook/assets/ai tools.png">ai tools.png</a></td><td><a href="https://youtu.be/D1HtzC6yiO4">https://youtu.be/D1HtzC6yiO4</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><img src="../.gitbook/assets/yt (3).png" alt="" data-size="line"> <strong>Introduction to AI Agents</strong></td><td><a href="../.gitbook/assets/ai agents.png">ai agents.png</a></td><td><a href="https://youtu.be/iEn20cy5LUw?feature=shared">https://youtu.be/iEn20cy5LUw?feature=shared</a></td></tr><tr><td><img src="../.gitbook/assets/yt (3).png" alt="" data-size="line"> <strong>Tools for Agents &#x26; MCP Servers</strong></td><td><a href="../.gitbook/assets/ai tools.png">ai tools.png</a></td><td><a href="https://youtu.be/D1HtzC6yiO4">https://youtu.be/D1HtzC6yiO4</a></td></tr></tbody></table>
 
 {% embed url="https://youtu.be/iEn20cy5LUw?refresh=yes" %}
 
@@ -84,6 +84,50 @@ This is not an issue with Xano or with your agent builds — this is dictated by
 An Agent needs tools to function — the tools are essentially single functions that the Agent can perform, such as looking up user data or cancelling a subscription.
 
 {% include "../.gitbook/includes/ai-tools.md" %}
+{% endstep %}
+{% endstepper %}
+
+## Running your Agent
+
+Your Agents will be called as a part of another function stack using the **Call AI Agent** function.
+
+{% stepper %}
+{% step %}
+### Add the Call AI Agent function to your function stack
+
+<figure><img src="../.gitbook/assets/CleanShot 2025-08-11 at 12.57.35.png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Select your Agent from the list
+
+<figure><img src="../.gitbook/assets/CleanShot 2025-08-11 at 12.58.06.png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Configure your Agent's arguments and options
+
+<figure><img src="../.gitbook/assets/CleanShot 2025-08-11 at 12.59.44.png" alt=""><figcaption></figcaption></figure>
+
+In the **`args`** section, define a JSON object by typing `{}` into the box.
+
+{% hint style="info" %}
+You can also just copy and paste an entire JSON object here to speed up the process, if you have that available.
+{% endhint %}
+
+Use the Set filter by clicking Set when hovering over the value box.
+
+Set requires a key and a value — the key is essentially "this is the type of data" and the value is the data itself. These are going to correspond to the arguments you defined when setting up your agent.
+
+For example, if my system prompt looks like this:
+
+`Please use the customer data here: {{$args.customer_info}} to answer the customer question`
+
+Your args would look like this, replacing the value with actual customer information.
+
+<figure><img src="../.gitbook/assets/CleanShot 2025-08-11 at 13.03.37.png" alt=""><figcaption></figcaption></figure>
+
+In the **`allow_tool_execution`** section, you can decide whether or not this run should allow execution of any tools the agent has access to using a `true` or `false` value.
 {% endstep %}
 {% endstepper %}
 
