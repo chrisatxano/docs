@@ -5,13 +5,13 @@ icon: screwdriver-wrench
 
 # Using AI Builders with Xano
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><img src=".gitbook/assets/image.png" alt="" data-size="line"> <strong>Using Xano with Cursor</strong></td><td><a href="https://youtu.be/m4YoJXaqdEc?si=-T0O0RXVTL93HHls">https://youtu.be/m4YoJXaqdEc?si=-T0O0RXVTL93HHls</a></td><td><a href=".gitbook/assets/maxresdefault.jpg">maxresdefault.jpg</a></td></tr><tr><td><img src=".gitbook/assets/image (91).png" alt="" data-size="line"> <strong>Using Swagger Docs with ChatGPT</strong></td><td></td><td><a href=".gitbook/assets/4ULVUlsjN9U-HD.jpg">4ULVUlsjN9U-HD.jpg</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><img src="../.gitbook/assets/image.png" alt="" data-size="line"> <strong>Using Xano with Cursor</strong></td><td><a href="https://youtu.be/m4YoJXaqdEc?si=-T0O0RXVTL93HHls">https://youtu.be/m4YoJXaqdEc?si=-T0O0RXVTL93HHls</a></td><td><a href="../.gitbook/assets/maxresdefault.jpg">maxresdefault.jpg</a></td></tr><tr><td><img src="../.gitbook/assets/image (91).png" alt="" data-size="line"> <strong>Using Swagger Docs with ChatGPT</strong></td><td></td><td><a href="../.gitbook/assets/4ULVUlsjN9U-HD.jpg">4ULVUlsjN9U-HD.jpg</a></td></tr></tbody></table>
 
 ## The Key: Auto-documented APIs
 
 When you're building API endpoints in Xano, they're auto-documented in the OpenAPI specification using Swagger. This means that without any effort from you, you already have AI-ready documentation that can be used in combination with your favorite AI builder to spin up fully baked applications very quickly.
 
-We have a full section on this functionality here: [swagger-openapi-documentation.md](the-function-stack/building-with-visual-development/apis/swagger-openapi-documentation.md "mention"). For now though, you can get started quickly with the instructions below.
+We have a full section on this functionality here: [swagger-openapi-documentation.md](../the-function-stack/building-with-visual-development/apis/swagger-openapi-documentation.md "mention"). For now though, you can get started quickly with the instructions below.
 
 {% stepper %}
 {% step %}
@@ -19,7 +19,7 @@ We have a full section on this functionality here: [swagger-openapi-documentatio
 
 Inside your API group(s), you'll find a link to the documentation in the top-right, as shown below.
 
-<figure><img src=".gitbook/assets/CleanShot 2025-05-01 at 11.40.04.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/CleanShot 2025-05-01 at 11.40.04.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -27,7 +27,7 @@ Inside your API group(s), you'll find a link to the documentation in the top-rig
 
 You'll want to save separate files for each of the API groups that you want to use in the AI builder.
 
-<div align="left"><figure><img src=".gitbook/assets/CleanShot 2025-05-01 at 11.44.09.png" alt="" width="315"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/CleanShot 2025-05-01 at 11.44.09.png" alt="" width="315"><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}

@@ -1,16 +1,8 @@
 ---
 description: Audit Logs provide clear and searchable logging of all workspace changes
-hidden: true
-noIndex: true
 ---
 
 # Audit Logs
-
-{% hint style="success" %}
-## Limited Availability
-
-This feature is still in development and not widely available. If you have any questions, please reach out to your Xano representative for more information.
-{% endhint %}
 
 {% hint style="info" %}
 ## Quick Summary
@@ -137,6 +129,12 @@ Depending on your plan, you'll be able to retain different amounts of audit logs
 
 ## Accessing and Using Audit Logs
 
+{% hint style="info" %}
+You can also view Audit Logs for an entire instance at once by accessing the settings from the Workspace selection screen.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-08 at 09.41.42.png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="danger" %}
 Please note that if your instance has [rbac-role-based-access-control.md](../../enterprise/enterprise-features/rbac-role-based-access-control.md "mention") enabled, any users that you want to be able to view the logs need to have the **Workspace Logs** permission applied.
 {% endhint %}
@@ -183,10 +181,16 @@ From the top-right corner of your screen, click the three dots and choose <mark 
 
 #### Using the Metadata API
 
-There are two new endpoints available via the [metadata-api](../metadata-api/ "mention") to retrieve Audit Logs.
-
-{% include "../../.gitbook/includes/metadata-api-audit-logs.md" %}
+There are four new endpoints available via the [metadata-api](../metadata-api/ "mention") to retrieve Audit Logs.
 
 
 {% endstep %}
 {% endstepper %}
+
+{% openapi-operation spec="dev-r170" path="/audit_log" method="get" %}
+[OpenAPI dev-r170](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/67f2e77b0e710d4ae46160823f1586d8cf0a96623cb8ab0bac804827c8416ca9.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250812%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250812T195612Z&X-Amz-Expires=172800&X-Amz-Signature=b16ec0ce61e5fab66f15502c26355dcba5e068a262e2dab80b3adb956b8ee420&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="dev-r170" path="/audit_log/search" method="post" %}
+[OpenAPI dev-r170](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/67f2e77b0e710d4ae46160823f1586d8cf0a96623cb8ab0bac804827c8416ca9.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250812%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250812T195612Z&X-Amz-Expires=172800&X-Amz-Signature=b16ec0ce61e5fab66f15502c26355dcba5e068a262e2dab80b3adb956b8ee420&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+{% endopenapi-operation %}

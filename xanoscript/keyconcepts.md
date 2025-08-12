@@ -189,7 +189,7 @@ Standard JavaScript syntax works perfectly.
 }
 ```
 
-Commas are not required, but XanoScript also supports trailing commas.
+Commas are not required, but XanoScript also supports trailing commas and multiline objects.&#x20;
 
 ```
 {
@@ -197,6 +197,28 @@ Commas are not required, but XanoScript also supports trailing commas.
   "age": 30,
   "city": "New York",
 }
+```
+
+Some objects that contain complex strings like public / private keys can utilize triple quotes.
+
+```
+{
+    tls_key: """
+    -----BEGIN PRIVATE KEY-----
+    MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAN3t60NK8J5vjguY
+    D9ucoAxQLw1OTMrH9ziadUWnwdcHv8oneOHi8YgpDTP3PIdHUWeYp3LJ5OsWJXCV
+    dd2phuX1JUA/Re4=
+    -----END PRIVATE KEY-----
+    """
+    tls_csr: """
+    -----BEGIN CERTIFICATE-----
+    MIIC1DCCAj2gAwIBAgIUD7gqGJUgPwUCZE1qUkCxXvTKruMwDQYJKoZIhvcNAQEL
+    M6YsNBo8mj3Rhdp+sufgTppFVb2rOZMtZqLatolRszkzQc8qY+GdCNwEG9G1fER/
+    1K4DZjn7Jxg=
+    -----END CERTIFICATE-----
+    """
+  }
+
 ```
 {% endhint %}
 
@@ -215,7 +237,7 @@ Standard JavaScript syntax works perfectly.
 ["apple", "banana", "cherry"]
 ```
 
-Commas are not required, and XanoScript also supports trailing commas.
+Commas are not required, and XanoScript also supports trailing commas, and multiline arrays.
 
 ```
 [
@@ -223,6 +245,8 @@ Commas are not required, and XanoScript also supports trailing commas.
   "banana",
   "cherry",
 ]
+
+
 ```
 {% endhint %}
 

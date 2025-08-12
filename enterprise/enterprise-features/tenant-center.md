@@ -64,6 +64,12 @@ Change the settings applied when creating the tenant, such as the display name o
 
 Push a release to this specific tenant.
 
+{% hint style="warning" %}
+## Note
+
+Deploying a new release to a tenant will cause all request history to reset for that tenant.
+{% endhint %}
+
 #### Impersonate
 
 Access the tenant in its current state. Great for troubleshooting tenant specific issues and manual verification of pushed changes

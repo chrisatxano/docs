@@ -106,6 +106,14 @@ Our response will be a JSON object, which is standard.
   }
 </code></pre></td></tr></tbody></table>
 
+Responses also support inline filters.
+
+<table><thead><tr><th width="357.3203125">Function Stack</th><th width="369.5164794921875">XanoScript</th></tr></thead><tbody><tr><td><div><figure><img src="../../.gitbook/assets/CleanShot 2025-08-12 at 14.29.57.png" alt=""><figcaption></figcaption></figure></div></td><td><pre><code>response {
+    value = {authToken: $authToken|get:"name":null}
+  }  
+ }
+</code></pre></td></tr></tbody></table>
+
 {% include "../../.gitbook/includes/xs-using-functions.md" %}
 
 Now that you have an understanding of how to write XanoScript in your function stacks, you can start building! There are a couple of different recommended ways to get started.

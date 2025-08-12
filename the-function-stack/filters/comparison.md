@@ -16,6 +16,7 @@
 * [**is\_null**](comparison.md#is_null) **-** Returns whether or not the value is null
 * [**is\_object**](comparison.md#is_object) **-** Returns whether or not the value is an object.
 * [**is\_text**](comparison.md#is_text) **-** Returns whether or not the value is text.
+* **is\_uuid** - Returns whether or not the value is a UUID
 * [**less\_than**](comparison.md#less_than) **-** Returns a boolean if the left value is less than the right value
 * [**less\_than\_or\_equal**](comparison.md#less_than_or_equal) **-** Returns a boolean if the left value is less than or equal to the right value
 * [**not**](comparison.md#not) **-** Returns the opposite of the existing value evaluated as a boolean
@@ -103,6 +104,12 @@ Returns whether or not the value is an object.
 Returns whether or not the value is text.
 
 ![Hello there is a text string so the result will be true.](<../../.gitbook/assets/CleanShot 2022-01-13 at 16.19.56.png>)
+
+#### is\_uuid
+
+Returns whether or not the value is a valid UUID
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-04 at 07.33.01@2x.png" alt=""><figcaption></figcaption></figure>
 
 #### less\_than
 

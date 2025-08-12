@@ -119,4 +119,22 @@ Contains the server information, such as the name and instructions.
 **`tools[]`** \
 An array that contains each tool.
 {% endstep %}
+
+{% step %}
+### AI Agent Triggers
+
+Agent triggers are similar to MCP triggers. They can be used when an agent is called to perform tasks such as:
+
+* Logging connections
+* Dynamically adjusting available functions and tools
+* Adjusting the system prompt based on user or other data
+
+You can find Agent Triggers in the settings for your Agent.
+
+**`toolset`** \
+Contains the server information, such as the name and instructions.
+
+**`tools[]`** \
+An array that contains each tool.
+{% endstep %}
 {% endstepper %}

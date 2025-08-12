@@ -10,7 +10,7 @@ icon: robot
 {% hint style="success" %}
 #### **Not looking for Agents, and just want to connect to your favorite AI models, like ChatGPT?**
 
-**Check out this resource instead:** [chatbots.md](../building-backend-features/chatbots.md "mention")
+**Check out this resource instead:** [chatbots.md](../../building-backend-features/chatbots.md "mention")
 {% endhint %}
 
 {% hint style="info" %}
@@ -21,7 +21,7 @@ AI agents in Xano refer to autonomous entities designed to perform tasks by leve
 These agents can process data, make decisions, and execute actions without human intervention. AI agents in Xano can efficiently handle a variety of applications, from chatbots to data analysis tools, enhancing automation and productivity.
 {% endhint %}
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><img src="../.gitbook/assets/yt (3).png" alt="" data-size="line"> <strong>Introduction to AI Agents</strong></td><td><a href="../.gitbook/assets/ai agents.png">ai agents.png</a></td><td><a href="https://youtu.be/iEn20cy5LUw?feature=shared">https://youtu.be/iEn20cy5LUw?feature=shared</a></td></tr><tr><td><img src="../.gitbook/assets/yt (3).png" alt="" data-size="line"> <strong>Tools for Agents &#x26; MCP Servers</strong></td><td><a href="../.gitbook/assets/ai tools.png">ai tools.png</a></td><td><a href="https://youtu.be/D1HtzC6yiO4">https://youtu.be/D1HtzC6yiO4</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><img src="../../.gitbook/assets/yt (3).png" alt="" data-size="line"> <strong>Introduction to AI Agents</strong></td><td><a href="../../.gitbook/assets/ai agents.png">ai agents.png</a></td><td><a href="https://youtu.be/iEn20cy5LUw?feature=shared">https://youtu.be/iEn20cy5LUw?feature=shared</a></td></tr><tr><td><img src="../../.gitbook/assets/yt (3).png" alt="" data-size="line"> <strong>Tools for Agents &#x26; MCP Servers</strong></td><td><a href="../../.gitbook/assets/ai tools.png">ai tools.png</a></td><td><a href="https://youtu.be/D1HtzC6yiO4">https://youtu.be/D1HtzC6yiO4</a></td></tr></tbody></table>
 
 {% embed url="https://youtu.be/iEn20cy5LUw?refresh=yes" %}
 
@@ -73,7 +73,13 @@ In addition, some models may support individual features, but not **combinations
 This is not an issue with Xano or with your agent builds — this is dictated by the model you're using. If you encounter errors when testing your Agents, try using a different model and check to make sure that your model supports the feature(s) you have enabled, especially if you are using more than one of these features together.
 {% endhint %}
 
-<table><thead><tr><th width="173.0833740234375">Parameter Name</th><th>Purpose</th><th>Example</th></tr></thead><tbody><tr><td>Name</td><td>Give your agent a name that describes its role or primary function</td><td>Order Processing Agent</td></tr><tr><td>Description</td><td>Internal only field for describing what your agent does</td><td>Analyzes incoming orders, decides on fulfillment priority, and triggers shipping workflows</td></tr><tr><td>Agent Settings</td><td>Define dynamic inputs the Agent can accept from Function Stack workflows and reference environment variables</td><td>Configure placeholders with <code>{{ $args.propertyName }}</code> for workflow inputs, and <code>{{ $env.variableName }}</code> for environment variables</td></tr><tr><td>Model Host</td><td>Select the AI model host for the agent</td><td>Anthropic (Claude)<br>OpenAI<br>Google Gemini</td></tr><tr><td>Max Steps</td><td>Define how many steps the Agent can execute to complete its task.</td><td>5</td></tr><tr><td>System Prompt</td><td>The core instructions that define your Agent's role, capabilities, and behavior</td><td>You are a helpful AI Agent that completes tasks accurately. When you need additional information to complete a task, use the available tools. Never make assumptions.</td></tr><tr><td>Prompt</td><td>Additional context and instructions sent with each request</td><td>Please help the customer with their inquiry: {{ $args.customer_message }}. Their account ID is {{ $args.account_id }}.</td></tr><tr><td>Structured Outputs</td><td>Configure your Agent to return responses in a specific JSON format using structured outputs and your predefined schema</td><td>Checkbox to enable/disable</td></tr><tr><td>Output Schema</td><td>Define the JSON structure for structured outputs</td><td>text, user_email</td></tr><tr><td>Tags</td><td>Categories for organizing your Agents</td><td>contact, messaging</td></tr><tr><td>Request History</td><td>Controls logging of requests to<a data-mention href="../maintenance-monitoring-and-logging/request-history.md">request-history.md</a></td><td><p>Inherit Settings: Uses workspace logging settings</p><p>Disabled: No logs recorded</p><p>Enabled: Logs requests with options for storage limits</p></td></tr></tbody></table>
+{% hint style="success" %}
+Use the **Prompt Assistant** to help you build the best system prompts for your Agents!
+
+![](<../../.gitbook/assets/CleanShot 2025-08-07 at 14.01.00.png>)
+{% endhint %}
+
+<table><thead><tr><th width="173.0833740234375">Parameter Name</th><th>Purpose</th><th>Example</th></tr></thead><tbody><tr><td>Name</td><td>Give your agent a name that describes its role or primary function</td><td>Order Processing Agent</td></tr><tr><td>Description</td><td>Internal only field for describing what your agent does</td><td>Analyzes incoming orders, decides on fulfillment priority, and triggers shipping workflows</td></tr><tr><td>Agent Settings</td><td>Define dynamic inputs the Agent can accept from Function Stack workflows and reference environment variables</td><td>Configure placeholders with <code>{{ $args.propertyName }}</code> for workflow inputs, and <code>{{ $env.variableName }}</code> for environment variables</td></tr><tr><td>Model Host</td><td>Select the AI model host for the agent</td><td>Anthropic (Claude)<br>OpenAI<br>Google Gemini</td></tr><tr><td>Max Steps</td><td>Define how many steps the Agent can execute to complete its task.</td><td>5</td></tr><tr><td>System Prompt</td><td>The core instructions that define your Agent's role, capabilities, and behavior</td><td>You are a helpful AI Agent that completes tasks accurately. When you need additional information to complete a task, use the available tools. Never make assumptions.</td></tr><tr><td>Prompt Type</td><td>The type of prompt that is being provided to the Agent. This can be either <code>messages</code>, which is a list of previous messages from another conversation, or <code>prompt</code>, which is just a standard prompt.</td><td><code>messages</code> or <code>prompt</code></td></tr><tr><td>Prompt</td><td>Additional context and instructions sent with each request</td><td>Please help the customer with their inquiry: {{ $args.customer_message }}. Their account ID is {{ $args.account_id }}.</td></tr><tr><td>Structured Outputs</td><td>Configure your Agent to return responses in a specific JSON format using structured outputs and your predefined schema</td><td>Checkbox to enable/disable</td></tr><tr><td>Output Schema</td><td>Define the JSON structure for structured outputs</td><td>text, user_email</td></tr><tr><td>Tags</td><td>Categories for organizing your Agents</td><td>contact, messaging</td></tr><tr><td>Request History</td><td>Controls logging of requests to<a data-mention href="../../maintenance-monitoring-and-logging/request-history.md">request-history.md</a></td><td><p>Inherit Settings: Uses workspace logging settings</p><p>Disabled: No logs recorded</p><p>Enabled: Logs requests with options for storage limits</p></td></tr></tbody></table>
 
 
 {% endstep %}
@@ -83,7 +89,7 @@ This is not an issue with Xano or with your agent builds — this is dictated by
 
 An Agent needs tools to function — the tools are essentially single functions that the Agent can perform, such as looking up user data or cancelling a subscription.
 
-{% include "../.gitbook/includes/ai-tools.md" %}
+{% include "../../.gitbook/includes/ai-tools.md" %}
 {% endstep %}
 {% endstepper %}
 
@@ -95,19 +101,19 @@ Your Agents will be called as a part of another function stack using the **Call 
 {% step %}
 ### Add the Call AI Agent function to your function stack
 
-<figure><img src="../.gitbook/assets/CleanShot 2025-08-11 at 12.57.35.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-11 at 12.57.35.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 ### Select your Agent from the list
 
-<figure><img src="../.gitbook/assets/CleanShot 2025-08-11 at 12.58.06.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-11 at 12.58.06.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 ### Configure your Agent's arguments and options
 
-<figure><img src="../.gitbook/assets/CleanShot 2025-08-11 at 12.59.44.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-11 at 12.59.44.png" alt=""><figcaption></figcaption></figure>
 
 In the **`args`** section, define a JSON object by typing `{}` into the box.
 
@@ -125,7 +131,7 @@ For example, if my system prompt looks like this:
 
 Your args would look like this, replacing the value with actual customer information.
 
-<figure><img src="../.gitbook/assets/CleanShot 2025-08-11 at 13.03.37.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-11 at 13.03.37.png" alt=""><figcaption></figcaption></figure>
 
 In the **`allow_tool_execution`** section, you can decide whether or not this run should allow execution of any tools the agent has access to using a `true` or `false` value.
 {% endstep %}
@@ -137,7 +143,7 @@ Structured Outputs are used for providing a specific format that you need your a
 
 You can add structured outputs to your Agent in the settings by checking the Structured Outputs checkbox, and then clicking <mark style="background-color:blue;">+ Add Output Schema</mark> to build your output schema.
 
-<div align="left"><figure><img src="../.gitbook/assets/CleanShot 2025-06-30 at 17.02.11.png" alt="" width="432"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/CleanShot 2025-06-30 at 17.02.11.png" alt="" width="432"><figcaption></figcaption></figure></div>
 
 ## Example Agents
 

@@ -90,14 +90,6 @@
 * [Additional Features](the-function-stack/additional-features/README.md)
   * [Response Caching](the-function-stack/additional-features/response-caching.md)
 
-## Build For AI <a href="#ai-tools" id="ai-tools"></a>
-
-* [Agents](ai-tools/agents.md)
-* [MCP Builder](ai-tools/mcp-builder/README.md)
-  * [Connecting Clients](ai-tools/mcp-builder/connecting-clients.md)
-  * [MCP Functions](ai-tools/mcp-builder/mcp-functions.md)
-* [Xano MCP Server](ai-tools/xano-mcp-server.md)
-
 ## Testing and Debugging <a href="#testing-debugging" id="testing-debugging"></a>
 
 * [Testing and Debugging Function Stacks](testing-debugging/testing-and-debugging-function-stacks.md)
@@ -135,8 +127,18 @@
 
 * [CI/CD](ci-cd.md)
 
+## Build For AI <a href="#ai-tools" id="ai-tools"></a>
+
+* [Agents](ai-tools/agents/README.md)
+  * [Templates](ai-tools/agents/templates.md)
+* [MCP Builder](ai-tools/mcp-builder/README.md)
+  * [Connecting Clients](ai-tools/mcp-builder/connecting-clients.md)
+  * [MCP Functions](ai-tools/mcp-builder/mcp-functions.md)
+* [Xano MCP Server](ai-tools/xano-mcp-server.md)
+
 ## Build With AI <a href="#xano-ai" id="xano-ai"></a>
 
+* [Using AI Builders with Xano](xano-ai/using-ai-builders-with-xano.md)
 * [Building a Backend Using AI](xano-ai/building-a-backend-using-ai.md)
 * [Get Started Assistant](xano-ai/get-started-assistant.md)
 * [AI Database Assistant](xano-ai/ai-database-assistant.md)
@@ -164,6 +166,7 @@
 * [Request History](maintenance-monitoring-and-logging/request-history.md)
 * [Instance Dashboard](maintenance-monitoring-and-logging/instance-dashboard/README.md)
   * [Memory Usage](maintenance-monitoring-and-logging/instance-dashboard/memory-usage.md)
+* [Performance Insights](maintenance-monitoring-and-logging/performance-insights.md)
 
 ## Building Backend Features
 
@@ -219,10 +222,7 @@
   * [Request History](xano-features/metadata-api/request-history.md)
   * [Workspace Import and Export](xano-features/metadata-api/workspace-import-and-export.md)
   * [Token Scopes Reference](xano-features/metadata-api/token-scopes-reference.md)
-
-***
-
-* [Using AI Builders with Xano](using-ai-builders-with-xano.md)
+* [Shared Services](xano-features/shared-services.md)
 
 ## Xano Transform
 
