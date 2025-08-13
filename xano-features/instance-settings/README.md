@@ -121,18 +121,10 @@ Click 'Save' to save the connection. We can now navigate the PostgreSQL database
 
 
 
-## Upgrading an Instance
+## FAQ
 
 **Why should you upgrade?**\
 Free accounts come with **one workspace that shares resources with other Xano customers**. It also is limited on capabilities such as storage, database records, and processing power.  You'll easily be able to prototype most of your application in this type of account, but upgrading to a paid plan will give you a more powerful instance that can scale with your needs. [View plan pricing and details](http://www.xano.com/pricing).
-
-**What can I upgrade to?**\
-If you are on our Launch plan, your next step would be Scale1x. Upgrades from Launch to Scale1x are able to make use of a 48 hour no questions asked refund policy -- if you find that Scale1x is not solving the requirement that prompted the upgrade, reach out to support within 48 hours and we'll roll you back to Launch and refund the difference.
-
-If you are currently on a Scale plan and considering a higher tier, we can work with you to trial higher Scale tiers by reaching out to support.
-
-**What does upgrading your instance actually do?**\
-Upgrading your instance migrates your data and business logic to a brand new, faster instance. If you upgrade to the Scale package, you'll be put on your own dedicated instance for maximum performance and scalability.
 
 **How long does upgrading take?**\
 Upgrading an instance takes seconds to complete.
@@ -148,62 +140,97 @@ Upgrading an instance takes seconds to complete.
 **You do not need to update your API URL ORIGIN if:**\
 &#x20;\- You are upgrading from a PAID to PAID instance and not changing your server location.
 
-## **How to upgrade an instance**
+## How to Upgrade <a href="#upgrading-an-instance" id="upgrading-an-instance"></a>
 
-### **Step 1 - Go to the Billing page**
+{% stepper %}
+{% step %}
+### Getting to the Upgrade screen
 
-Go to the Billing section within Xano. You can get there by clicking "Billing" in the side menu on the instances page. You can also click your initials when you're in your workspace and clicking the "Billing" link.
+While on our free Build plan, you'll see a number of different places prompting you to upgrade whenever you're ready in the left-hand navigation, and in a banner at the top of the screen.
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-08-23 at 11.07.49.png" alt="" width="563"><figcaption></figcaption></figure>
+You can also navigate to your Billing screen by clicking your name in the bottom-left and choosing Billing.
 
-### **Step 2 - Select a plan**
+<div align="left"><figure><img src="../../.gitbook/assets/CleanShot 2025-08-13 at 10.49.06.png" alt=""><figcaption></figcaption></figure></div>
+{% endstep %}
 
-Click the **Change Plan** button on the instance you want to upgrade.&#x20;
+{% step %}
+### Pick your plan
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-08-23 at 11.08.49.png" alt=""><figcaption></figcaption></figure>
+Find the plan you'd like to upgrade to, and click **Upgrade**
 
-On the next screen, you'll be able to change your current plan, modify your billing schedule, add additional upgrades, or change your region.
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-13 at 10.52.35.png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-08-23 at 11.13.14.png" alt=""><figcaption></figcaption></figure>
+{% step %}
+### Choose any add-ons or other options
 
-Once you've made your selections, click the green button at the bottom to proceed to checkout.
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-13 at 10.54.33.png" alt=""><figcaption></figcaption></figure>
 
-### **If your base API URL is changing...**
+1. Set your server region. It's best to choose a region that is closest to a majority of your user base.
+2. Select any add-ons that you'd like from here. You can always adjust these later, as well.
+
+{% hint style="success" %}
+## Get more CPU power with CPU Boost
+
+CPU Boost supercharges your Xano instance, and is a great way to ensure that you're providing the best experience for your users.
+
+Not sure if the Boost is for you? Feel free to reach out to our Support team for more information. You can always add or remove it later.
+{% endhint %}
+
+3. Click **Final Review & Checkout** whenever you're ready
+4. Switch to an Annual plan to save more from here
+{% endstep %}
+
+{% step %}
+### Fill out your information and click Subscribe
 
 {% hint style="warning" %}
-### **THIS IS THE MOST IMPORTANT STEP**
+## You're not done yet!
 
-**To ensure a seamless transition for your users, please read this section carefully.**
+Continue with step 5 after you click Subscribe to ensure your upgrade is complete.
 {% endhint %}
 
-#### **Click the "Start Upgrade" button...**
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-13 at 10.58.15.png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
 
-Don't worry, this doesn't start the upgrade right away. This will bring up a dialog telling you what you need to be aware of before continuing.
+{% step %}
+### After completing checkout, you'll be taken to the Upgrade screen
 
-#### Write down your new API URL Origin
+Depending on the upgrade you're performing, we don't process the upgrade immediately. We do this to ensure a seamless transition for your users. The following scenarios will prompt a manual upgrade process:
+
+* Switching server regions
+* Upgrading from a free to a paid plan
+* Adding Static IP
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-13 at 10.59.40.png" alt=""><figcaption></figcaption></figure>
+
+If you've already connected a frontend or other external services to your Xano workspace, you'll likely need to update those URLs to match your new instance. You'll find your new instance URL by clicking **Start Update** on the panel that opens. (Don't worry, you'll still need to confirm once more before the process begins.)
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-13 at 11.02.21.png" alt=""><figcaption></figcaption></figure>
+
+Just look for the **NEW URL ORIGIN.** That's your new instance URL. You'll need to replace any instances of the EXISTING URL ORIGIN on your frontend or external connections with the **NEW URL ORIGIN**.
+
+Whenever you're ready, type "I UNDERSTAND" in the Confirm box and click **Start Update Now**
+
+{% hint style="warning" %}
+## Drafts
+
+Make sure you publish any drafts before continuing; all drafts will be discarded when upgrading.
+{% endhint %}
+{% endstep %}
+
+{% step %}
+### Congratulations!
+
+Your upgrade will process in just a few moments, and you're now on your newly upgraded Xano instance.
 
 {% hint style="info" %}
-**What is an API URL ORIGIN anyway?**\
-It's the first part of any API endpoint you have hooked up to the front-end. See below for an example
+## Need help using any of the new features?
 
-```
-YOUR API URL ORIGIN (example)
-https://xd6b-cfde-62f6.dev.xano.io/
-
-YOUR FULL API ENDPOINT URL FOR 'GET USERS' (example)
-https://xd6b-cfde-62f6.dev.xano.io/api:4qSkfrOl/user
-```
+Our Support team and the [Xano Community](https://community.xano.com/) are always here to help.
 {% endhint %}
-
-### Step 4 - Update your Front-end with the new API URL ORIGIN if you are upgrading from the FREE plan or changing your server region.
-
-
-
-### Step 5 - Complete your upgrade
-
-Once you follow the steps above, type **I UNDERSTAND** into the box and click the button "Start upgrade now".&#x20;
-
-
+{% endstep %}
+{% endstepper %}
 
 
 
