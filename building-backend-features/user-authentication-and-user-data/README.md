@@ -4,61 +4,19 @@ icon: key
 
 # User Authentication & User Data
 
-## **Enable Authentication for a Table**
+{% embed url="https://youtu.be/h8fGGaZInbo" %}
 
-Authentication starts with enabling the function on a table that contains user data. Typically, this would just be your `user` table. You can also enable authentication on multiple tables if you want separate authentication methods for different user groups, such as normal users and administrators.
-
-{% stepper %}
-{% step %}
-### Click the ![](<../../.gitbook/assets/CleanShot 2025-02-05 at 09.07.38.png>) icon in the database table view and choose Settings.
-
-
-{% endstep %}
-
-{% step %}
-### Use the dropdown to enable authentication.
-
-<figure><img src="../../.gitbook/assets/CleanShot 2025-02-05 at 09.08.12.png" alt=""><figcaption></figcaption></figure>
-{% endstep %}
-{% endstepper %}
-
-## **Enable Authentication on an API Request**
-
-Once you've enabled authentication on a table, you can use each API endpoint's settings to note whether or not it requires authentication.
-
-When a request is sent to API endpoints that require authentication, an authorization token is sent in the headers of the request, which Xano checks against the table with authentication enabled, before allowing the request to continue.
-
-{% hint style="info" %}
-Still need a primer on the basics of an API? Read more [here](../../before-you-begin/key-concepts.md#api).
-{% endhint %}
-
-{% stepper %}
-{% step %}
-### Click  ![](<../../.gitbook/assets/CleanShot 2025-02-05 at 09.09.10.png>) to access the settings of the API you'd like to enable authentication on.
-
-
-{% endstep %}
-
-{% step %}
-### Enable authentication for the endpoint in the dropdown.
-
-This dropdown will list each table that you have authentication enabled on. Select the table you enabled authentication on.
-
-<figure><img src="../../.gitbook/assets/CleanShot 2025-02-05 at 09.16.01.png" alt=""><figcaption></figcaption></figure>
-
-Once an API has authentication enabled, it will require an authentication token to be sent in the headers of the request.
-{% endstep %}
-{% endstepper %}
-
-## How does authentication work?
+## How does authentication work in Xano?
 
 Authentication in Xano is powered by industry-standard JWE (JSON Web Encryption) tokens.
 
-Once a token is generated (after login or signup), your app or website will send that token back to Xano for requests that require authentication.
+Once a token is generated (typically after login or signup), your app or website will send that token back to Xano for requests that require authentication.
 
 A token is generated using the [**Create Authentication Token**](../../the-function-stack/functions/security.md#create-authentication-token) function, and is typically used in conjunction with a standard login or signup authentication flow.
 
-## Adding Pre-built Authentication Endpoints
+## How do I use authentication in Xano?
+
+### Using Pre-generated Auth Endpoints
 
 {% stepper %}
 {% step %}
@@ -85,7 +43,61 @@ A token is generated using the [**Create Authentication Token**](../../the-funct
 {% endstep %}
 {% endstepper %}
 
-## Building Sign-up and Login APIs
+### Add Authentication Manually
+
+{% stepper %}
+{% step %}
+### Enable Authentication on a Table
+
+Authentication starts with enabling the function on a table that contains user data. Typically, this would just be your `user` table. You can also enable authentication on multiple tables if you want separate authentication methods for different user groups, such as normal users and administrators.
+
+{% stepper %}
+{% step %}
+### Click the ![](<../../.gitbook/assets/CleanShot 2025-02-05 at 09.07.38.png>) icon in the database table view and choose Settings.
+
+
+{% endstep %}
+
+{% step %}
+### Use the dropdown to enable authentication.
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-05 at 09.08.12.png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+{% endstep %}
+
+{% step %}
+### Enable Authentication on an API
+
+Once you've enabled authentication on a table, you can use each API endpoint's settings to note whether or not it requires authentication.
+
+When a request is sent to API endpoints that require authentication, an authorization token is sent in the headers of the request, which Xano checks against the table with authentication enabled, before allowing the request to continue.
+
+{% hint style="info" %}
+Still need a primer on the basics of an API? Read more [here](../../before-you-begin/key-concepts.md#api).
+{% endhint %}
+
+{% stepper %}
+{% step %}
+### Click  ![](<../../.gitbook/assets/CleanShot 2025-02-05 at 09.09.10.png>) to access the settings of the API you'd like to enable authentication on.
+
+
+{% endstep %}
+
+{% step %}
+### Enable authentication for the endpoint in the dropdown.
+
+This dropdown will list each table that you have authentication enabled on. Select the table you enabled authentication on.
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-02-05 at 09.16.01.png" alt=""><figcaption></figcaption></figure>
+
+Once an API has authentication enabled, it will require an authentication token to be sent in the headers of the request.
+{% endstep %}
+{% endstepper %}
+{% endstep %}
+{% endstepper %}
+
+## What do typical sign-up and login APIs look like?
 
 Below, you can review a **typical** login and signup flow — you are free to modify them to suit your needs. These are the same that Xano can add for you during signup
 
