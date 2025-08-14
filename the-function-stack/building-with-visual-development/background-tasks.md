@@ -48,5 +48,7 @@ Once you have built your function stack and your task schedule, click Enable Tas
 
 
 
+## Task Data Sources
 
+In the Task settings,&#x20;
 

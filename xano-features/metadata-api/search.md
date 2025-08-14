@@ -60,350 +60,196 @@ Example response body:
 
 ## Search
 
-Search via the Metadata API is powerful and flexible to return the exact database content you are searching for.&#x20;
+The `search` parameter in the Xano Metadata API allows you to filter query results using **structured search conditions**.\
+\
+It accepts an **array** of objects that describe logical expressions, comparisons, and groupings — similar to SQL `WHERE` clauses.
 
-#### Search where ID = 10
+***
 
-In this example, we will search the Items table where ID = 10
+### Basic Structure
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-04-12 at 17.45.22@2x.png" alt=""><figcaption></figcaption></figure>
+Each search item can be either:
 
-{% hint style="info" %}
-Search can be done as a single object or array if there is only one search parameter. If there are multiple parameters then it must be an array.\
+* **Statement** → A single condition comparing two values.
+* **Group** → A collection of statements combined with AND/OR logic.
 
+**Statement Format:**
 
-You can pass just what you want in the request body. For example, if all we want to do is search then we just need to pass search to the body.
-{% endhint %}
-
-With paging, sort, and search as an array.
-
-```
+```json
 {
-  "page": 1,
-  "per_page": 50,
-  "sort": {
-    "id": "desc"
+  "type": "statement",
+  "left": {
+    "tag": "col",         
+    "operand": "name"     
   },
-  "search": [{
-   "id": 10
-}]
+  "op": "==",             
+  "right": {
+    "operand": "chris"    
+  }
 }
 ```
 
-With paging, sort, and search as a single object.
+**Common `tag` values for operands:**
 
-```
-{
-  "page": 1,
-  "per_page": 50,
-  "sort": {
-    "id": "desc"
+* `"col"` → Refers to a column in the table (e.g., `"name"`, `"user.id"`).
+* `"const"` → A constant string.
+* `"const:int"` → A constant integer.
+* `"const:bool"` → A constant boolean.
+* `"const:date"` → A date constant.
+
+**Common `op` values:**
+
+* `"="` or `"=="` → Equal to
+* `"!="` → Not equal to
+* `"<"`, `"<="`, `">"`, `">="` → Numeric/date comparisons
+* `"like"` → Pattern match (SQL-like `%` wildcards supported)
+* `"in", "not in"` → Value's existence in a provided list
+
+***
+
+### Logical Operators
+
+You can combine statements using the `"or"` property:
+
+* `false` (default) → Conditions are combined with AND.
+* `true` → Condition is combined with OR.
+
+Example:
+
+```json
+[
+  {
+    "type": "statement",
+    "left": { "tag": "col", "operand": "name" },
+    "op": "==",
+    "right": { "operand": "chris" }
   },
-  "search": {
-   "id": 10
-}
-}
-```
-
-With just search, as an array.
-
-```
-{
-  "search": [{
-   "id": 10
-}]
-}
-```
-
-With just search, as a single object.
-
-```
-{
-  "search": {
-   "id": 10
-}
-}
-```
-
-For this example, all of the above are acceptable for the request body.&#x20;
-
-Example response body:
-
-```
-{
-  "items": [
-    {
-      "id": 10,
-      "created_at": 1681346185431,
-      "name": "Air Fryer",
-      "description": "A new way to fry food without all the grease and oil",
-      "category_id": 2,
-      "price": 75
-    }
-  ],
-  "itemsReceived": 1,
-  "curPage": 1,
-  "nextPage": null,
-  "prevPage": null,
-  "offset": 0,
-  "itemsTotal": 1,
-  "pageTotal": 1
-}
-```
-
-#### Search where Price > 30 and Price < 70
-
-In this example, we are searching for content where price is > 30 and price is < 70.
-
-<figure><img src="../../.gitbook/assets/CleanShot 2023-04-12 at 17.57.16@2x.png" alt=""><figcaption></figcaption></figure>
-
-Example request body:
-
-```
-{
-  "search": [{
-   "price|>": 30
-},
-{
-   "price|<": 70
-}]
-}
-```
-
-Example response body:
-
-```
-{
-  "items": [
-    {
-      "id": 5,
-      "created_at": 1681346183608,
-      "name": "Microwave",
-      "description": "Reheat leftovers quickly",
-      "category_id": 2,
-      "price": 40
-    },
-    {
-      "id": 8,
-      "created_at": 1681346184305,
-      "name": "Blender",
-      "description": "Make smoothies and more",
-      "category_id": 2,
-      "price": 65
-    },
-    {
-      "id": 9,
-      "created_at": 1681346184508,
-      "name": "Running Shoes",
-      "description": "Comfy footwear for long runs",
-      "category_id": 1,
-      "price": 45
-    }
-  ],
-  "itemsReceived": 3,
-  "curPage": 1,
-  "nextPage": null,
-  "prevPage": null,
-  "offset": 0,
-  "itemsTotal": 3,
-  "pageTotal": 1
-}
-```
-
-#### Search where Price < 30 or Price > 70
-
-In this example, we will search for where the price is < 30 or the price is > 70
-
-<figure><img src="../../.gitbook/assets/CleanShot 2023-04-12 at 18.10.11@2x.png" alt=""><figcaption></figcaption></figure>
-
-Example request body:
-
-```
-{
-  "search": [
-{
-   "price|<": 30
-},
-{
-   "price|>|or": 70
-}
+  {
+    "type": "statement",
+    "or": true,
+    "left": { "tag": "col", "operand": "id" },
+    "op": "==",
+    "right": { "operand": 2 }
+  }
 ]
+```
+
+Meaning:\
+`name == "chris" OR id == 2`
+
+***
+
+### Grouping Conditions
+
+Groups allow nested expressions:
+
+```json
+{
+  "type": "group",
+  "group": {
+    "expression": [
+      {
+        "type": "statement",
+        "statement": {
+          "left": { "operand": "user.name", "tag": "col" },
+          "op": "=",
+          "right": { "operand": "chris", "tag": "const" }
+        }
+      },
+      {
+        "type": "statement",
+        "statement": {
+          "left": { "operand": "user.id", "tag": "col" },
+          "op": "=",
+          "right": { "operand": "1", "tag": "const:int" }
+        }
+      }
+    ]
+  }
 }
 ```
 
-{% hint style="info" %}
-Notice how the or is formatted after the Price is > 70 expression.
-{% endhint %}
+Meaning:\
+`(user.name = "chris" AND user.id = 1)`
 
-Example response body:
+***
 
-```
+### Using Filters
+
+Operands can have `filters` applied before comparison.\
+Example with `concat` filter:
+
+```json
 {
-  "items": [
+  "operand": "true",
+  "tag": "const:bool",
+  "filters": [
     {
-      "id": 1,
-      "created_at": 1681336868222,
-      "name": "Basketball",
-      "description": "round ball to shoot hoops",
-      "category_id": 1,
-      "price": 10
-    },
-    {
-      "id": 2,
-      "created_at": 1681336868456,
-      "name": "French Press",
-      "description": "Make delicious coffee with this",
-      "category_id": 2,
-      "price": 5
-    },
-    {
-      "id": 4,
-      "created_at": 1681336868931,
-      "name": "Camera",
-      "description": "Take photos with this",
-      "category_id": 3,
-      "price": 80
-    },
-    {
-      "id": 6,
-      "created_at": 1681346183823,
-      "name": "Resistance Bands",
-      "description": "Stretchy bands for working out",
-      "category_id": 1,
-      "price": 15
-    },
-    {
-      "id": 7,
-      "created_at": 1681346184107,
-      "name": "Tablet",
-      "description": "Browse, stream, and more with a portable tablet",
-      "category_id": 3,
-      "price": 120
-    },
-    {
-      "id": 10,
-      "created_at": 1681346185431,
-      "name": "Air Fryer",
-      "description": "A new way to fry food without all the grease and oil",
-      "category_id": 2,
-      "price": 75
+      "name": "concat",
+      "disabled": false,
+      "arg": [
+        { "value": "or not true", "tag": "const" }
+      ]
     }
-  ],
-  "itemsReceived": 6,
-  "curPage": 1,
-  "nextPage": null,
-  "prevPage": null,
-  "offset": 0,
-  "itemsTotal": 6,
-  "pageTotal": 1
+  ]
 }
 ```
 
-#### In and Not In
+Filters modify the operand value before it’s compared.
 
-The IN and NOT IN operators are great for working with lists and can also be thought of as another version of "or" operators. In the first example, we will search where the ID is IN \[2,3,7].
+***
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-04-12 at 18.15.18.png" alt=""><figcaption></figcaption></figure>
+### Example: Complex Search
 
-Example request body:
-
-```
-{
-
-  "search": {
-  "id|in": [2,3,7]
-}
-}
-```
-
-Example response body:
-
-```
-{
-  "items": [
-    {
-      "id": 2,
-      "created_at": 1681336868456,
-      "name": "French Press",
-      "description": "Make delicious coffee with this",
-      "category_id": 2,
-      "price": 5
-    },
-    {
-      "id": 3,
-      "created_at": 1681336868658,
-      "name": "Bluetooth Speaker",
-      "description": "Portable music player",
-      "category_id": 3,
-      "price": 30
-    },
-    {
-      "id": 7,
-      "created_at": 1681346184107,
-      "name": "Tablet",
-      "description": "Browse, stream, and more with a portable tablet",
-      "category_id": 3,
-      "price": 120
+```json
+[
+  {
+    "type": "statement",
+    "left": { "tag": "col", "operand": "status" },
+    "op": "in",
+    "right": { "operand": ["active", "pending"], "tag": "const" }
+  },
+  {
+    "type": "group",
+    "or": true,
+    "group": {
+      "expression": [
+        {
+          "type": "statement",
+          "statement": {
+            "left": { "operand": "created_at", "tag": "col" },
+            "op": ">=",
+            "right": { "operand": "2025-01-01", "tag": "const:date" }
+          }
+        },
+        {
+          "type": "statement",
+          "statement": {
+            "left": { "operand": "priority", "tag": "col" },
+            "op": "=",
+            "right": { "operand": "high", "tag": "const" }
+          }
+        }
+      ]
     }
-  ],
-  "itemsReceived": 3,
-  "curPage": 1,
-  "nextPage": null,
-  "prevPage": null,
-  "offset": 0,
-  "itemsTotal": 3,
-  "pageTotal": 1
-}
+  }
+]
 ```
 
-In the second example, we will search where ID is NOT IN \[1,2,3,4,6,7,8,9]
+Meaning:\
+`status IN ("active", "pending") AND (created_at >= 2025-01-01 OR priority = "high")`
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-04-12 at 18.17.43@2x.png" alt=""><figcaption></figcaption></figure>
+***
 
-Example request body:
+### Tips
 
-```
-{
+* Always send `"search"` as an array, even for a single condition.
+* Use `"or": true` to connect conditions with OR logic.
+* Use groups for nested AND/OR combinations.
+* Match `tag` to the correct data type to avoid mismatches.
+* Filters can preprocess values before comparison.
 
-  "search": {
-  "id|not in": [1,2,3,4,6,7,8,9]
-}
-}
-```
-
-Example response body:
-
-```
-{
-  "items": [
-    {
-      "id": 5,
-      "created_at": 1681346183608,
-      "name": "Microwave",
-      "description": "Reheat leftovers quickly",
-      "category_id": 2,
-      "price": 40
-    },
-    {
-      "id": 10,
-      "created_at": 1681346185431,
-      "name": "Air Fryer",
-      "description": "A new way to fry food without all the grease and oil",
-      "category_id": 2,
-      "price": 75
-    }
-  ],
-  "itemsReceived": 2,
-  "curPage": 1,
-  "nextPage": null,
-  "prevPage": null,
-  "offset": 0,
-  "itemsTotal": 2,
-  "pageTotal": 1
-}
-```
-
-### Sort
+## Sort
 
 Sort is flexible, like search, in the sense that it accepts a single object or an array for a single sort parameter. It also supports multiple sorts, which require an array format.
 
