@@ -156,6 +156,12 @@ You'll need the ID of the tenant, which is available inside the Tenant Center, a
 
 <table><thead><tr><th width="160.41668701171875">Method</th><th width="571.0833129882812">Example</th></tr></thead><tbody><tr><td>API Path</td><td><code>.../tenant/tenant-id/api:abc123/test</code><br><br><code>[Xano Instance URL]</code>/tenant/<code>[tenant ID]</code>/<code>[api group]</code>/<code>[api]</code></td></tr><tr><td>Query Parameter</td><td><code>.../api:abc123/test?x-tenant=tenant-id</code><br><br><code>[Xano Instance URL]</code>/<code>[API group]</code>/<code>[API]</code>?<code>x-tenant=[Tenant ID]</code></td></tr><tr><td>Header</td><td><code>.../api:abc123/test</code><br><br>In the headers of the API request, supply the following:<br><code>X-Tenant: [Tenant ID]</code></td></tr><tr><td>Custom Domain</td><td><code>https://tenant-domain.com/api:abc123/api</code><br><br>Custom domains are configured in each tenant's settings. Additional setup is required. For more information on using custom domains with Tenants, reach out to your Xano representative or our support team.</td></tr></tbody></table>
 
+### Metadata API
+
+The [metadata-api](../../xano-features/metadata-api/ "mention") is accessed for your tenants in a similar fashion.
+
+If a tenant's URL is `.../tenant/tenant-id/api:abc123/test` then the base URL for their Metadata API would be `.../tenant/tenant-id/api:meta`  &#x20;
+
 ***
 
 ## RBAC: Tenant Center
