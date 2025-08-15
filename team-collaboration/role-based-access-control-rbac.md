@@ -5,7 +5,7 @@ icon: building-lock
 # Role-based Access Control (RBAC)
 
 {% hint style="success" %}
-Role-Based Access Control (Permissions) is included with our **Scale** and **Enterprise** plans.&#x20;
+Role-Based Access Control (Permissions) is included with our **Pro** and **Enterprise** plans.&#x20;
 {% endhint %}
 
 Xano Enterprise allows granular permissions control for each team member and workspace within an Instance.
