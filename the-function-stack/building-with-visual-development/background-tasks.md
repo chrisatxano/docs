@@ -50,5 +50,21 @@ Once you have built your function stack and your task schedule, click Enable Tas
 
 ## Task Data Sources
 
-In the Task settings,&#x20;
+In the Task settings, you can specify what [data-sources.md](../../the-database/database-basics/data-sources.md "mention")the task targets when running. You can only specifiy a single data source per task.
+
+If you need your task to run on multiple data sources, you can:
+
+{% stepper %}
+{% step %}
+### Duplicate the task and set each version to run on separate data sources
+
+
+{% endstep %}
+
+{% step %}
+### Use the Set Data Source function to target multiple data sources inside of the same task.
+
+{% embed url="https://www.loom.com/share/e1dc64f0156c4aed8929f31c6e9ae7b4" %}
+{% endstep %}
+{% endstepper %}
 
