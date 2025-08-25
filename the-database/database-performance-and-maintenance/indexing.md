@@ -117,6 +117,12 @@ In this example, a query without indexing takes **0.23** seconds.
 
 In this example, utilizing the GIN index, the query takes **0.02** seconds.
 
+{% hint style="success" %}
+## Hint
+
+Use EXPLAIN ANALYZE inside of a [direct-database-query.md](../../the-function-stack/functions/database-requests/direct-database-query.md "mention") to evaluate your query performance.
+{% endhint %}
+
 ## How to Apply an Index in the Database View
 
 In the database view, click on the table that you want to index. Choose "Indexes" from the top bar.

@@ -18,6 +18,22 @@ The **database** is used to store information that you will need to recall again
 * Data from a database that needs temporary manipulation or transformation, such as combining a first and last name or calculating a discount
 * The output of individual functions in a function stack, like getting a record from a database table
 
+**Dot Notation** is how you'll reference keys inside of objects, or specific items in an array, inside of Xano. You may have done this previously in other tools using a format like the ones listed in the table below.
+
+Xano's dot notation uses periods to represent traversal in an object. For example, if you have an object called `product` with a key called `price`, you'd use `product.price`
+
+| Platform / Tool         | Example Object                               | How to Reference "price"                              | Notes                                                                                    |
+| ----------------------- | -------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Xano**                | `{"product": {"name": "apple", "price": 5}}` | `product.price`                                       | Standard dot notation.                                                                   |
+| **Bubble**              | `{"product": {"name": "apple", "price": 5}}` | `Current cell's product's price`                      | Bubble uses a "drill-down" syntax with apostrophes and natural language style.           |
+| **Airtable (formula)**  | `{"product": {"name": "apple", "price": 5}}` | `product.price` (in scripts) OR `{Price}` (in tables) | In scripts, it’s dot notation. In formulas/views, it’s field reference wrapped in `{ }`. |
+| **Zapier (JSON paths)** | `{"product": {"name": "apple", "price": 5}}` | `product__price`                                      | Nested keys are flattened with `__`.                                                     |
+| **Integromat / Make**   | `{"product": {"name": "apple", "price": 5}}` | `product[price]`                                      | Uses bracket notation inside functions/macros.                                           |
+| **n8n**                 | `{"product": {"name": "apple", "price": 5}}` | `{{$json["product"]["price"]}}`                       | Requires explicit JSON path inside double-braced expression.                             |
+| **Retool**              | `{"product": {"name": "apple", "price": 5}}` | `product.price`                                       | Standard JavaScript dot notation since Retool runs JS under the hood.                    |
+| **Glide**               | `{"product": {"name": "apple", "price": 5}}` | `product.price` OR use computed column                | Glide inherits Google-Sheets style, but in computed columns it follows dot notation.     |
+| **Appsmith**            | `{"product": {"name": "apple", "price": 5}}` | `{{product.price}}`                                   | JS evaluation inside double braces.                                                      |
+
 ## Data in Functions
 
 Most functions that you can add to a function stack will have some kind of output available. The output of these functions are stored in a **variable**.

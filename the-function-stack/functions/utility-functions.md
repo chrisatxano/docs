@@ -225,6 +225,12 @@ Returns all of the inputs sent to the API in a single object.
 
 Returns all data sent to the API, even if they are not defined inputs. You'd use this function when building a **Webhook,** or you otherwise aren't sure what data will be sent to this endpoint.
 
+The **encoding** value should match what is being sent to the endpoint, using one of the following options:
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-25 at 11.19.32.png" alt=""><figcaption></figcaption></figure>
+
+If you aren't sure which one to choose, try `json` first. Consult the sending party (such as the third party service that's sending data to this endpoint) for more information on the type of data being sent. You can always select none and process the data in your function stack later.
+
 {% hint style="info" %}
 Exclude Middleware Modification should be set to `false` if you intend on using the raw data in your function stack **before** it's modified by Middleware.
 {% endhint %}

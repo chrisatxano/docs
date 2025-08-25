@@ -46,7 +46,7 @@ No.\
 
 **When and how will I get paid?**&#x20;
 
-1. You will be eligible for payment once your referral has been a paid Xano customer for at least 30 days. \
+1. You will be eligible for payment once your referral has been a paid Xano customer for at least 30 days. Payouts are available once your balance has met a $100 threshold. \
 
 2. Once you’re eligible for your first payment, you will receive an email asking for your mailing address (PayPal payments will be available soon).. \
 

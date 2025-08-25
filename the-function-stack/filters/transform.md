@@ -88,19 +88,7 @@ This filter (also called **find first element index**) is identical to the **som
 return $this.price > 10;
 ```
 
-## filter
-
-* **$this** - the context variable that represents the element of the array being processed.
-* **$index** - the context variable that represents the numerical index of the element of the array being processed.
-* **$parent** - the context variable that represents the entire array with all of its elements.
-
-This filter (also called **find all elements**) is identical to the **find** filter except that it returns it returns all elements that match the condition. Even if there is only one match, it would return an array of one. A common use case would be finding all products that have a price greater than 10.
-
-![In this example, filter will return all elements where the price is greater than 10.](<../../.gitbook/assets/CleanShot 2022-03-31 at 15.32.25.png>)
-
-```javascript
-return $this.price > 10;
-```
+##
 
 ## reduce
 

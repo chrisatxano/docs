@@ -77,3 +77,7 @@ Throughout the documentation, you'll see ![](<../../../.gitbook/assets/CleanShot
 <div align="left"><figure><img src="../../../.gitbook/assets/CleanShot 2024-12-26 at 11.58.03.png" alt="" width="218"><figcaption></figcaption></figure></div>
 
 You can click the link at the top of the page to access a JSON-formatted version of your API spec. This is useful for other external platforms that rely on this type of standardized information about your APIs or providing to AI chatbots / LLMs.
+
+{% hint style="info" %}
+It is not possible at this time to modify the version number displayed in your Swagger documentation.
+{% endhint %}

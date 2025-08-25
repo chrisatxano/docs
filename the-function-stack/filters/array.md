@@ -167,6 +167,30 @@ Get the first entry of an Array.
 
 ***
 
+## filter
+
+* **$this** - the context variable that represents the element of the array being processed.
+* **$index** - the context variable that represents the numerical index of the element of the array being processed.
+* **$parent** - the context variable that represents the entire array with all of its elements.
+
+This filter (also called **find all elements**) is identical to the **find** filter except that it returns all elements that match the condition. Even if there is only one match, it would return an array of one. A common use case would be finding all products that have a price greater than 10.
+
+![In this example, filter will return all elements where the price is greater than 10.](<../../.gitbook/assets/CleanShot 2022-03-31 at 15.32.25.png>)
+
+```javascript
+return $this.price > 10;
+```
+
+| Example Use Case                                      | Input Array                                                                                       | Filter Expression                           | Result                                                             |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------ |
+| Find all products with price > 10 (using `$this`)     | `[{"name": "apple", "price": 5}, {"name": "banana", "price": 12}, {"name": "pear", "price": 20}]` | `filter(products, $this.price > 10)`        | `[{"name": "banana", "price": 12}, {"name": "pear", "price": 20}]` |
+| Get all even-indexed items (using `$index`)           | `["a", "b", "c", "d"]`                                                                            | `filter(array, $index % 2 == 0)`            | `["a", "c"]`                                                       |
+| Find items greater than the average (using `$parent`) | `[1, 5, 10, 15]`                                                                                  | `filter(numbers, $this > average($parent))` | `[10, 15]`                                                         |
+| Match specific string (case-sensitive)                | `["cat", "dog", "cow"]`                                                                           | `filter(animals, $this == "dog")`           | `["dog"]`                                                          |
+| Return all names starting with "J"                    | `["John", "Jane", "Alice"]`                                                                       | `filter(names, startsWith($this, "J"))`     | `["John", "Jane"]`                                                 |
+
+***
+
 ### filter\_empty\_array
 
 ### filter\_empty\_object

@@ -73,6 +73,8 @@ This action is **not reversible**, so if you have questions, reach out to our su
 
 > Offers quick access to the [compliance-center.md](../../enterprise/enterprise-features/compliance-center.md "mention"), which is a premium feature that enables advanced auditing of the state of your workspace and actions of your team members
 
+## Table Format
+
 {% include "../../.gitbook/includes/table-format.md" %}
 
 {% include "../../.gitbook/includes/table-names.md" %}

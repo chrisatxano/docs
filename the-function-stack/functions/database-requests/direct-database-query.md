@@ -17,6 +17,16 @@ From the Direct Database Query panel, you can provide the following:
 
 <figure><img src="../../../.gitbook/assets/CleanShot 2023-05-22 at 12.34.45.png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
+## Note on Table Column Types
+
+If you are using standard SQL column types, the data will be returned as standard JSON.
+
+If you are using the legacy JSONB table type, the data will be returned as a text string, and can be converted to JSON using the `json_decode` filter.
+
+Not sure which table type you're using? More info [here](https://docs.xano.com/xano-features/workspace-settings#table-format)
+{% endhint %}
+
 ### Finding your database identifier
 
 The database identifier can be found by combining the workspace ID and database table ID with 'mvpw'.

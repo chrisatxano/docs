@@ -10,6 +10,8 @@ Check the ![](<../assets/CleanShot 2024-12-15 at 21.45.36.png>)option to export 
 
 You will receive an email once your export is complete.
 
+The larger the data set you are exporting, the longer the export will take. Use [database-views.md](../../the-database/database-basics/database-views.md "mention") to filter or segment your large datasets, and use those views for quicker exports.
+
 # Export Specific Records
 
 Check the box next to the records you want to export and click the ![](<../assets/CleanShot 2024-12-15 at 21.50.14.png>) button.

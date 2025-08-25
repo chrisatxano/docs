@@ -50,7 +50,7 @@ Once you have built your function stack and your task schedule, click Enable Tas
 
 ## Task Data Sources
 
-In the Task settings, you can specify what [data-sources.md](../../the-database/database-basics/data-sources.md "mention")the task targets when running. You can only specifiy a single data source per task.
+In the Task settings, you can specify what [data-sources.md](../../the-database/database-basics/data-sources.md "mention")the task targets when running. You can only specifiy a single data source per task. **Tasks, by default, will target the currently live data source.**
 
 If you need your task to run on multiple data sources, you can:
 

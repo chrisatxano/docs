@@ -60,7 +60,7 @@ Proceed with caution. Changing the active data source can have unintended conseq
 
 ### Targeting Specific Data Sources
 
-When running function stacks in Xano or calling them externally, you can target a specific data source a number of ways. If you do not specify a data source, Xano will use the&#x20;
+When running function stacks in Xano or calling them externally, you can target a specific data source a number of ways. If you do not specify a data source, Xano will use the currently live data source.
 
 {% stepper %}
 {% step %}

@@ -590,3 +590,65 @@ Get the metadata of a file from an Azure blob container.
 * account\_key - Azure [Access Key](cloud-services.md#access-key).
 * conatiner\_name - Container name within Azure storage account.
 * filePath - The path name for the file to retrieve the metadata from.
+
+## Algolia
+
+### Algolia Request Function
+
+Use the Algolia Request function to query or manage records in your Algolia indices.
+
+#### Configure
+
+To configure the request, provide the following settings:
+
+* application\_id - Your Algolia application ID.
+* api\_key - The API key with appropriate access permissions for the request.
+* url - The full Algolia endpoint URL. Typically this follows the pattern:\
+  `https://<APPLICATION_ID>-dsn.algolia.net/1/indexes/<INDEX_NAME>/<operation>`
+* method - The HTTP method to use. Common options include:\
+  • POST - Send data or perform a search request\
+  • GET - Retrieve data\
+  • PUT - Update records\
+  • DELETE - Remove records
+* payload - JSON object containing the request body. This is required for POST and PUT operations (e.g., search parameters or records to add/update).
+
+<figure><img src="../../.gitbook/assets/CleanShot 2025-08-25 at 10.13.08.png" alt="" width="555"><figcaption></figcaption></figure>
+
+#### Payload
+
+The JSON payload is where you define the request body. For example, when using the `search` operation, you can pass parameters like `query`, `filters`, `hitsPerPage`, etc.
+
+Example search payload:
+
+```json
+{
+  "query": "shoes",
+  "hitsPerPage": 10,
+  "filters": "in_stock:true"
+}
+```
+
+Dynamic values (variables, inputs, etc.) can be inserted using Xano [expression.md](../data-types/expression.md "mention") syntax. These values are evaluated at runtime.
+
+The result of the request is stored in the variable name you set under “Return As.” This allows you to use the Algolia response in later parts of your function stack.
+
+#### Example
+
+To perform a search against an index called `products`:
+
+* application\_id = your Algolia app ID
+* api\_key = search-only API key
+* url = `https://<APPLICATION_ID>-dsn.algolia.net/1/indexes/products/query`
+* method = POST
+* payload =
+
+```json
+{
+  "query": "sneakers",
+  "hitsPerPage": 5
+}
+```
+
+* return\_as = search\_results
+
+This will return up to 5 sneaker products from the `products` index into the `search_results` variable.

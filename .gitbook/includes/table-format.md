@@ -2,8 +2,6 @@
 title: table format
 ---
 
-# Table Format
-
 {% hint style="info" %}
 # Table Formats - Only relevant for direct database connections
 

@@ -44,6 +44,65 @@ If this is the first workspace to have Realtime enabled in your instance (even i
 
 After Realtime is enabled, you'll need to define some channel permissions. For a deep dive into how channel permissions work, see [this section](channel-permissions.md) of our documentation.
 
+### Connecting to Realtime via Websocket&#x20;
+
+While we recommend using the Xano SDK for most use cases, you can also connect directly to the Realtime Websocket server. This is useful for testing (e.g. with Postman) or if you want to manage Websocket connections in your own frontend logic.
+
+#### Websocket URL
+
+Connect to the Realtime server using the following URL:
+
+```
+wss://<instance-url>.xano.io/rt/<hash>
+```
+
+Replace `<instance_subdomain>` with the subdomain for your Xano instance, such as `x123-a431-z987`, and `<hash>` with your connection hash.
+
+#### Connection Flow
+
+Once connected to the Websocket, send JSON messages to authenticate, join channels, and send messages.
+
+**Join a Channel**
+
+Specify the channel you want to listen on:
+
+```json
+{
+  "action": "join",
+  "channel": "marvel-chat-room"
+}
+```
+
+**Send a Message**
+
+Broadcast a message to everyone connected to the channel:
+
+```json
+{
+  "action": "message",
+  "channel": "marvel-chat-room",
+  "payload": "Hello World!"
+}
+```
+
+**Receive Messages**
+
+When messages are broadcast on the channel, you’ll receive JSON payloads back from the server. For example:
+
+```json
+{
+  "action": "message",
+  "channel": "marvel-chat-room",
+  "payload": "Hello World!"
+}
+```
+
+The message is sent back to all connected clients (including the sender), ensuring all clients remain in sync.
+
+#### Testing with Postman
+
+You can use Postman’s Websocket testing feature to send the JSON payloads above and verify your connection. For a walkthrough, see [this community post](https://community.xano.com/start-a-discussion/post/testing-realtime-with-postman-RXBD38HPKcfgMkk).
+
 ### Implementation using the Xano SDK
 
 We've made using Xano Realtime as easy as possible to build into your application by integrating it into our Xano SDK.&#x20;

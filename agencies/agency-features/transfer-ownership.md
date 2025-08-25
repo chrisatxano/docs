@@ -29,3 +29,9 @@ You should proceed with any additional work by accessing the client's instance d
 {% hint style="warning" %}
 For larger workspaces, transferring this way may not be possible. If you run into trouble, please reach out to support so we can process the migration for you.
 {% endhint %}
+
+## Downtime and Migration
+
+Once the workspace is transferred, all API endpoints for that transferred workspace will resolve using your client instance's Xano domain. You'll need to update the API base URL for every connection (such as your frontend) to your client's instance.
+
+Transferring a workspace creates a copy of it as it stands at that moment, so there should not be any downtime during this process.

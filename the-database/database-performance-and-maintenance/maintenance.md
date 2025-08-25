@@ -50,6 +50,23 @@ This command analyzes and cleans up the database, but it does not necessarily re
 
 This command performs a more thorough cleanup compared to partial. It reclaims all available disk space by rewriting the entire table and indexes from scratch. This process can be more resource-intensive and time-consuming, as it involves copying the data to a new file and rebuilding the indexes. Full VACUUM can significantly improve disk space utilization but **may cause downtime** for larger tables.
 
+#### Full VACUUM on a single table
+
+{% hint style="danger" %}
+This is an advanced use case; please use caution when performing database operations this way.
+{% endhint %}
+
+You can use the [direct-database-query.md](../../the-function-stack/functions/database-requests/direct-database-query.md "mention") function to run a full VACUUM on a specific table.
+
+```
+VACUUM FULL table_name;
+```
+
+Please note the following constraints:
+
+* The operation requires at least the size of the table in free storage space, as a copy of the table is created during the VACUUM.
+* The table will be locked during the operation, which means that any function stack or other operation targeting that table will be temporarily blocked and may fail.
+
 ## Server Maintenance
 
 Your Xano instance is separated into 'pods' that are all responsible for their own functions. Use the guide here to determine what should be restarted and when. You can also use this panel to view the status of your backend. Use the ![](<../../.gitbook/assets/CleanShot 2025-03-03 at 18.42.15.png>) button to check the progress of any restarts performed.
