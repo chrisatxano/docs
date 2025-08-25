@@ -316,7 +316,13 @@ value = !int 123
 
 ## Variables
 
-All variable references must start with a `$`.
+All variable references must start with a `$`. Examples:
+
+`$x2`
+
+`$users.name`
+
+`$users|GET:"name"`
 
 ## Getting Started
 
