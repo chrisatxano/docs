@@ -18,7 +18,7 @@ Install this snippet to monitor, analyze, and debug your agent's behavior. Gain 
 {% step %}
 ### Install the snippet into you workspace by clicking the card below
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="image"></th></tr></thead><tbody><tr><td><strong>Agent History &#x26; Debugging Mode</strong></td><td>Monitors, analyzes, and debugs your agent’s behavior by logging every run, step, and tool call. Includes a dashboard for performance stats and run details, plus automated logging to capture inputs, outputs, and execution history.</td><td><a href="../../.gitbook/assets/YT.png">YT.png</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="image"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Agent History &#x26; Debugging Mode</strong></td><td>Monitors, analyzes, and debugs your agent’s behavior by logging every run, step, and tool call. Includes a dashboard for performance stats and run details, plus automated logging to capture inputs, outputs, and execution history.</td><td><a href="../../.gitbook/assets/YT.png">YT.png</a></td><td><a href="https://www.xano.com/snippet/rmFsF785">https://www.xano.com/snippet/rmFsF785</a></td></tr></tbody></table>
 {% endstep %}
 
 {% step %}
