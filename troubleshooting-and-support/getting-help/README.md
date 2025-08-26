@@ -68,7 +68,7 @@ These sessions are free, and available to everyone. You do need to sign up in ad
 Premium Support is available as an add-on for our **Pro** plan. You can add this at any time from your Billing screen.
 
 * **Cost:** $150/mo
-* **Business Day SLA**: 8 hr response time
+* **Business Day SLA**: 8 hr response time for initial contact
 
 ## White House Support
 
