@@ -4,6 +4,8 @@
 
 ## Agent History & Debugging Mode
 
+{% embed url="https://youtu.be/yvTMgjxb8wI" %}
+
 **Agent History & Debugging**
 
 Install this snippet to monitor, analyze, and debug your agent's behavior. Gain critical insight into every agent run.
@@ -63,6 +65,8 @@ To view the monitoring dashboard:
 Log in using the credentials you created in the agent\_user table.
 
 ## Conversation History
+
+{% embed url="https://youtu.be/v5J16VYG-CA" %}
 
 Install this snippet to manage and persist user interactions. It's the perfect starting point for any chatbot or conversational agent.
 
