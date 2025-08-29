@@ -34,12 +34,14 @@ The XanoScript extension for Visual Studio Code provides comprehensive support f
 3. Search for "XanoScript"
 4. Click "Install"
 
-#### Manual Installation
+#### Manual Installation (for Cursor, Windsurf, or other .vsix-compatible IDEs)
 
-1. Download the `.vsix` file from the [GitHub repository](https://github.com/xano-labs/vscode-xs)
-2. In VS Code, go to Extensions (`Ctrl+Shift+X`)
-3. Click the "..." menu and select "Install from VSIX..."
-4. Choose the downloaded `.vsix` file
+Download the `.vsix` file from the Visual Studio Marketplace. You can do this inside of VS Code by searching for the extension, clicking the :gear: icon and choosing Download Extension.\
+Alternatively, you can use a third-party tool, such as [this Chrome extension](https://chromewebstore.google.com/detail/visual-studio-marketplace/pfnjpnflbdpmbpnifkdheagiilnhccgh?pli=1), to download the extension from the marketplace via your browser. Install the .vsix file according to your IDE's instructions.
+
+{% hint style="warning" %}
+Please note that Xano does not endorse or validate the safety or functionality of any third-party tools you may use to acquire the extension. We are working hard to make it available via more official means, and appreciate your patience.
+{% endhint %}
 
 ### Configuration
 
