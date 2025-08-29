@@ -106,6 +106,10 @@ workspace/
 
 #### Basic XanoScript Development
 
+Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac) and type XanoScript to see the list of available commands.
+
+Use commands such as **New Custom Function**, **New API Endpoint**, **New Table**, etc... to easily create new objects in your workspace with the proper naming convention. Using these commands will also give you the basic layout of that function stack in the newly created file.
+
 Create a new `.xs` file and start coding:
 
 ```javascript
@@ -155,6 +159,8 @@ query auth/login verb=POST {
 
 #### Workspace Management
 
+<figure><img src="../.gitbook/assets/CleanShot 2025-08-29 at 17.09.39.png" alt=""><figcaption></figcaption></figure>
+
 **Viewing Changes**
 
 * Use the "Changes" view to see modified files
@@ -164,19 +170,23 @@ query auth/login verb=POST {
 **Staging Changes**
 
 * Right-click on changed files and select "Stage current file"
-* Use "Stage all changed files" to stage everything at once
+* Use "Stage all changed files" to stage everything at once <sup>**(1)**</sup>
 * Staged files appear in the "Staged" section
 
 **Pushing Changes**
 
 1. Stage the files you want to push
-2. Click "Push Stage Changes to Xano" in the Changes view
+2. Click "Push Stage Changes to Xano" in the Changes view <sup>**(3)**</sup>
 3. Changes will be uploaded to your Xano workspace
 
 **Pulling Changes**
 
-* Click "Pull latest changes from Xano" to sync with remote changes
+* Click "Pull latest changes from Xano" to sync with remote changes <sup>**(2)**</sup>
 * Use "Reset this workspace to latest changes" to discard local changes
+
+**Refresh Changes**
+
+* If you are finding that your changes have not updated in real time, refresh your changes. <sup>**(4)**</sup>
 
 ### Extension Features
 
@@ -276,13 +286,6 @@ Located in the Activity Bar, provides access to:
 * Shows functions, tables, APIs, and tasks
 * Allows creation of new resources
 * Provides context menus for file operations
-
-#### Welcome Views
-
-The extension provides helpful welcome content in:
-
-* **Changes View**: Information about local changes and sync operations
-* **Files View**: Setup instructions and login prompts
 
 ### Troubleshooting
 
