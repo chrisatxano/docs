@@ -354,6 +354,7 @@
     * [Comparison](xanoscript/fs/filter-reference/comparison.md)
     * [Security](xanoscript/fs/filter-reference/security.md)
 * [XanoScript for Background Tasks](xanoscript/ts.md)
+* [VS Code Extension](xanoscript/vs-code-extension.md)
 
 ## Technology
 
