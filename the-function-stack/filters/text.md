@@ -372,15 +372,16 @@ The regex\_replace filter is essential for advanced text transformation, such as
 
 Inputs:
 
-* primary value: The text to perform replacements on
-* pattern: The regular expression pattern to find
-* replacement: The replacement text
+* primary value: The regex pattern
+* replacement: What to replace any matched text with
+* subject: The text to apply the matching to
 
-| Primary Value (pattern) | Other Value (text)       | Other Value (replacement) | Output                |
-| ----------------------- | ------------------------ | ------------------------- | --------------------- |
-| "/\d{10}/"              | "Phone: 1234567890"      | "XXX-XXX-XXXX"            | "Phone: XXX-XXX-XXXX" |
-| "/\d{4}-\d{2}-\d{2}/"   | "Date: 2023-01-15"       | "YYYY-MM-DD"              | "Date: YYYY-MM-DD"    |
-| "/\d+/"                 | "Remove all digits: 123" | ""                        |                       |
+| `/[0-9]/`  | `*`      | `My phone number is 12345`   | `My phone number is *****`    |
+| ---------- | -------- | ---------------------------- | ----------------------------- |
+| `/cat/`    | `dog`    | `The cat sleeps.`            | `The dog sleeps.`             |
+| `/\s+/`    | `_`      | `Hello World`                | `Hello_World`                 |
+| `/color/`  | `colour` | `My favorite color is blue.` | `My favorite colour is blue.` |
+| `/^Hello/` | `Hi`     | `Hello there!`               | `Hi there!`                   |
 
 ## replace
 
