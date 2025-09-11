@@ -113,6 +113,12 @@ If you are utilizing asynchronous functions and are experiencing issues such as 
 
 Use the ![](<../../.gitbook/assets/CleanShot 2025-03-03 at 18.44.19.png>) option to clear any queued functions from memory.
 
+## Trigger Maintenance <a href="#trigger-events" id="trigger-events"></a>
+
+Triggers are executed in a queueing system behind the scenes — most of the time, this goes unnoticed, but if you find yourself in a situation where your triggers don't seem to be executing, or you have a vast amount of triggers running, this queueing system can become unstable.
+
+Performing trigger maintenance from here allows you to clear the queue and resolve these types of issues with triggers.
+
 ## Request History
 
 Use this option to manually clear your request history and free up space in your database.
