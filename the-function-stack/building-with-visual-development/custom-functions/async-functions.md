@@ -20,6 +20,10 @@ Here are a few examples of when to use async functions:
 * **File Uploads:** Starting a file upload process without freezing the interface lets users continue interacting with the application while the file is being processed.
 * **Notification Systems:** Sending notifications through email or messaging services asynchronously ensures that users continue their tasks without interruption while the messages are sent in the background.
 
+
+
+## Using Async Functions
+
 {% include "../../../.gitbook/includes/async-functions.md" %}
 
 
