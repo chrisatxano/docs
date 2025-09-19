@@ -397,7 +397,7 @@ Here's how the logic `(a = 1 AND b = 2) OR (a = 4 AND b = 5)` would be represent
   }
 ```
 
-### Using Joins
+## Using Joins <a href="#joins" id="joins"></a>
 
 {% hint style="info" %}
 Joins must first be defined inside of the Query All Records function.
