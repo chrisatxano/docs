@@ -396,3 +396,112 @@ Here's how the logic `(a = 1 AND b = 2) OR (a = 4 AND b = 5)` would be represent
     ]
   }
 ```
+
+### Using Joins
+
+{% hint style="info" %}
+Joins must first be defined inside of the Query All Records function.
+{% endhint %}
+
+In this example, we have a `user` table and a `books` table. Certain books belong to specific users, defined by a table reference field inside of the `books` table.
+
+First, we define our join inside of the Query All Records function.
+
+<figure><img src="../../../../.gitbook/assets/CleanShot 2025-09-19 at 12.15.18.png" alt=""><figcaption></figcaption></figure>
+
+<details>
+
+<summary>Quick Joins Explainer</summary>
+
+#### What’s Going On
+
+You have **two different tables**:
+
+| Table     | What it Stores                                                                           |
+| --------- | ---------------------------------------------------------------------------------------- |
+| **books** | Each row is a book. It includes a `user_id` column to remember which user owns the book. |
+| **user**  | Each row is a person, with their `id`, name, email, etc.                                 |
+
+Right now these tables are separate.
+
+* The _books_ table knows **which user number** owns the book,
+* but it doesn’t know the user’s name or email.
+* The _user_ table knows **all the user info**, but nothing about their books.
+
+***
+
+#### The Join in Plain Language
+
+The **join** is a way to _link_ those two tables together on a shared piece of information.\
+In this case, we tell Xano:
+
+> “Match rows where `books.user_id` equals `user.id`.”
+
+When Xano sees a book with `user_id = 17`, it looks in the user table for the row with `id = 17` and pulls those details in.
+
+***
+
+#### Why “Inner” Join Matters
+
+An **inner join** says:
+
+> “Only give me results when there’s a match in both tables.”
+
+* If a book points to a user that doesn’t exist, that book won’t appear.
+* If a user doesn’t own any books, that user won’t appear either.\
+  This keeps the results _clean_—you only get rows where the relationship is valid.
+
+</details>
+
+Using external filtering for joins does not add much additional complication to writing your statements — the key is to ensure that you are specifying the table name inside of your statements.
+
+**Example**: Find me all books owned by "test-user", who has a user ID of 20
+
+```json
+{
+      "expression": [
+        {
+          "statement": {
+            "left": {
+              "tag": "col",
+              "operand": "books.user_id"
+            },
+            "op": "=",
+            "right": {
+              "operand": "user.id"
+            }
+          }
+        }
+      ]
+    }
+```
+
+**Example**: Find me all books that were created in 2024, that belong to a user with an ID of 20
+
+```json
+{
+      "expression": [
+        {
+          "statement": {
+            "left": { "tag": "col", "operand": "books.created_at" },
+            "op": ">=",
+            "right": { "operand": 1704067200000 }
+          }
+        },
+        {
+          "statement": {
+            "left": { "tag": "col", "operand": "books.created_at" },
+            "op": "<=",
+            "right": { "operand": 1735689599000 }
+          }
+        },
+        {
+          "statement": {
+            "left": { "tag": "col", "operand": "books.user_id" },
+            "op": "=",
+            "right": { "operand": 20 }
+          }
+        }
+      ]
+    }
+```
