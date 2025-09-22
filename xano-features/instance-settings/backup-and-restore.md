@@ -2,7 +2,7 @@
 
 ## How do backups work in Xano?
 
-On all of our paid plans, Xano keeps a rolling 3-day backup of your entire instance automatically, should the need arise to restore to an earlier point.
+On all of our paid plans, Xano keeps a rolling 14-day backup of your entire instance automatically, should the need arise to restore to an earlier point.
 
 You also have the ability to take and restore backups manually.
 
@@ -12,7 +12,7 @@ If you are on a free plan, please note that **no backups are available**.
 
 {% stepper %}
 {% step %}
-### From your [instance selection screen](https://app.xano.com/instance?mode=master), click ![](<../../.gitbook/assets/CleanShot 2025-02-06 at 06.10.48.png>) next to the instance you want to create a backup of.&#x20;
+### From your [instance selection screen](https://app.xano.com/instance?mode=master), click :gear: next to the instance you want to create a backup of.&#x20;
 
 
 {% endstep %}
@@ -36,7 +36,7 @@ Please note that media storage should only be backed up if absolutely necessary,
 {% endstep %}
 
 {% step %}
-### Click ![](<../../.gitbook/assets/CleanShot 2025-02-06 at 06.15.33.png>) to start the process.
+### Click  :floppy\_disk: <mark style="background-color:blue;">Backup</mark> to start the process.
 
 
 {% endstep %}
@@ -52,7 +52,7 @@ It is **strongly advised** that you first create a backup before restoring anoth
 
 {% stepper %}
 {% step %}
-### From your [instance selection screen](https://app.xano.com/instance?mode=master), click ![](<../../.gitbook/assets/CleanShot 2025-02-06 at 06.10.48.png>) next to the instance you want to restore a backup of.&#x20;
+### From your [instance selection screen](https://app.xano.com/instance?mode=master), click :gear: next to the instance you want to restore a backup of.&#x20;
 
 
 {% endstep %}
@@ -64,13 +64,13 @@ It is **strongly advised** that you first create a backup before restoring anoth
 {% endstep %}
 
 {% step %}
-### Click Download and Restore
+### Click <mark style="background-color:blue;">Download and Restore</mark>&#x20;
 
 
 {% endstep %}
 
 {% step %}
-### Choose the backup you'd like to restore and click ![](<../../.gitbook/assets/CleanShot 2025-02-06 at 06.13.01.png>)
+### Choose the backup you'd like to restore and click <mark style="background-color:blue;">Restore</mark>&#x20;
 
 
 {% endstep %}
@@ -82,7 +82,7 @@ You can define your own custom schedule for when automatic backups take place.
 
 {% stepper %}
 {% step %}
-### From your [instance selection screen](https://app.xano.com/instance?mode=master), click ![](<../../.gitbook/assets/CleanShot 2025-02-06 at 06.10.48.png>) next to the instance you want to adjust backup policy for.
+### From your [instance selection screen](https://app.xano.com/instance?mode=master), click :gear: next to the instance you want to adjust backup policy for.
 
 
 {% endstep %}
